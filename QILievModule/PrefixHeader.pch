@@ -1,0 +1,27 @@
+//
+//  PrefixHeader.pch
+//  QILievModule
+//
+//  Created by rocky on 2020/8/9.
+//  Copyright © 2020 Rocky. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Masonry.h>
+
+#define weakify(...) autoreleasepool {} __attribute__((objc_ownership(weak))) __typeof__(self) self_weak_ = (self);
+
+#define strongify(...) autoreleasepool {} __attribute__((objc_ownership(strong))) __typeof__(self) self = self_weak_;
+
+#ifdef DEBUG
+
+#define NSLog(FORMAT, ...) {\
+fprintf(stderr,"\t\t %s\n",[[NSString stringWithFormat:FORMAT,##__VA_ARGS__] UTF8String]);\
+}
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+
+#endif /* PrefixHeader_pch */

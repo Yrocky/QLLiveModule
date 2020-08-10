@@ -6,10 +6,12 @@
 //  Copyright © 2020 Rocky. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "DemoCompositeListViewController.h"
 
-@interface ViewController : UIViewController
-
+@interface ViewController : DemoCompositeListViewController
 
 @end
 
+@interface DemoModule : QLLiveModule
+
+@end
