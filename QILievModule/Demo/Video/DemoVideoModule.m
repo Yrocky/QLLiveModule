@@ -8,6 +8,14 @@
 
 #import "DemoVideoModule.h"
 
+@interface VideoBannerComponent : QLLiveComponent
+
+@end
+
 @implementation DemoVideoModule
+
+@end
+
+@implementation VideoBannerComponent
 
 @end

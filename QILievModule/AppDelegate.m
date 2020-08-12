@@ -14,6 +14,7 @@
 #import "DemoShoppingModule.h"
 #import "DemoMusicModule.h"
 #import "DemoMineModule.h"
+#import "DemoResumeModule.h"
 
 @interface AppDelegate ()
 
@@ -50,6 +51,9 @@
         })];
         [module addModule:({
             [[DemoMineModule alloc] initWithName:@"个人中心"];
+        })];
+        [module addModule:({
+            [[DemoResumeModule alloc] initWithName:@"Resume"];
         })];
         module;
     })];

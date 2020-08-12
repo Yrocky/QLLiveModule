@@ -36,6 +36,8 @@
 		32DB56CB24E166DF00AD669F /* DemoMineModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56CA24E166DF00AD669F /* DemoMineModule.m */; };
 		32DB56CF24E171B700AD669F /* UIColor+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56CE24E171B700AD669F /* UIColor+Common.m */; };
 		32DB56D224E1727800AD669F /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56D124E1727800AD669F /* NSString+Common.m */; };
+		32DB56D524E1762500AD669F /* DemoContentCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56D424E1762500AD669F /* DemoContentCCell.m */; };
+		32DB56D824E2417700AD669F /* DemoResumeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56D724E2417700AD669F /* DemoResumeModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +103,10 @@
 		32DB56CE24E171B700AD669F /* UIColor+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Common.m"; sourceTree = "<group>"; };
 		32DB56D024E1727800AD669F /* NSString+Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Common.h"; sourceTree = "<group>"; };
 		32DB56D124E1727800AD669F /* NSString+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Common.m"; sourceTree = "<group>"; };
+		32DB56D324E1762500AD669F /* DemoContentCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoContentCCell.h; sourceTree = "<group>"; };
+		32DB56D424E1762500AD669F /* DemoContentCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoContentCCell.m; sourceTree = "<group>"; };
+		32DB56D624E2417700AD669F /* DemoResumeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoResumeModule.h; sourceTree = "<group>"; };
+		32DB56D724E2417700AD669F /* DemoResumeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoResumeModule.m; sourceTree = "<group>"; };
 		925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QILievModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D365873B42315CDB568B76 /* Pods-QILievModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QILievModule.debug.xcconfig"; path = "Target Support Files/Pods-QILievModule/Pods-QILievModule.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +179,7 @@
 				32DB56C424E1605400AD669F /* Shopping */,
 				32DB56C824E1607200AD669F /* DemoMusicModule */,
 				32DB56CC24E166E400AD669F /* Mine */,
+				32DB56D924E2417D00AD669F /* Resume */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -211,6 +218,8 @@
 				32DB565624DFA78F00AD669F /* DemoListViewController.m */,
 				32DB565924DFA7D200AD669F /* DemoCompositeListViewController.h */,
 				32DB565A24DFA7D200AD669F /* DemoCompositeListViewController.m */,
+				32DB56D324E1762500AD669F /* DemoContentCCell.h */,
+				32DB56D424E1762500AD669F /* DemoContentCCell.m */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -387,6 +396,15 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
+		32DB56D924E2417D00AD669F /* Resume */ = {
+			isa = PBXGroup;
+			children = (
+				32DB56D624E2417700AD669F /* DemoResumeModule.h */,
+				32DB56D724E2417700AD669F /* DemoResumeModule.m */,
+			);
+			path = Resume;
+			sourceTree = "<group>";
+		};
 		C8C3E5F001457B4DBB3EF2A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,9 +531,11 @@
 				32DB56C324E1604B00AD669F /* DemoShoppingModule.m in Sources */,
 				32DB565724DFA78F00AD669F /* DemoListViewController.m in Sources */,
 				32DB564424DFA63900AD669F /* ViewController.m in Sources */,
+				32DB56D524E1762500AD669F /* DemoContentCCell.m in Sources */,
 				32DB56AB24E1495600AD669F /* QLLiveLayoutCalculator.m in Sources */,
 				32DB56D224E1727800AD669F /* NSString+Common.m in Sources */,
 				32DB56AE24E1495600AD669F /* QLLiveModelEnvironment.m in Sources */,
+				32DB56D824E2417700AD669F /* DemoResumeModule.m in Sources */,
 				32DB566224DFA91B00AD669F /* EaseAlertController.m in Sources */,
 				32DB563E24DFA63900AD669F /* AppDelegate.m in Sources */,
 				32DB565F24DFA82800AD669F /* EaseRefreshProxy.m in Sources */,
