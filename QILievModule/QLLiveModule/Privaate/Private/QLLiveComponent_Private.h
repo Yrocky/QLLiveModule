@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, readwrite) id<QLLiveModuleDataSourceAble> dataSource;
 @property (nonatomic ,weak) id<QLLiveModelEnvironment> environment;
 
+- (void) calculatorLayout;
 @end
 
 NS_ASSUME_NONNULL_END

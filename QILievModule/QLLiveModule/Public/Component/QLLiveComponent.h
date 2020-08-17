@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "QLLiveComponentLayout.h"
 #import "QLLiveModuleDataSourceAble.h"
+#import "QLLiveBaseLayout.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,6 +42,7 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
 
 /// layout
 @property (nonatomic ,strong ,readonly) QLLiveComponentLayout * layout;
+@property (nonatomic ,strong ,readonly) QLLiveBaseLayout * n3wLayout;
 
 @property (nonatomic ,assign) QLLiveComponentArrange arrange;
 /// headerView是否要黏性
@@ -84,6 +86,10 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
                                  atIndex:(NSInteger)index;
 - (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind
                                          atIndex:(NSInteger)index;
+
+- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind;
+- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind;
+- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind;
 @end
 
 NS_ASSUME_NONNULL_END

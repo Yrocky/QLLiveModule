@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "QLLiveLayoutDescriber.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class QLLiveComponentDistribution;
-@class QLLiveComponentItemRatio;
 @protocol QLLiveComponentLayoutDelegate;
 @protocol QLLiveModelEnvironment;
 
@@ -30,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,assign) CGFloat lineSpacing;// default 5
 @property (nonatomic ,assign) CGFloat interitemSpacing;// default 5
 
-@property (nonatomic ,strong) QLLiveComponentDistribution * distribution;
-@property (nonatomic ,strong) QLLiveComponentItemRatio * itemRatio;
+@property (nonatomic ,strong) QLLiveLayoutDistribution * distribution;
+@property (nonatomic ,strong) QLLiveLayoutItemRatio * itemRatio;
 
 /// 有的模块在没有数据的时候要展示一个占位视图
 @property (nonatomic ,assign) CGFloat placeholdHeight;
@@ -49,34 +48,5 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGSize) componentLayoutCustomItemSize:(QLLiveComponentLayout *)layout atIndex:(NSInteger)index;
 @end
 
-// Distribution
-@interface QLLiveComponentDistribution : NSObject
-
-+ (instancetype)distributionValue:(NSInteger)value;
-// 固定数值
-+ (instancetype)absoluteDimension:(CGFloat)value;
-// CollectionView宽度的比例
-+ (instancetype)fractionalDimension:(CGFloat)value;
-
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-
-@property (nonatomic, readonly) CGFloat value;
-
-- (BOOL)isAbsolute;
-- (BOOL)isFractional;
-@end
-
-// 宽高比
-@interface QLLiveComponentItemRatio : NSObject
-
-+ (instancetype)itemRatioValue:(CGFloat)value;
-// 设定一个固定的高度
-+ (instancetype)absoluteValue:(CGFloat)value;
-
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-
-@end
 
 NS_ASSUME_NONNULL_END

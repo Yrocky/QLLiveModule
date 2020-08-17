@@ -236,6 +236,8 @@
     @synchronized (_innerComponents) {
         component.dataSource = self;
         component.environment = self.environment;
+        // component 计算自己的layout
+        [component calculatorLayout];
         [_innerComponents addObject:component];
     }
 }
@@ -251,6 +253,8 @@
         if (index < _innerComponents.count && index >= 0) {
             component.dataSource = self;
             component.environment = self.environment;
+            // component 计算自己的layout
+            [component calculatorLayout];
             [_innerComponents insertObject:component atIndex:index];
         }
     }
@@ -280,6 +284,7 @@
         if (index < _innerComponents.count) {
             component.dataSource = self;
             component.environment = self.environment;
+            // component 计算自己的layout
             [_innerComponents replaceObjectAtIndex:index withObject:component];
         }
     }
@@ -471,6 +476,10 @@
 @end
 
 @implementation QLLiveModuleDataSource (CHTCollectionViewDelegateWaterfallLayout)
+
+- (QLLiveComponent *) collectionView:(UICollectionView *)collectionView layout:(QLLiveModuleFlowLayout *)collectionViewLayout componentAtSection:(NSInteger)section{
+    return [self usageHidenWhenMeptyComponentAtIndex:section];
+}
 
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 //}

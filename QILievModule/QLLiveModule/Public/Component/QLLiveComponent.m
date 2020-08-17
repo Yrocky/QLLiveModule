@@ -24,7 +24,7 @@
         // default layout
         QLLiveComponentLayout * layout = [QLLiveComponentLayout new];
         layout.insets = UIEdgeInsetsMake(0, 6, 0, 6);
-        layout.distribution = [QLLiveComponentDistribution distributionValue:2];
+        layout.distribution = [QLLiveLayoutDistribution distributionValue:2];
         layout.lineSpacing = 5;
         layout.interitemSpacing = 5;
         _layout = layout;
@@ -100,6 +100,7 @@
 - (void)clear{
     // 清除布局缓存
     [self.layout clear];
+    [self.n3wLayout clear];
     @synchronized (_innerDatas) {
         [_innerDatas removeAllObjects];
     }
@@ -107,6 +108,10 @@
 
 - (BOOL)isOrthogonallyScrolls{
     return self.arrange == QLLiveComponentArrangeHorizontal;
+}
+
+- (void)calculatorLayout{
+    [self.n3wLayout calculatorLayoutWithDatas:_innerDatas];
 }
 
 @end

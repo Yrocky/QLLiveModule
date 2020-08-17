@@ -103,8 +103,8 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         YYYOneComponent * comp = [YYYOneComponent new];
         comp.arrange = QLLiveComponentArrangeHorizontal;
-        comp.layout.itemRatio = [QLLiveComponentItemRatio absoluteValue:40];
-        comp.layout.distribution = [QLLiveComponentDistribution distributionValue:6];
+        comp.layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:40];
+        comp.layout.distribution = [QLLiveLayoutDistribution distributionValue:6];
         [comp setBSetupCell:^(YYYOneCCell *cell, id data) {
             cell.oneLabel.textColor = [UIColor colorWithHexString:@"#CB2EFF"];
             [cell setupWithData:data];
@@ -118,14 +118,14 @@ static NSDictionary * demoData;
         comp.layout.insets = UIEdgeInsetsMake(0, 5, 5, 5);
         comp.needPlacehold = YES;
         comp.layout.placeholdHeight = 100;
-        comp.layout.distribution = [QLLiveComponentDistribution distributionValue:4];
+        comp.layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
         comp;
     })];
 //
     [self.dataSource addComponent:({
         YYYOneComponent * comp = [YYYOneComponent new];
         comp.layout.insets = UIEdgeInsetsMake(0, 5, 5, 5);
-        comp.layout.distribution = [QLLiveComponentDistribution distributionValue:4];
+        comp.layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
         [comp setBSetupCell:^(YYYOneCCell *cell, id data) {
             [cell setupWithData:data];
             // 由于复用，所以这段代码下载setupWithData下面
@@ -139,7 +139,7 @@ static NSDictionary * demoData;
         YYYOneComponent * comp = [YYYOneComponent new];
         comp.layout.insets = UIEdgeInsetsMake(0, 5, 0, 5);
         comp.arrange = QLLiveComponentArrangeHorizontal;
-        comp.layout.distribution = [QLLiveComponentDistribution fractionalDimension:0.3];
+        comp.layout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.3];
         [comp addDatas:[data[@"city"] ease_randomObjects]];
         comp;
     })];
@@ -162,8 +162,8 @@ static NSDictionary * demoData;
         YYYOneComponent * comp = [YYYOneComponent new];
         comp.arrange = QLLiveComponentArrangeHorizontal;
         comp.layout.insets = UIEdgeInsetsMake(0, 5, 5, 5);
-        comp.layout.itemRatio = [QLLiveComponentItemRatio absoluteValue:50];
-        comp.layout.distribution = [QLLiveComponentDistribution absoluteDimension:90];
+        comp.layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:50];
+        comp.layout.distribution = [QLLiveLayoutDistribution absoluteDimension:90];
         [comp setBSetupCell:^(YYYOneCCell *cell, id data) {
             [cell setupWithData:data];
             cell.oneLabel.textColor = [UIColor colorWithHexString:@"#CB2EFF"];
@@ -173,8 +173,8 @@ static NSDictionary * demoData;
     })];
     [self.dataSource addComponent:({
         YYYThreeComponent * comp = [[YYYThreeComponent alloc] initWithTitle:@"Number"];
-        comp.layout.itemRatio = [QLLiveComponentItemRatio itemRatioValue:0.6];
-        comp.layout.distribution = [QLLiveComponentDistribution distributionValue:4];
+        comp.layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.6];
+        comp.layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
         [comp addDatas:[data[@"number"] ease_randomObjects]];
         comp;
     })];
@@ -187,8 +187,8 @@ static NSDictionary * demoData;
         YYYOneComponent * comp = [YYYOneComponent new];
         comp.arrange = QLLiveComponentArrangeHorizontal;
         comp.layout.insets = UIEdgeInsetsMake(0, 5, 5, 5);
-        comp.layout.itemRatio = [QLLiveComponentItemRatio absoluteValue:50];
-        comp.layout.distribution = [QLLiveComponentDistribution fractionalDimension:0.3];
+        comp.layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:50];
+        comp.layout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.3];
         [comp setBSetupCell:^(YYYOneCCell *cell, id data) {
             [cell setupWithData:data];
             cell.oneLabel.textColor = [UIColor colorWithHexString:@"#CB2EFF"];
@@ -408,8 +408,8 @@ static NSDictionary * demoData;
         self.layout.insets = UIEdgeInsetsMake(5, 5, 5, 5);
         self.layout.lineSpacing = 5;
         self.layout.interitemSpacing = 5;
-        self.layout.distribution = [QLLiveComponentDistribution distributionValue:2];
-        self.layout.itemRatio = [QLLiveComponentItemRatio itemRatioValue:2.0];
+        self.layout.distribution = [QLLiveLayoutDistribution distributionValue:2];
+        self.layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:2.0];
     }
     return self;
 }
@@ -480,7 +480,7 @@ static NSDictionary * demoData;
     self = [super initWithTitle:title];
     if (self) {
         self.layout.customItemSize = self;
-        self.layout.distribution = [QLLiveComponentDistribution distributionValue:3];
+        self.layout.distribution = [QLLiveLayoutDistribution distributionValue:3];
     }
     return self;
 }
@@ -509,7 +509,7 @@ static NSDictionary * demoData;
     self = [super initWithTitle:title];
     if (self) {
         self.layout.customItemSize = self;
-        self.layout.distribution = [QLLiveComponentDistribution distributionValue:2];
+        self.layout.distribution = [QLLiveLayoutDistribution distributionValue:2];
     }
     return self;
 }

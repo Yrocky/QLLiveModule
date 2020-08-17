@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QLLiveComponent.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
+
+- (QLLiveComponent *) collectionView:(UICollectionView *)collectionView layout:(QLLiveModuleFlowLayout *)collectionViewLayout componentAtSection:(NSInteger)section;
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section;
 

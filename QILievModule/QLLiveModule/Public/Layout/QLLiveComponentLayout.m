@@ -10,33 +10,6 @@
 #import "QLLiveComponentLayout_Private.h"
 #import "QLLiveModelEnvironment_Protocol.h"
 
-typedef NS_ENUM(NSUInteger, QLLiveComponentSemantic) {
-    
-    QLLiveComponentSemanticNormal,
-    
-    QLLiveComponentSemanticEmbed,
-    QLLiveComponentSemanticAbsolute,
-    QLLiveComponentSemanticFractional,
-};
-
-@interface QLLiveComponentDistribution ()
-
-@property (nonatomic, readwrite) CGFloat value;
-@property (nonatomic) QLLiveComponentSemantic semantic;
-
-@property (nonatomic, readonly) BOOL isEmbed;
-@property (nonatomic, readonly) BOOL isAbsolute;
-@property (nonatomic, readonly) BOOL isFractional;
-@end
-
-@interface QLLiveComponentItemRatio ()
-
-@property (nonatomic, readwrite) CGFloat value;
-@property (nonatomic) QLLiveComponentSemantic semantic;
-
-@property (nonatomic, readonly) BOOL isAbsolute;
-@end
-
 @implementation QLLiveComponentLayout
 
 - (void)dealloc
@@ -67,7 +40,7 @@ typedef NS_ENUM(NSUInteger, QLLiveComponentSemantic) {
     
     // distribution -> width
     if (nil == self.distribution) {
-        self.distribution = [QLLiveComponentDistribution distributionValue:2];
+        self.distribution = [QLLiveLayoutDistribution distributionValue:2];
     }
     if (self.distribution.isAbsolute) {
         width = self.distribution.value;
@@ -80,7 +53,7 @@ typedef NS_ENUM(NSUInteger, QLLiveComponentSemantic) {
     
     // itemRatio -> height
     if (nil == self.itemRatio) {
-        self.itemRatio = [QLLiveComponentItemRatio itemRatioValue:1];
+        self.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:1];
     }
     if (self.itemRatio.isAbsolute) {
         height = self.itemRatio.value;
@@ -121,74 +94,5 @@ typedef NS_ENUM(NSUInteger, QLLiveComponentSemantic) {
 - (void) clear{
     [_cacheItemSize removeAllObjects];
     _cacheItemSize = nil;
-}
-@end
-
-@implementation QLLiveComponentDistribution
-
-+ (instancetype)distributionValue:(NSInteger)value{
-    return [[self alloc] initWithDistribution:(CGFloat)value
-                                     semantic:QLLiveComponentSemanticNormal];
-}
-+ (instancetype)absoluteDimension:(CGFloat)value{
-    return [[self alloc] initWithDistribution:value
-                                     semantic:QLLiveComponentSemanticAbsolute];
-}
-+ (instancetype)fractionalDimension:(CGFloat)value{
-    return [[self alloc] initWithDistribution:value
-                                     semantic:QLLiveComponentSemanticFractional];
-}
-- (instancetype)initWithDistribution:(CGFloat)distribution semantic:(QLLiveComponentSemantic)semantic {
-
-    self = [super init];
-    if (self) {
-        self.value = distribution;
-        self.semantic = semantic;
-    }
-    return self;
-}
-
-- (BOOL)isEmbed{
-    return self.semantic == QLLiveComponentSemanticEmbed;
-}
-
-- (BOOL)isAbsolute{
-    return self.semantic == QLLiveComponentSemanticAbsolute;
-}
-
-- (BOOL)isFractional{
-    return self.semantic == QLLiveComponentSemanticFractional;
-}
-
-@end
-
-@implementation QLLiveComponentItemRatio
-
-+ (instancetype)itemRatioValue:(CGFloat)value{
-    if (value <= 0) {
-        return nil;
-    }
-    return [[self alloc] initWithItemRatio:value semantic:QLLiveComponentSemanticNormal];
-}
-
-+ (instancetype)absoluteValue:(CGFloat)value{
-    if (value <= 0) {
-        return nil;
-    }
-    return [[self alloc] initWithItemRatio:value semantic:QLLiveComponentSemanticAbsolute];
-}
-
-- (instancetype)initWithItemRatio:(CGFloat)itemRatio semantic:(QLLiveComponentSemantic)semantic {
-
-    self = [super init];
-    if (self) {
-        self.value = itemRatio;
-        self.semantic = semantic;
-    }
-    return self;;
-}
-
-- (BOOL)isAbsolute{
-    return self.semantic == QLLiveComponentSemanticAbsolute;
 }
 @end

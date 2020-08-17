@@ -58,6 +58,94 @@ static CGFloat QLLiveFloorCGFloat(CGFloat value) {
     
     CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
     
+    
+    UICollectionViewLayoutAttributes *attributes;
+
+    CGFloat top = 0;
+    for (NSInteger section = 0; section < numberOfSections; ++section) {
+     
+        QLLiveComponent * component;
+        if ([self.delegate respondsToSelector:@selector(collectionView:layout:componentAtSection:)]) {
+            component = [self.delegate collectionView:self.collectionView layout:self componentAtSection:section];
+        }
+        
+        QLLiveComponentLayout * layout = component.layout;
+        UIEdgeInsets sectionInset = layout.insets;
+        CGFloat minimumInteritemSpacing = layout.interitemSpacing;
+        CGFloat minimumLineSpacing = layout.lineSpacing;
+        
+        NSArray * supportedKinds = [component supportedElementKinds];
+        // header
+        if ([supportedKinds containsObject:UICollectionElementKindSectionHeader]) {
+            CGFloat headerHeight =
+            [component sizeForSupplementaryViewOfKind:UICollectionElementKindSectionHeader].height;
+            if (headerHeight > 0) {
+                UIEdgeInsets headerInset =
+                [component insetForSupplementaryViewOfKind:UICollectionElementKindSectionHeader];
+                attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+                attributes.frame = (CGRect){
+                    headerInset.left,
+                    headerInset.top + top,
+                    collectionViewWidth - (headerInset.left + headerInset.right),
+                    headerHeight
+                };
+                
+                self.headersAttribute[@(section)] = attributes;
+                [self.allItemAttributes addObject:attributes];
+                
+                // 更新top
+                top = CGRectGetMaxY(attributes.frame) + headerInset.bottom;
+            }
+        }
+        top += sectionInset.top;
+        
+        // items
+        NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
+        NSMutableArray * itemAttributes = [NSMutableArray new];
+        for (NSInteger item = 0; item < itemCount; item++) {
+            CGRect frame = [component.n3wLayout itemFrameAtIndex:item];
+            frame.origin.y += top;
+            attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:({
+                [NSIndexPath indexPathForItem:item inSection:section];
+            })];
+            attributes.frame = frame;
+//            NSLog(@"%d itemSize:%@",idx,NSStringFromCGRect(attributes.frame));
+            
+//            [line addObject:[NSValue valueWithCGRect:attributes.frame]];
+            [itemAttributes addObject:attributes];
+            [self.allItemAttributes addObject:attributes];
+        }
+        [self.sectionItemAttributes addObject:itemAttributes];
+        //
+        top += component.n3wLayout.maxY;
+        
+        // footer
+        if ([supportedKinds containsObject:UICollectionElementKindSectionFooter]) {
+            CGFloat footerHeight =
+            [component sizeForSupplementaryViewOfKind:UICollectionElementKindSectionFooter].height;
+            if (footerHeight > 0) {
+                UIEdgeInsets footerInset =
+                [component insetForSupplementaryViewOfKind:UICollectionElementKindSectionFooter];
+                attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+                attributes.frame = (CGRect){
+                    footerInset.left,
+                    footerInset.top + top,
+                    collectionViewWidth - (footerInset.left + footerInset.right),
+                    footerHeight
+                };
+                
+                self.footersAttribute[@(section)] = attributes;
+                [self.allItemAttributes addObject:attributes];
+                
+                // 更新top
+                top = CGRectGetMaxY(attributes.frame) + footerInset.bottom;
+            }
+        }
+        top += sectionInset.bottom;
+    }
+    
+    
+    
     if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
         // 水平
     } else {
