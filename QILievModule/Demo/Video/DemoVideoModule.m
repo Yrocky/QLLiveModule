@@ -112,7 +112,7 @@ static NSDictionary * videoData;
         [comp addDatas:data[@"category"]];
         comp;
     })];
-    
+
     [self.dataSource addComponent:({
         VideoFilmComponent * comp = [VideoFilmComponent new];
         [comp addDatas:data[@"film"]];
@@ -124,7 +124,6 @@ static NSDictionary * videoData;
         [comp addDatas:data[@"rank"]];
         comp;
     })];
-    
     [self.dataSource addComponent:({
         VideoComponent * comp = [VideoComponent new];
         [comp addDatas:data[@"video"]];
@@ -139,106 +138,5 @@ static NSDictionary * videoData;
         comp;
     })];
     
-    //    [self.dataSource addComponent:({
-    //        YYYOneComponent * comp = [YYYOneComponent new];
-    //        comp.arrange = QLLiveComponentArrangeHorizontal;
-    //        comp.layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:40];
-    //        comp.layout.distribution = [QLLiveLayoutDistribution distributionValue:6];
-    //        [comp setBSetupCell:^(YYYOneCCell *cell, id data) {
-    //            cell.oneLabel.textColor = [UIColor colorWithHexString:@"#CB2EFF"];
-    //            [cell setupWithData:data];
-    //        }];
-    //        [comp addDatas:[data[@"languages"] ease_randomObjects]];
-    //        comp;
-    //    })];
-    ////
-    //    [self.dataSource addComponent:({
-    //        YYYOneComponent * comp = [YYYOneComponent new];
-    //        comp.layout.insets = UIEdgeInsetsMake(0, 5, 5, 5);
-    //        comp.needPlacehold = YES;
-    //        comp.layout.placeholdHeight = 100;
-    //        comp.layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
-    //        comp;
-    //    })];
-    ////
-    //    [self.dataSource addComponent:({
-    //        YYYOneComponent * comp = [YYYOneComponent new];
-    //        comp.layout.insets = UIEdgeInsetsMake(0, 5, 5, 5);
-    //        comp.layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
-    //        [comp setBSetupCell:^(YYYOneCCell *cell, id data) {
-    //            [cell setupWithData:data];
-    //            // 由于复用，所以这段代码下载setupWithData下面
-    //            cell.oneLabel.textColor = [UIColor colorWithHexString:@"#B2E7F9"];
-    //        }];
-    //        [comp addDatas:[data[@"weather"] ease_randomObjects]];
-    //        comp;
-    //    })];
-    ////
-    //    [self.dataSource addComponent:({
-    //        YYYOneComponent * comp = [YYYOneComponent new];
-    //        comp.layout.insets = UIEdgeInsetsMake(0, 5, 0, 5);
-    //        comp.arrange = QLLiveComponentArrangeHorizontal;
-    //        comp.layout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.3];
-    //        [comp addDatas:[data[@"city"] ease_randomObjects]];
-    //        comp;
-    //    })];
-    //
-    //    [self.dataSource addComponent:({
-    //        // 这个component是用来做标签效果的，
-    //        // 如果要定制居左需要在初始化UICollectionView的时候设置对应的layout
-    //        // 将上面的 [[UICollectionViewFlowLayout alloc] init] 进行替换
-    //        YYYTwoComponent * comp = [YYYTwoComponent new];
-    //        [comp addDatas:[data[@"Cocoa"] ease_randomObjects]];
-    //        comp;
-    //    })];
-    ////return;
-    //    [self.dataSource addComponent:({
-    //        YYYThreeComponent * comp = [[YYYThreeComponent alloc] initWithTitle:@"Word"];
-    //        [comp addDatas:[data[@"word"] ease_randomObjects]];
-    //        comp;
-    //    })];
-    //    [self.dataSource addComponent:({
-    //        YYYOneComponent * comp = [YYYOneComponent new];
-    //        comp.arrange = QLLiveComponentArrangeHorizontal;
-    //        comp.layout.insets = UIEdgeInsetsMake(0, 5, 5, 5);
-    //        comp.layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:50];
-    //        comp.layout.distribution = [QLLiveLayoutDistribution absoluteDimension:90];
-    //        [comp setBSetupCell:^(YYYOneCCell *cell, id data) {
-    //            [cell setupWithData:data];
-    //            cell.oneLabel.textColor = [UIColor colorWithHexString:@"#CB2EFF"];
-    //        }];
-    //        [comp addDatas:[data[@"video"] ease_randomObjects]];
-    //        comp;
-    //    })];
-    //    [self.dataSource addComponent:({
-    //        YYYThreeComponent * comp = [[YYYThreeComponent alloc] initWithTitle:@"Number"];
-    //        comp.layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.6];
-    //        comp.layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
-    //        [comp addDatas:[data[@"number"] ease_randomObjects]];
-    //        comp;
-    //    })];
-    //    [self.dataSource addComponent:({
-    //        YYYFourComponent * comp = [[YYYFourComponent alloc] initWithTitle:@"Music"];
-    //        [comp addDatas:[data[@"music"] ease_randomObjects]];
-    //        comp;
-    //    })];
-    //    [self.dataSource addComponent:({
-    //        YYYOneComponent * comp = [YYYOneComponent new];
-    //        comp.arrange = QLLiveComponentArrangeHorizontal;
-    //        comp.layout.insets = UIEdgeInsetsMake(0, 5, 5, 5);
-    //        comp.layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:50];
-    //        comp.layout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.3];
-    //        [comp setBSetupCell:^(YYYOneCCell *cell, id data) {
-    //            [cell setupWithData:data];
-    //            cell.oneLabel.textColor = [UIColor colorWithHexString:@"#CB2EFF"];
-    //        }];
-    //        [comp addDatas:[data[@"company"] ease_randomObjects]];
-    //        comp;
-    //    })];
-    //    [self.dataSource addComponent:({
-    //        YYYFiveComponent * comp = [[YYYFiveComponent alloc] initWithTitle:@"waterFlow"];
-    //        [comp addDatas:[data[@"waterFlow"] ease_randomObjects]];
-    //        comp;
-    //    })];
 }
 @end

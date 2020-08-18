@@ -29,6 +29,8 @@
         layout.lineSpacing = 5;
         layout.interitemSpacing = 5;
         _layout = layout;
+        
+        self.decorateType = QLLiveComponentBackgroundDecorateNone;
     }
     return self;
 }
@@ -176,20 +178,4 @@
     return UIEdgeInsetsZero;
 }
 
-- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind
-                                                                 atIndex:(NSInteger)index{
-    return nil;
-}
-
-- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind
-                                 atIndex:(NSInteger)index{
-    return CGSizeZero;
-}
-
-- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind
-                                         atIndex:(NSInteger)index{
-    return UIEdgeInsetsZero;
-}
-
 @end
-

@@ -10,6 +10,7 @@
 		085A806A856DB764E7A59007 /* Pods_QILievModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */; };
 		32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */; };
 		32644D1024EB6EEC002078D2 /* DemoVideoCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0F24EB6EEC002078D2 /* DemoVideoCCell.m */; };
+		32644D1424EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D1324EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m */; };
 		3290921524E3C7C1006D60AB /* QLLiveFlexLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921424E3C7C0006D60AB /* QLLiveFlexLayout.m */; };
 		3290921824E3C7E3006D60AB /* QLLiveWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921724E3C7E3006D60AB /* QLLiveWaterfallLayout.m */; };
 		3290921B24E3C7F5006D60AB /* QLLiveListLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921A24E3C7F5006D60AB /* QLLiveListLayout.m */; };
@@ -54,6 +55,8 @@
 		32644D0E24EB6EEC002078D2 /* DemoVideoCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoVideoCCell.h; sourceTree = "<group>"; };
 		32644D0F24EB6EEC002078D2 /* DemoVideoCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoVideoCCell.m; sourceTree = "<group>"; };
 		32644D1124EB719F002078D2 /* QLLiveBaseLayout_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveBaseLayout_Private.h; sourceTree = "<group>"; };
+		32644D1224EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveDecorateSectionLayoutAttributes.h; sourceTree = "<group>"; };
+		32644D1324EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveDecorateSectionLayoutAttributes.m; sourceTree = "<group>"; };
 		3290921324E3C7C0006D60AB /* QLLiveFlexLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveFlexLayout.h; sourceTree = "<group>"; };
 		3290921424E3C7C0006D60AB /* QLLiveFlexLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveFlexLayout.m; sourceTree = "<group>"; };
 		3290921624E3C7E3006D60AB /* QLLiveWaterfallLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveWaterfallLayout.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 			children = (
 				32DB569624E1495600AD669F /* QLLiveModuleFlowLayout.h */,
 				32DB569424E1495600AD669F /* QLLiveModuleFlowLayout.m */,
+				32644D1224EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.h */,
+				32644D1324EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m */,
 			);
 			path = QLLiveModuleFlowLayoutWrapper;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 				32DB56AA24E1495600AD669F /* QLLiveModuleFlowLayout.m in Sources */,
 				3290921824E3C7E3006D60AB /* QLLiveWaterfallLayout.m in Sources */,
 				32DB56CF24E171B700AD669F /* UIColor+Common.m in Sources */,
+				32644D1424EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m in Sources */,
 				32DB56BB24E1601200AD669F /* DemoSearchModule.m in Sources */,
 				3290921524E3C7C1006D60AB /* QLLiveFlexLayout.m in Sources */,
 				32DB56A924E1495600AD669F /* QLLiveComponent.m in Sources */,

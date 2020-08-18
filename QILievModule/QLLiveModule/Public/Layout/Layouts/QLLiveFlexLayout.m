@@ -54,9 +54,8 @@
                                      lineNumber:lineNumber
                                          result:result];
     }
-    _maxY = self.minY + self.insets.top +
-    lineNumber * self.itemHeight + (lineNumber - 1) * self.lineSpacing +
-    self.insets.bottom;
+    _maxY = self.minY + lineNumber * self.itemHeight +
+    (lineNumber - 1) * self.lineSpacing;
 }
 
 - (void) _calculatorFlexLayoutLineMaxWidth:(CGFloat)lineMaxWidth line:(NSMutableArray<NSValue *> *)line lineNumber:(NSInteger)lineNumber result:(NSMutableArray<NSValue *> *)result{

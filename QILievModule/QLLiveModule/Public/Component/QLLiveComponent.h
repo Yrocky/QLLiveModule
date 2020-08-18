@@ -20,6 +20,20 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
     QLLiveComponentArrangeHorizontal,
 };
 
+typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
+    /// 没有背景装饰效果
+    QLLiveComponentBackgroundDecorateNone,
+    /// 只有item
+    QLLiveComponentBackgroundDecorateOnlyItem,
+    /// header+item
+    QLLiveComponentBackgroundDecorateContainHeader,
+    /// item+footer
+    QLLiveComponentBackgroundDecorateContainFooter,
+    /// header+item+footer
+    QLLiveComponentBackgroundDecorateAll,
+};
+
+
 @interface QLLiveComponent<__covariant Data> : NSObject{
     NSMutableArray<Data> *_innerDatas;
     QLLiveComponentLayout * _layout;
@@ -91,12 +105,21 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
 - (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind;
 - (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind;
 
-//- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind
-//                                                                 atIndex:(NSInteger)index;
-//- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind
-//                                 atIndex:(NSInteger)index;
-//- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind
-//                                         atIndex:(NSInteger)index;
 @end
 
+/// 背景修饰
+@interface QLLiveComponent (Background)
+
+@property (nonatomic ,assign) QLLiveComponentBackgroundDecorateType decorateType;
+
+@property (nonatomic ,assign) CGFloat backgroundDecorateRadius;
+@property (nonatomic ,assign) UIEdgeInsets backgroundDecorateInset;
+
+@property (nonatomic ,strong) UIColor * backgroundDecorateColor;
+@property (nonatomic ,strong) UIImage * backgroundDecorateImage;
+// todo
+// 图片
+// 渐变
+
+@end
 NS_ASSUME_NONNULL_END

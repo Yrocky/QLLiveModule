@@ -77,17 +77,16 @@
 
         _rankLabel = [UILabel new];
         _rankLabel.font = [UIFont boldSystemFontOfSize:30];
-        _rankLabel.textColor = [UIColor colorWithHexString:@"f0f0f0"];;
+        _rankLabel.textColor = [UIColor colorWithHexString:@"d5d5d5"];;
         _rankLabel.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:_rankLabel];
         
         _nameLabel = [UILabel new];
         _nameLabel.font = [UIFont boldSystemFontOfSize:17];
-        _nameLabel.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:_nameLabel];
         
         _sepLineView = [UIView new];
-        _sepLineView.backgroundColor = [UIColor colorWithHexString:@"F3F3F3"];
+        _sepLineView.backgroundColor = [UIColor colorWithHexString:@"ffffff"];
         [self.contentView addSubview:_sepLineView];
         
         [_rankLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -102,7 +101,7 @@
         [_sepLineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_nameLabel);
             make.right.bottom.equalTo(self.contentView);
-            make.height.mas_equalTo(1);
+            make.height.mas_equalTo(0.5);
         }];
     }
     return self;

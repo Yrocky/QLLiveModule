@@ -27,4 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) setupHeaderTitle:(NSString *)title;
 @end
 
+@interface DemoFooterView : UICollectionReusableView
+@end
+
 NS_ASSUME_NONNULL_END

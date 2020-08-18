@@ -18,6 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,weak) id<QLLiveModelEnvironment> environment;
 @property (nonatomic ,assign ,readwrite) NSInteger index;
 
+@property (nonatomic ,assign) QLLiveComponentBackgroundDecorateType decorateType;
+
+@property (nonatomic ,assign) CGFloat backgroundDecorateRadius;
+@property (nonatomic ,assign) UIEdgeInsets backgroundDecorateInset;
+
+@property (nonatomic ,strong) UIColor * backgroundDecorateColor;
+@property (nonatomic ,strong) UIImage * backgroundDecorateImage;
+
 - (void) calculatorLayout;
 @end
 

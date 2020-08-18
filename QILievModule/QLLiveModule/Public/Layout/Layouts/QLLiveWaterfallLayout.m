@@ -34,7 +34,7 @@
     
     // 初始化每一列的最大值
     for (NSInteger index = 0; index < self.column; index ++) {
-        [self.columnHeights addObject:@(self.insets.top)];
+        [self.columnHeights addObject:@(0)];
     }
 
     CGFloat width = (self.insetContainerWidth - (self.column - 1) * self.itemSpacing) / self.column;
@@ -55,7 +55,7 @@
         [self cacheItemFrame:frame at:index];
         [result addObject:[NSValue valueWithCGRect:frame]];
     }
-    _maxY = [self _longestColumnHeight] + self.insets.bottom;
+    _maxY = [self _longestColumnHeight] - self.lineSpacing;
 }
 
 #pragma mark - private

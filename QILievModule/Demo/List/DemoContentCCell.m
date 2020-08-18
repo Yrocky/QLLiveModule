@@ -14,7 +14,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.contentView.backgroundColor = [UIColor colorWithHexString:@"#F3F3F3"];
         self.contentView.layer.cornerRadius = 4.0f;
         self.contentView.layer.masksToBounds = YES;
         
@@ -34,6 +33,7 @@
 }
 - (void) setupWithData:(id)data{
     self.oneLabel.text = QLSafeString(data);
+    self.contentView.backgroundColor = [UIColor colorWithHexString:@"#F3F3F3"];
 }
 @end
 
@@ -44,7 +44,7 @@
     self = [super initWithFrame:frame];
     if (self) {
                 
-        self.contentView.backgroundColor = [UIColor colorWithHexString:@"#F3F3F3"];
+        self.contentView.backgroundColor = [UIColor colorWithHexString:@"#7CBDFF"];
 
         UILabel * oneLabel = [UILabel new];
         oneLabel.textAlignment = NSTextAlignmentCenter;
@@ -69,7 +69,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [UIColor colorWithHexString:@"#333333"];
+//        self.backgroundColor = [[UIColor colorWithHexString:@"#333333"] colorWithAlphaComponent:0.3];
         
         self.titleLabel = [UILabel new];
         self.titleLabel.font = [UIFont systemFontOfSize:17];
@@ -86,5 +86,28 @@
 }
 - (void) setupHeaderTitle:(NSString *)title{
     self.titleLabel.text = QLSafeString(title);
+}
+@end
+
+@implementation DemoFooterView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+//        self.backgroundColor = [[UIColor colorWithHexString:@"#ff183e"] colorWithAlphaComponent:0.3];
+        
+        UILabel * titleLabel = [UILabel new];
+        titleLabel.text = @"- This is Footer -";
+        titleLabel.font = [UIFont systemFontOfSize:17];
+        titleLabel.textColor = [UIColor colorWithHexString:@"#999999"];
+        [self addSubview:titleLabel];
+        
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(self);
+            make.center.equalTo(self);
+        }];
+    }
+    return self;
 }
 @end

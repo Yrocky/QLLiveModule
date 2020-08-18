@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F67B0CDD-18C2-4BD3-B1BD-32450C6ECCC6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QILievModule/QLLiveModule/Privaate/QLLiveModuleFlowLayoutWrapper/QLLiveModuleFlowLayout.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "-prepareLayout"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "BD3B9680-C6B4-4053-AF9D-39E1A4C1AC2F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
