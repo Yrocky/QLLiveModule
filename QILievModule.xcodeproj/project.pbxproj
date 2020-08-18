@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		085A806A856DB764E7A59007 /* Pods_QILievModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */; };
+		32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */; };
+		32644D1024EB6EEC002078D2 /* DemoVideoCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0F24EB6EEC002078D2 /* DemoVideoCCell.m */; };
 		3290921524E3C7C1006D60AB /* QLLiveFlexLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921424E3C7C0006D60AB /* QLLiveFlexLayout.m */; };
 		3290921824E3C7E3006D60AB /* QLLiveWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921724E3C7E3006D60AB /* QLLiveWaterfallLayout.m */; };
 		3290921B24E3C7F5006D60AB /* QLLiveListLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921A24E3C7F5006D60AB /* QLLiveListLayout.m */; };
@@ -30,7 +32,6 @@
 		32DB56A824E1495600AD669F /* QLLiveModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB568E24E1495600AD669F /* QLLiveModule.m */; };
 		32DB56A924E1495600AD669F /* QLLiveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB569124E1495600AD669F /* QLLiveComponent.m */; };
 		32DB56AA24E1495600AD669F /* QLLiveModuleFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB569424E1495600AD669F /* QLLiveModuleFlowLayout.m */; };
-		32DB56AB24E1495600AD669F /* QLLiveLayoutCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB569724E1495600AD669F /* QLLiveLayoutCalculator.m */; };
 		32DB56AC24E1495600AD669F /* QLLiveModuleAdapterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB569924E1495600AD669F /* QLLiveModuleAdapterProxy.m */; };
 		32DB56AD24E1495600AD669F /* QLOrthogonalScrollerEmbeddedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB569D24E1495600AD669F /* QLOrthogonalScrollerEmbeddedScrollView.m */; };
 		32DB56AE24E1495600AD669F /* QLLiveModelEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56A524E1495600AD669F /* QLLiveModelEnvironment.m */; };
@@ -48,6 +49,11 @@
 
 /* Begin PBXFileReference section */
 		1AA14438CEA24C750502FBCD /* Pods-QILievModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QILievModule.release.xcconfig"; path = "Target Support Files/Pods-QILievModule/Pods-QILievModule.release.xcconfig"; sourceTree = "<group>"; };
+		32644D0B24EB6A80002078D2 /* DemoVideoComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoVideoComponent.h; sourceTree = "<group>"; };
+		32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoVideoComponent.m; sourceTree = "<group>"; };
+		32644D0E24EB6EEC002078D2 /* DemoVideoCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoVideoCCell.h; sourceTree = "<group>"; };
+		32644D0F24EB6EEC002078D2 /* DemoVideoCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoVideoCCell.m; sourceTree = "<group>"; };
+		32644D1124EB719F002078D2 /* QLLiveBaseLayout_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveBaseLayout_Private.h; sourceTree = "<group>"; };
 		3290921324E3C7C0006D60AB /* QLLiveFlexLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveFlexLayout.h; sourceTree = "<group>"; };
 		3290921424E3C7C0006D60AB /* QLLiveFlexLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveFlexLayout.m; sourceTree = "<group>"; };
 		3290921624E3C7E3006D60AB /* QLLiveWaterfallLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveWaterfallLayout.h; sourceTree = "<group>"; };
@@ -92,9 +98,7 @@
 		32DB569024E1495600AD669F /* QLLiveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLLiveComponent.h; sourceTree = "<group>"; };
 		32DB569124E1495600AD669F /* QLLiveComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLLiveComponent.m; sourceTree = "<group>"; };
 		32DB569424E1495600AD669F /* QLLiveModuleFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLLiveModuleFlowLayout.m; sourceTree = "<group>"; };
-		32DB569524E1495600AD669F /* QLLiveLayoutCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLLiveLayoutCalculator.h; sourceTree = "<group>"; };
 		32DB569624E1495600AD669F /* QLLiveModuleFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLLiveModuleFlowLayout.h; sourceTree = "<group>"; };
-		32DB569724E1495600AD669F /* QLLiveLayoutCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLLiveLayoutCalculator.m; sourceTree = "<group>"; };
 		32DB569924E1495600AD669F /* QLLiveModuleAdapterProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLLiveModuleAdapterProxy.m; sourceTree = "<group>"; };
 		32DB569A24E1495600AD669F /* QLLiveModuleAdapterProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLLiveModuleAdapterProxy.h; sourceTree = "<group>"; };
 		32DB569C24E1495600AD669F /* QLOrthogonalScrollerEmbeddedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLOrthogonalScrollerEmbeddedScrollView.h; sourceTree = "<group>"; };
@@ -334,8 +338,6 @@
 		32DB569324E1495600AD669F /* QLLiveModuleFlowLayoutWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				32DB569524E1495600AD669F /* QLLiveLayoutCalculator.h */,
-				32DB569724E1495600AD669F /* QLLiveLayoutCalculator.m */,
 				32DB569624E1495600AD669F /* QLLiveModuleFlowLayout.h */,
 				32DB569424E1495600AD669F /* QLLiveModuleFlowLayout.m */,
 			);
@@ -364,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				32DB569F24E1495600AD669F /* QLLiveComponentLayout_Private.h */,
+				32644D1124EB719F002078D2 /* QLLiveBaseLayout_Private.h */,
 				32DB56A024E1495600AD669F /* QLLiveComponent_Private.h */,
 				32DB56A124E1495600AD669F /* QLLiveModuleDataSource_Private.h */,
 			);
@@ -385,6 +388,10 @@
 			children = (
 				32DB56B624E15FFF00AD669F /* DemoVideoModule.h */,
 				32DB56B724E15FFF00AD669F /* DemoVideoModule.m */,
+				32644D0B24EB6A80002078D2 /* DemoVideoComponent.h */,
+				32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */,
+				32644D0E24EB6EEC002078D2 /* DemoVideoCCell.h */,
+				32644D0F24EB6EEC002078D2 /* DemoVideoCCell.m */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -566,17 +573,18 @@
 			files = (
 				32DB56A624E1495600AD669F /* QLLiveModuleDataSource.m in Sources */,
 				32DB566824DFA98300AD669F /* NSObject+EaseRuntime.m in Sources */,
+				32644D1024EB6EEC002078D2 /* DemoVideoCCell.m in Sources */,
 				32DB56C324E1604B00AD669F /* DemoShoppingModule.m in Sources */,
 				32DB565724DFA78F00AD669F /* DemoListViewController.m in Sources */,
 				32DB564424DFA63900AD669F /* ViewController.m in Sources */,
 				32DB56D524E1762500AD669F /* DemoContentCCell.m in Sources */,
-				32DB56AB24E1495600AD669F /* QLLiveLayoutCalculator.m in Sources */,
 				32DB56D224E1727800AD669F /* NSString+Common.m in Sources */,
 				32DB56AE24E1495600AD669F /* QLLiveModelEnvironment.m in Sources */,
 				32DB56D824E2417700AD669F /* DemoResumeModule.m in Sources */,
 				32DB566224DFA91B00AD669F /* EaseAlertController.m in Sources */,
 				32DB563E24DFA63900AD669F /* AppDelegate.m in Sources */,
 				32DB565F24DFA82800AD669F /* EaseRefreshProxy.m in Sources */,
+				32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */,
 				32DB56BF24E1603000AD669F /* DemoLivingModule.m in Sources */,
 				32DB56A724E1495600AD669F /* QLLiveComponentLayout.m in Sources */,
 				32DB564F24DFA63D00AD669F /* main.m in Sources */,
@@ -735,7 +743,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QILievModule/PrefixHeader.pch";
 				INFOPLIST_FILE = QILievModule/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -756,7 +764,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QILievModule/PrefixHeader.pch";
 				INFOPLIST_FILE = QILievModule/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

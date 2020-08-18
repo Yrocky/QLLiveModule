@@ -7,6 +7,7 @@
 //
 
 #import "QLOrthogonalScrollerEmbeddedScrollView.h"
+#import "QLLiveModuleFlowLayout.h"
 #import "NSArray+Sugar.h"
 #import <Masonry.h>
 
@@ -17,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _orthogonalScrollView = [[QLOrthogonalScrollerEmbeddedScrollView alloc] initWithFrame:CGRectZero collectionViewLayout:({
-            UICollectionViewFlowLayout * layout = UICollectionViewFlowLayout.new;
+            QLLiveModuleFlowLayout * layout = QLLiveModuleFlowLayout.new;
             layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
             layout;
         })];

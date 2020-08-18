@@ -9,6 +9,7 @@
 #import "QLLiveComponent.h"
 #import "QLLiveComponent_Private.h"
 #import "QLLiveComponentLayout_Private.h"
+#import "QLLiveBaseLayout_Private.h"
 
 @implementation QLLiveComponent
 
@@ -35,6 +36,7 @@
 - (void)setEnvironment:(id<QLLiveModelEnvironment>)environment{
     _environment = environment;
     self.layout.environment = environment;
+    self.n3wLayout.environment = environment;
 }
 
 - (void) addData:(id)data{
@@ -106,6 +108,30 @@
     }
 }
 
+- (void) reloadData{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UICollectionView * collectionView = self.environment.collectionView;
+        if ([collectionView numberOfSections] > self.index) {
+            [collectionView reloadSections:[NSIndexSet indexSetWithIndex:self.index]];
+        }
+    });
+}
+
+- (void) reloadDataAt:(NSArray<NSNumber *> *)indexs{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UICollectionView * collectionView = self.environment.collectionView;
+        NSInteger counts = [self numberOfItems];
+        NSMutableArray * tmp = [NSMutableArray new];
+        [indexs enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if (obj.integerValue < counts) {
+                [tmp addObject:[NSIndexPath indexPathForItem:obj.integerValue
+                                                   inSection:self.index]];
+            }
+        }];
+        [collectionView reloadItemsAtIndexPaths:tmp];
+    });
+}
 - (BOOL)isOrthogonallyScrolls{
     return self.arrange == QLLiveComponentArrangeHorizontal;
 }
@@ -137,6 +163,17 @@
 
 - (NSArray<NSString *> *)supportedElementKinds{
     return nil;
+}
+
+- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind{
+    return nil;
+}
+- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind{
+    return CGSizeZero;
+}
+
+- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind{
+    return UIEdgeInsetsZero;
 }
 
 - (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind

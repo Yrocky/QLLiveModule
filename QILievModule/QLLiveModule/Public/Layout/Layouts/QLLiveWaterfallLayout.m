@@ -47,7 +47,7 @@
         }
         NSUInteger columnIndex = [self _nextColumnIndexForItem:index];
 
-        CGFloat x = (width + self.itemSpacing) * columnIndex;
+        CGFloat x = (width + self.itemSpacing) * columnIndex + self.insets.left;
         CGFloat y = [self.columnHeights[columnIndex] floatValue];
         CGRect frame = CGRectMake(x, y, width, height);
         self.columnHeights[columnIndex] = @(CGRectGetMaxY(frame) + self.lineSpacing);

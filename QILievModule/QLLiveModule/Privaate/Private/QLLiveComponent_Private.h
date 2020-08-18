@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, readwrite) id<QLLiveModuleDataSourceAble> dataSource;
 @property (nonatomic ,weak) id<QLLiveModelEnvironment> environment;
+@property (nonatomic ,assign ,readwrite) NSInteger index;
 
 - (void) calculatorLayout;
 @end

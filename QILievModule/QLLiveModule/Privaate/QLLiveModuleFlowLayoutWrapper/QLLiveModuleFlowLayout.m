@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSMutableArray *columnHeights;
 @property (nonatomic, strong) NSMutableArray *itemHeights;
 
+@property (nonatomic, strong) NSMutableArray<NSNumber *> *sectionHeights;
+
 /// Array to store attributes for all items includes headers, cells, and footers
 @property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> * allItemAttributes;
 /// Array of arrays. Each array stores item attributes for each section
@@ -30,12 +32,6 @@
 /// How many items to be union into a single rectangle
 static const NSInteger unionSize = 20;
 
-static CGFloat QLLiveFloorCGFloat(CGFloat value) {
-    CGFloat scale = [UIScreen mainScreen].scale;
-    return floor(value * scale) / scale;
-}
-
-
 #pragma mark - override
 
 - (void)prepareLayout {
@@ -44,6 +40,7 @@ static CGFloat QLLiveFloorCGFloat(CGFloat value) {
     // clear datas
     [self.unionRects removeAllObjects];
     [self.columnHeights removeAllObjects];
+    [self.sectionHeights removeAllObjects];
     [self.itemHeights removeAllObjects];
     [self.allItemAttributes removeAllObjects];
     [self.headersAttribute removeAllObjects];
@@ -58,7 +55,6 @@ static CGFloat QLLiveFloorCGFloat(CGFloat value) {
     
     CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
     
-    
     UICollectionViewLayoutAttributes *attributes;
 
     CGFloat top = 0;
@@ -71,8 +67,6 @@ static CGFloat QLLiveFloorCGFloat(CGFloat value) {
         
         QLLiveComponentLayout * layout = component.layout;
         UIEdgeInsets sectionInset = layout.insets;
-        CGFloat minimumInteritemSpacing = layout.interitemSpacing;
-        CGFloat minimumLineSpacing = layout.lineSpacing;
         
         NSArray * supportedKinds = [component supportedElementKinds];
         // header
@@ -109,9 +103,6 @@ static CGFloat QLLiveFloorCGFloat(CGFloat value) {
                 [NSIndexPath indexPathForItem:item inSection:section];
             })];
             attributes.frame = frame;
-//            NSLog(@"%d itemSize:%@",idx,NSStringFromCGRect(attributes.frame));
-            
-//            [line addObject:[NSValue valueWithCGRect:attributes.frame]];
             [itemAttributes addObject:attributes];
             [self.allItemAttributes addObject:attributes];
         }
@@ -142,215 +133,216 @@ static CGFloat QLLiveFloorCGFloat(CGFloat value) {
             }
         }
         top += sectionInset.bottom;
+        [self.sectionHeights addObject:@(top)];
     }
     
     
     
-    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
-        // 水平
-    } else {
-        // 垂直
-        NSInteger idx = 0;
-        CGFloat top = 0;
-        UICollectionViewLayoutAttributes *attributes;
-        
-        for (NSInteger section = 0; section < numberOfSections; ++section) {
-    
-            CGFloat minimumInteritemSpacing = [self fetchMinimumInteritemSpacingAt:section];
-            CGFloat minimumLineSpacing = [self fetchMinimumLineSpacingAt:section];
-            
-            UIEdgeInsets sectionInset = [self fetchSectionInsetAt:section];
-            CGFloat sectionContainerMaxX = collectionViewWidth - sectionInset.right;
-            
-            if (section == 1) {
-                
-            }
-            
-            // 1.header
-            CGFloat headerHeight = [self fetchSectionHeaderAt:section];
-            
-            if (headerHeight > 0) {
-                UIEdgeInsets headerInset = [self fetchSectionHeaderInsetAt:section];
-                attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
-                attributes.frame = (CGRect){
-                    headerInset.left,
-                    headerInset.top + top,
-                    collectionViewWidth - (headerInset.left + headerInset.right),
-                    headerHeight
-                };
-                
-                self.headersAttribute[@(section)] = attributes;
-                [self.allItemAttributes addObject:attributes];
-                
-                // 更新top，如果有设置sectionHeader的高度
-                top = CGRectGetMaxY(attributes.frame) + headerInset.bottom;
-            }
-            
-            top += sectionInset.top;
-            
-            // 2.items
-            
-            NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
-            NSMutableArray<UICollectionViewLayoutAttributes *> *itemAttributes = [NSMutableArray arrayWithCapacity:itemCount];
-            NSMutableArray<NSMutableArray<NSValue *> *> * lines = [NSMutableArray new];
-
-            NSMutableArray<NSValue *> * line = [NSMutableArray array];
-            [lines addObject:line];
-
-            // 记录之前最大x、最大y值的数组
-            NSMutableArray<NSValue *> * maxItem = [NSMutableArray array];
-            [maxItem addObject:[NSValue valueWithCGPoint:(CGPoint){
-                sectionInset.left,
-                top
-            }]];
-            BOOL needShift = NO;
-            for (idx = 0; idx < itemCount; idx++) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:section];
-                CGSize itemSize = [self fetchItemSizeAt:indexPath];
-                
-                CGFloat xOffset = 0;
-                CGFloat yOffset = 0;
-                if (idx == 0) {
-                    xOffset = sectionInset.left;
-                    yOffset = top;
-                    [maxItem addObject:[NSValue valueWithCGPoint:(CGPoint){
-                        xOffset + itemSize.width,
-                        yOffset + itemSize.height
-                    }]];
-                } else {
-                    // 上一个att的
-                    UICollectionViewLayoutAttributes * preAtt = itemAttributes[idx - 1];
-                    
-                    xOffset = CGRectGetMaxX(preAtt.frame) + minimumInteritemSpacing;
-                    needShift = (xOffset + itemSize.width) > sectionContainerMaxX;
-                    
-                    if (needShift) {
-                        NSLog(@"need shift");
-                        NSArray<NSValue *> * preLine = lines.lastObject;
-
-                        line = [NSMutableArray array];
-                        [lines addObject:line];
-                        
-                        // 需要换行，放入下一行，更新xOffset
-                        
-                        // 在高度不相等的时候，需要在preLine中找最大x值
-                        __block BOOL allItemHeightWasEqual = YES;
-                        __block CGFloat longestX = 0;
-                        __block CGFloat longestHeight = 0;
-                        CGFloat firstItemHeight = CGRectGetHeight(preLine.firstObject.CGRectValue);
-                        
-                        // 找出来高度最大的那个index下的cell的最大x
-                        [preLine enumerateObjectsUsingBlock:^(NSValue * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                            CGFloat height = CGRectGetHeight(obj.CGRectValue);
-                            if (height > longestHeight) {
-                                longestHeight = height;
-                                longestX = CGRectGetMaxX(obj.CGRectValue);
-                            }
-                            if (firstItemHeight != CGRectGetHeight(obj.CGRectValue)) {
-                                allItemHeightWasEqual = NO;
-                            }
-                        }];
-                        if (allItemHeightWasEqual) {
-                            xOffset = sectionInset.left;
-                        } else {
-                            // error
-                            // 要换行，需要找出来之前最短的那个
-                            xOffset = longestX + minimumInteritemSpacing;
-                            if (xOffset >= sectionContainerMaxX) {
-                                // 如果最高的是上一行最后一个，需要再换行
-//                                xOffset = sectionInset.left;
-                            }
-                        }
-                        
-                        if (lines.count == 1) {
-                            // 是第一行
-                            yOffset = CGRectGetMaxY([self shortestHeightItemAtLine:preLine]) + minimumLineSpacing;
-                        } else {
-                            // 不是第一行，找所有最小的
-                            yOffset = CGRectGetMaxY([self shortestHeightItemAtLine:preLine]) + minimumLineSpacing;
-                        }
-                        
-//                        if (1) {
-//                            // 需要确定上一行中最短的
-//                            yOffset = [self shortestHeightItemAtLine:preLine] + minimumLineSpacing;
+//    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+//        // 水平
+//    } else {
+//        // 垂直
+//        NSInteger idx = 0;
+//        CGFloat top = 0;
+//        UICollectionViewLayoutAttributes *attributes;
+//
+//        for (NSInteger section = 0; section < numberOfSections; ++section) {
+//
+//            CGFloat minimumInteritemSpacing = [self fetchMinimumInteritemSpacingAt:section];
+//            CGFloat minimumLineSpacing = [self fetchMinimumLineSpacingAt:section];
+//
+//            UIEdgeInsets sectionInset = [self fetchSectionInsetAt:section];
+//            CGFloat sectionContainerMaxX = collectionViewWidth - sectionInset.right;
+//
+//            if (section == 1) {
+//
+//            }
+//
+//            // 1.header
+//            CGFloat headerHeight = [self fetchSectionHeaderAt:section];
+//
+//            if (headerHeight > 0) {
+//                UIEdgeInsets headerInset = [self fetchSectionHeaderInsetAt:section];
+//                attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+//                attributes.frame = (CGRect){
+//                    headerInset.left,
+//                    headerInset.top + top,
+//                    collectionViewWidth - (headerInset.left + headerInset.right),
+//                    headerHeight
+//                };
+//
+//                self.headersAttribute[@(section)] = attributes;
+//                [self.allItemAttributes addObject:attributes];
+//
+//                // 更新top，如果有设置sectionHeader的高度
+//                top = CGRectGetMaxY(attributes.frame) + headerInset.bottom;
+//            }
+//
+//            top += sectionInset.top;
+//
+//            // 2.items
+//
+//            NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
+//            NSMutableArray<UICollectionViewLayoutAttributes *> *itemAttributes = [NSMutableArray arrayWithCapacity:itemCount];
+//            NSMutableArray<NSMutableArray<NSValue *> *> * lines = [NSMutableArray new];
+//
+//            NSMutableArray<NSValue *> * line = [NSMutableArray array];
+//            [lines addObject:line];
+//
+//            // 记录之前最大x、最大y值的数组
+//            NSMutableArray<NSValue *> * maxItem = [NSMutableArray array];
+//            [maxItem addObject:[NSValue valueWithCGPoint:(CGPoint){
+//                sectionInset.left,
+//                top
+//            }]];
+//            BOOL needShift = NO;
+//            for (idx = 0; idx < itemCount; idx++) {
+//                NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:section];
+//                CGSize itemSize = [self fetchItemSizeAt:indexPath];
+//
+//                CGFloat xOffset = 0;
+//                CGFloat yOffset = 0;
+//                if (idx == 0) {
+//                    xOffset = sectionInset.left;
+//                    yOffset = top;
+//                    [maxItem addObject:[NSValue valueWithCGPoint:(CGPoint){
+//                        xOffset + itemSize.width,
+//                        yOffset + itemSize.height
+//                    }]];
+//                } else {
+//                    // 上一个att的
+//                    UICollectionViewLayoutAttributes * preAtt = itemAttributes[idx - 1];
+//
+//                    xOffset = CGRectGetMaxX(preAtt.frame) + minimumInteritemSpacing;
+//                    needShift = (xOffset + itemSize.width) > sectionContainerMaxX;
+//
+//                    if (needShift) {
+//                        NSLog(@"need shift");
+//                        NSArray<NSValue *> * preLine = lines.lastObject;
+//
+//                        line = [NSMutableArray array];
+//                        [lines addObject:line];
+//
+//                        // 需要换行，放入下一行，更新xOffset
+//
+//                        // 在高度不相等的时候，需要在preLine中找最大x值
+//                        __block BOOL allItemHeightWasEqual = YES;
+//                        __block CGFloat longestX = 0;
+//                        __block CGFloat longestHeight = 0;
+//                        CGFloat firstItemHeight = CGRectGetHeight(preLine.firstObject.CGRectValue);
+//
+//                        // 找出来高度最大的那个index下的cell的最大x
+//                        [preLine enumerateObjectsUsingBlock:^(NSValue * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                            CGFloat height = CGRectGetHeight(obj.CGRectValue);
+//                            if (height > longestHeight) {
+//                                longestHeight = height;
+//                                longestX = CGRectGetMaxX(obj.CGRectValue);
+//                            }
+//                            if (firstItemHeight != CGRectGetHeight(obj.CGRectValue)) {
+//                                allItemHeightWasEqual = NO;
+//                            }
+//                        }];
+//                        if (allItemHeightWasEqual) {
+//                            xOffset = sectionInset.left;
 //                        } else {
-//                            // 找上一行第一个的最大y
-//                            yOffset = CGRectGetMaxY(preLine.firstObject.CGRectValue) + minimumLineSpacing;
+//                            // error
+//                            // 要换行，需要找出来之前最短的那个
+//                            xOffset = longestX + minimumInteritemSpacing;
+//                            if (xOffset >= sectionContainerMaxX) {
+//                                // 如果最高的是上一行最后一个，需要再换行
+////                                xOffset = sectionInset.left;
+//                            }
 //                        }
-                    } else {
-                        // 不需要换行
-                        if (lines.count == 1) {
-                            // 是第一行
-                            yOffset = CGRectGetMinY(preAtt.frame);
-                            
-                            CGFloat maxxx = 0;
-                            CGFloat maxyy = 0;
-                            CGPoint preMaxPoint = maxItem[maxItem.count - 1].CGPointValue;
-                            if (itemSize.height < preAtt.frame.size.height) {
-                                maxxx = CGRectGetMaxX(preAtt.frame);
-                                maxyy = yOffset + itemSize.height;
-                            } else {
-                                
-                            }
-                            [maxItem addObject:[NSValue valueWithCGPoint:(CGPoint){
-                                sectionInset.left,
-                                top
-                            }]];
-                        } else {
-                            // 不是第一行
-                            NSArray<NSValue *> *
-                            preLine = lines[lines.count - 2];
-                            
-                            if (1) {
-                                // 需要确定上一行中最短的
-                                yOffset = CGRectGetMaxY([self shortestHeightItemAtLine:preLine]) + minimumLineSpacing;
-                            } else {
-                                // 找上一行第一个的最大y
-                                yOffset = CGRectGetMaxY(preLine.firstObject.CGRectValue) + minimumLineSpacing;
-                            }
-                        }
-                    }
-                }
-
-                attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-                attributes.frame = (CGRect){
-                    xOffset, yOffset,
-                    (CGSize)itemSize
-                };
-                NSLog(@"%d itemSize:%@",idx,NSStringFromCGRect(attributes.frame));
-                
-                [line addObject:[NSValue valueWithCGRect:attributes.frame]];
-                [itemAttributes addObject:attributes];
-                [self.allItemAttributes addObject:attributes];
-            }// end for-on cells
-            
-            // 更新top，取出来最后一行最长的cell
-            top = CGRectGetMaxY([self longestHeightItemAtLine:lines.lastObject]);
-            
-            [self.sectionItemAttributes addObject:itemAttributes];
-            
-            // 3.footer
-            CGFloat footerHeight = [self fetchSectionFooterAt:section];
-            if (footerHeight > 0) {
-                UIEdgeInsets footerInset = [self fetchSectionFooterInsetAt:section];
-                attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
-                attributes.frame = (CGRect){
-                    footerInset.left,
-                    footerInset.top + top,
-                    collectionViewWidth - (footerInset.left + footerInset.right),
-                    footerHeight
-                };
-                self.footersAttribute[@(section)] = attributes;
-                [self.allItemAttributes addObject:attributes];
-                
-                top = CGRectGetMaxY(attributes.frame) + footerInset.bottom;
-            }
-            
-            top += sectionInset.bottom;
-            
-            NSLog(@"[%d] header :%f maxY is:%f footer :%f",headerHeight,section,top,footerHeight);
-        }
-    }
+//
+//                        if (lines.count == 1) {
+//                            // 是第一行
+//                            yOffset = CGRectGetMaxY([self shortestHeightItemAtLine:preLine]) + minimumLineSpacing;
+//                        } else {
+//                            // 不是第一行，找所有最小的
+//                            yOffset = CGRectGetMaxY([self shortestHeightItemAtLine:preLine]) + minimumLineSpacing;
+//                        }
+//
+////                        if (1) {
+////                            // 需要确定上一行中最短的
+////                            yOffset = [self shortestHeightItemAtLine:preLine] + minimumLineSpacing;
+////                        } else {
+////                            // 找上一行第一个的最大y
+////                            yOffset = CGRectGetMaxY(preLine.firstObject.CGRectValue) + minimumLineSpacing;
+////                        }
+//                    } else {
+//                        // 不需要换行
+//                        if (lines.count == 1) {
+//                            // 是第一行
+//                            yOffset = CGRectGetMinY(preAtt.frame);
+//
+//                            CGFloat maxxx = 0;
+//                            CGFloat maxyy = 0;
+//                            CGPoint preMaxPoint = maxItem[maxItem.count - 1].CGPointValue;
+//                            if (itemSize.height < preAtt.frame.size.height) {
+//                                maxxx = CGRectGetMaxX(preAtt.frame);
+//                                maxyy = yOffset + itemSize.height;
+//                            } else {
+//
+//                            }
+//                            [maxItem addObject:[NSValue valueWithCGPoint:(CGPoint){
+//                                sectionInset.left,
+//                                top
+//                            }]];
+//                        } else {
+//                            // 不是第一行
+//                            NSArray<NSValue *> *
+//                            preLine = lines[lines.count - 2];
+//
+//                            if (1) {
+//                                // 需要确定上一行中最短的
+//                                yOffset = CGRectGetMaxY([self shortestHeightItemAtLine:preLine]) + minimumLineSpacing;
+//                            } else {
+//                                // 找上一行第一个的最大y
+//                                yOffset = CGRectGetMaxY(preLine.firstObject.CGRectValue) + minimumLineSpacing;
+//                            }
+//                        }
+//                    }
+//                }
+//
+//                attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+//                attributes.frame = (CGRect){
+//                    xOffset, yOffset,
+//                    (CGSize)itemSize
+//                };
+//                NSLog(@"%d itemSize:%@",idx,NSStringFromCGRect(attributes.frame));
+//
+//                [line addObject:[NSValue valueWithCGRect:attributes.frame]];
+//                [itemAttributes addObject:attributes];
+//                [self.allItemAttributes addObject:attributes];
+//            }// end for-on cells
+//
+//            // 更新top，取出来最后一行最长的cell
+//            top = CGRectGetMaxY([self longestHeightItemAtLine:lines.lastObject]);
+//
+//            [self.sectionItemAttributes addObject:itemAttributes];
+//
+//            // 3.footer
+//            CGFloat footerHeight = [self fetchSectionFooterAt:section];
+//            if (footerHeight > 0) {
+//                UIEdgeInsets footerInset = [self fetchSectionFooterInsetAt:section];
+//                attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionFooter withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+//                attributes.frame = (CGRect){
+//                    footerInset.left,
+//                    footerInset.top + top,
+//                    collectionViewWidth - (footerInset.left + footerInset.right),
+//                    footerHeight
+//                };
+//                self.footersAttribute[@(section)] = attributes;
+//                [self.allItemAttributes addObject:attributes];
+//
+//                top = CGRectGetMaxY(attributes.frame) + footerInset.bottom;
+//            }
+//
+//            top += sectionInset.bottom;
+//
+//            NSLog(@"[%d] header :%f maxY is:%f footer :%f",headerHeight,section,top,footerHeight);
+//        }
+//    }
     
     // Build union rects
     NSInteger idx = 0;
@@ -377,7 +369,8 @@ static CGFloat QLLiveFloorCGFloat(CGFloat value) {
     
     CGSize contentSize = self.collectionView.bounds.size;
     if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
-        contentSize.height = CGRectGetMaxY(self.allItemAttributes.lastObject.frame);
+        contentSize.height = self.sectionHeights.lastObject.floatValue;
+//        contentSize.height = CGRectGetMaxY(self.allItemAttributes.lastObject.frame);
     } else {
         contentSize.width = CGRectGetMaxX(self.allItemAttributes.lastObject.frame);
     }
@@ -606,6 +599,13 @@ static CGFloat QLLiveFloorCGFloat(CGFloat value) {
         _itemHeights = [NSMutableArray array];
     }
     return _itemHeights;
+}
+
+- (NSMutableArray *)sectionHeights {
+    if (!_sectionHeights) {
+        _sectionHeights = [NSMutableArray array];
+    }
+    return _sectionHeights;
 }
 
 - (NSMutableArray *)allItemAttributes {

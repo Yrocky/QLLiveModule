@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
 @interface QLLiveComponent<__covariant Data> : NSObject{
     NSMutableArray<Data> *_innerDatas;
     QLLiveComponentLayout * _layout;
+    __kindof QLLiveBaseLayout * _n3wLayout;
 }
 
 @property (nonatomic, weak, readonly) id<QLLiveModuleDataSourceAble> dataSource;
@@ -42,11 +43,14 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
 
 /// layout
 @property (nonatomic ,strong ,readonly) QLLiveComponentLayout * layout;
-@property (nonatomic ,strong ,readonly) QLLiveBaseLayout * n3wLayout;
+@property (nonatomic ,strong ,readonly) __kindof QLLiveBaseLayout * n3wLayout;
 
 @property (nonatomic ,assign) QLLiveComponentArrange arrange;
 /// headerView是否要黏性
 @property (nonatomic ,assign) BOOL headerPin;
+
+// 在DataSource中的索引
+@property (nonatomic ,assign ,readonly) NSInteger index;
 
 - (void) addData:(Data)data;
 - (void) addDatas:(NSArray<Data> *)datas;
@@ -61,6 +65,9 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
 
 - (void) clear;
 
+// 刷新当前component
+- (void) reloadData;
+- (void) reloadDataAt:(NSArray<NSNumber *> *)indexs;
 @end
 
 @interface QLLiveComponent (SubclassOverride)
@@ -80,16 +87,16 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
 @interface QLLiveComponent (Supplementary)
 
 - (NSArray<NSString *> *)supportedElementKinds;
-- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind
-                                                                 atIndex:(NSInteger)index;
-- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind
-                                 atIndex:(NSInteger)index;
-- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind
-                                         atIndex:(NSInteger)index;
-
 - (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind;
 - (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind;
 - (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind;
+
+//- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind
+//                                                                 atIndex:(NSInteger)index;
+//- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind
+//                                 atIndex:(NSInteger)index;
+//- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind
+//                                         atIndex:(NSInteger)index;
 @end
 
 NS_ASSUME_NONNULL_END

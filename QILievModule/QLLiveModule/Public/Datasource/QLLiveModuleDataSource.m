@@ -17,6 +17,7 @@
 
 @interface QLLiveModuleDataSource (){
     __weak UICollectionView *_collectionView;
+    NSArray<__kindof QLLiveComponent *> * _hidenWhenEmptyComponents;
 }
 
 @property (nonatomic, strong) QLLiveModuleAdapterProxy *delegateProxy;
@@ -154,6 +155,27 @@
 
 - (__kindof UICollectionReusableView *)dequeueReusableSupplementaryViewOfKind:(NSString *)elementKind
                                                                  forComponent:(__kindof QLLiveComponent *)component
+                                                                        clazz:(Class)viewClass{
+    if (!elementKind) {
+        return nil;
+    }
+    UICollectionView *collectionView = self.collectionView;
+    NSIndexPath * indexPath = [NSIndexPath indexPathForItem:0 inSection:({
+        [self usageHidenWhenMeptyIndexWithComponent:component];
+    })];
+    NSString * reuseIdentifier = [NSString stringWithFormat:@"Supplementary-%@-%@",NSStringFromClass(viewClass),elementKind];
+    if (![self.registeredSupplementaryViewIdentifiers containsObject:reuseIdentifier]) {
+        [self.registeredSupplementaryViewIdentifiers addObject:reuseIdentifier];
+        [collectionView registerClass:viewClass
+           forSupplementaryViewOfKind:elementKind
+                  withReuseIdentifier:reuseIdentifier];
+    }
+    return [collectionView dequeueReusableSupplementaryViewOfKind:elementKind
+                                              withReuseIdentifier:reuseIdentifier
+                                                     forIndexPath:indexPath];
+}
+- (__kindof UICollectionReusableView *)dequeueReusableSupplementaryViewOfKind:(NSString *)elementKind
+                                                                 forComponent:(__kindof QLLiveComponent *)component
                                                                         clazz:(Class)viewClass
                                                                       atIndex:(NSInteger)index{
     if (!elementKind) {
@@ -182,6 +204,19 @@
         [collectionView registerClass:cellClass forCellWithReuseIdentifier:reuseIdentifier];
     }
     return [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+}
+
+- (void) updateHideWhenEmptyComponents{
+    __block NSInteger index = 0;
+    _hidenWhenEmptyComponents = [_innerComponents ease_select:^BOOL(QLLiveComponent * component) {
+        if ((component.needPlacehold || component.independentDatas) ||
+            (!component.hiddenWhenEmpty || component.datas.count != 0)){
+            component.index = index;
+            index ++;
+            return YES;
+        }
+        return NO;
+    }];
 }
 
 - (NSArray<__kindof QLLiveComponent *> *) usageHidenWhenMeptyComponents{
@@ -226,6 +261,7 @@
             [component clear];
         }];
         [_innerComponents removeAllObjects];
+        [self updateHideWhenEmptyComponents];
     }
 }
 
@@ -239,6 +275,7 @@
         // component 计算自己的layout
         [component calculatorLayout];
         [_innerComponents addObject:component];
+        [self updateHideWhenEmptyComponents];
     }
 }
 
@@ -256,6 +293,7 @@
             // component 计算自己的layout
             [component calculatorLayout];
             [_innerComponents insertObject:component atIndex:index];
+            [self updateHideWhenEmptyComponents];
         }
     }
 }
@@ -265,6 +303,7 @@
         if ([_innerComponents containsObject:component]) {
             [component clear];
             [_innerComponents removeObject:component];
+            [self updateHideWhenEmptyComponents];
         }
     }
 }
@@ -275,6 +314,7 @@
             QLLiveComponent * component = _innerComponents[index];
             [component clear];
             [_innerComponents removeObject:component];
+            [self updateHideWhenEmptyComponents];
         }
     }
 }
@@ -286,6 +326,7 @@
             component.environment = self.environment;
             // component 计算自己的layout
             [_innerComponents replaceObjectAtIndex:index withObject:component];
+            [self updateHideWhenEmptyComponents];
         }
     }
 }
@@ -302,8 +343,8 @@
 
 - (NSInteger) indexOfComponent:(__kindof QLLiveComponent *)comp{
     NSInteger index = NSNotFound;
-    @synchronized (_innerComponents) {
-        index = [_innerComponents indexOfObject:comp];
+    @synchronized (_hidenWhenEmptyComponents) {
+        index = [_hidenWhenEmptyComponents indexOfObject:comp];
     }
     return index;
 }
@@ -311,8 +352,8 @@
 - (NSArray<__kindof QLLiveComponent *> *) components{
     
     NSArray * components;
-    @synchronized (_innerComponents) {
-        components = [_innerComponents ease_select:^BOOL(__kindof QLLiveComponent * component) {
+    @synchronized (_hidenWhenEmptyComponents) {
+        components = [_hidenWhenEmptyComponents ease_select:^BOOL(__kindof QLLiveComponent * component) {
             return YES;//!component.empty;
         }];
     }
@@ -321,8 +362,8 @@
 
 - (NSInteger) count{
     NSInteger count = 0;
-    @synchronized (_innerComponents) {
-        count = _innerComponents.count;
+    @synchronized (_hidenWhenEmptyComponents) {
+        count = _hidenWhenEmptyComponents.count;
     }
     return count;
 }
@@ -348,7 +389,7 @@
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return self.usageHidenWhenMeptyComponents.count;
+    return _hidenWhenEmptyComponents.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -409,8 +450,7 @@
 {
     __kindof QLLiveComponent * comp = [self usageHidenWhenMeptyComponentAtIndex:indexPath.section];
     if ([comp.supportedElementKinds containsObject:kind]) {
-        return [comp viewForSupplementaryElementOfKind:kind
-                                               atIndex:indexPath.section];
+        return [comp viewForSupplementaryElementOfKind:kind];
     }
     return nil;
 }
@@ -436,42 +476,42 @@
     return itemSize;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    /// layout
-    return [self usageHidenWhenMeptyComponentAtIndex:section].layout.lineSpacing;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    /// layout
-    return [self usageHidenWhenMeptyComponentAtIndex:section].layout.interitemSpacing;
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    /// layout
-    return [self usageHidenWhenMeptyComponentAtIndex:section].layout.insets;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    /// component
-    __kindof QLLiveComponent * comp = [self usageHidenWhenMeptyComponentAtIndex:section];
-    if ([comp.supportedElementKinds containsObject:UICollectionElementKindSectionHeader]) {
-        return [comp sizeForSupplementaryViewOfKind:({
-            UICollectionElementKindSectionHeader;
-        }) atIndex:section];
-    }
-    return CGSizeZero;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
-    /// component
-    __kindof QLLiveComponent * comp = [self usageHidenWhenMeptyComponentAtIndex:section];
-    if ([comp.supportedElementKinds containsObject:UICollectionElementKindSectionFooter]) {
-        return [comp sizeForSupplementaryViewOfKind:({
-            UICollectionElementKindSectionFooter;
-        }) atIndex:section];
-    }
-    return CGSizeZero;
-}
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+//    /// layout
+//    return [self usageHidenWhenMeptyComponentAtIndex:section].layout.lineSpacing;
+//}
+//
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+//    /// layout
+//    return [self usageHidenWhenMeptyComponentAtIndex:section].layout.interitemSpacing;
+//}
+//
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+//    /// layout
+//    return [self usageHidenWhenMeptyComponentAtIndex:section].layout.insets;
+//}
+//
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+//    /// component
+//    __kindof QLLiveComponent * comp = [self usageHidenWhenMeptyComponentAtIndex:section];
+//    if ([comp.supportedElementKinds containsObject:UICollectionElementKindSectionHeader]) {
+//        return [comp sizeForSupplementaryViewOfKind:({
+//            UICollectionElementKindSectionHeader;
+//        })];
+//    }
+//    return CGSizeZero;
+//}
+//
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+//    /// component
+//    __kindof QLLiveComponent * comp = [self usageHidenWhenMeptyComponentAtIndex:section];
+//    if ([comp.supportedElementKinds containsObject:UICollectionElementKindSectionFooter]) {
+//        return [comp sizeForSupplementaryViewOfKind:({
+//            UICollectionElementKindSectionFooter;
+//        })];
+//    }
+//    return CGSizeZero;
+//}
 
 @end
 
@@ -493,26 +533,26 @@
     return comp.layout.distribution.value;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForHeaderInSection:(NSInteger)section{
-    return [self collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section].height;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section{
-    return [self collectionView:collectionView layout:collectionViewLayout referenceSizeForFooterInSection:section].height;
-}
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForHeaderInSection:(NSInteger)section{
+//    return [self collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section].height;
+//}
+//
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section{
+//    return [self collectionView:collectionView layout:collectionViewLayout referenceSizeForFooterInSection:section].height;
+//}
 
 //- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
 //    return UIEdgeInsetsZero;;
 //}
 
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForHeaderInSection:(NSInteger)section{
-    return UIEdgeInsetsMake(0, 5, 0, 5);;
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForFooterInSection:(NSInteger)section{
-    return UIEdgeInsetsMake(0, 5, 0, 5);;
-}
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForHeaderInSection:(NSInteger)section{
+//    return UIEdgeInsetsMake(0, 5, 0, 5);;
+//}
+//
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForFooterInSection:(NSInteger)section{
+//    return UIEdgeInsetsMake(0, 5, 0, 5);;
+//}
 //
 //- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
 //    return 1;;

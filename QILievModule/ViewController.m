@@ -20,6 +20,22 @@
 @interface YYYBaseComponent : QLLiveComponent
 @end
 
+@interface DemoBaseComponent : QLLiveComponent
+- (instancetype) initWithTitle:(NSString *)title;
+@end
+
+@interface DemoFlexComponent : DemoBaseComponent<QLLiveFlexLayoutDelegate>
+- (void) setupFlexLayout:(QLLiveFlexLayout *)flexLayout;
+@end
+
+@interface DemoListComponent : DemoBaseComponent
+- (void) setupListLayout:(QLLiveListLayout *)listLayout;
+@end
+
+@interface DemoWaterfallComponent : DemoBaseComponent<QLLiveWaterfallLayoutDelegate>
+
+@end
+
 @interface YYYOneCCell : UICollectionViewCell
 @property (nonatomic ,strong) UILabel * oneLabel;
 - (void) setupWithData:(id)data;
@@ -55,6 +71,11 @@ static NSDictionary * demoData;
     self = [super initWithName:name];
     if (self) {
         demoData = @{
+            @"flex":@[
+                    @"google",@"facebook",@"youtube",
+                    @"amazon",@"apple",@"Microsoft",
+                    @"Alphabet",@"IBM"
+            ],
             @"languages":@[@"#swift#",@"#java#",@"#js#",@"#vue#",@"#ruby#",@"#css#",@"#go#"],
             @"weather":@[@"晴天",@"阴天",@"雨天",@"大风",@"雷电",@"冰雹",@"大雪",@"小雪"],
             @"city":@[@"上海",@"北京",@"广州",@"杭州",@"深圳",@"南京"],
@@ -100,6 +121,100 @@ static NSDictionary * demoData;
 
 - (void) setupComponents:(NSDictionary *)data{
 
+    [self.dataSource addComponent:({
+        DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"flex-start"];
+        [comp setupFlexLayout:({
+            QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
+            flexLayout.justifyContent = QLLiveFlexLayoutFlexStart;
+            flexLayout;
+        })];
+        [comp addDatas:data[@"flex"]];
+        comp;
+    })];
+    
+    [self.dataSource addComponent:({
+        DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"flex-center"];
+        [comp setupFlexLayout:({
+            QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
+            flexLayout.justifyContent = QLLiveFlexLayoutCenter;
+            flexLayout;
+        })];
+        [comp addDatas:data[@"flex"]];
+        comp;
+    })];
+    
+    [self.dataSource addComponent:({
+        DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"flex-end"];
+        [comp setupFlexLayout:({
+            QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
+            flexLayout.justifyContent = QLLiveFlexLayoutFlexEnd;
+            flexLayout;
+        })];
+        [comp addDatas:data[@"flex"]];
+        comp;
+    })];
+    
+    [self.dataSource addComponent:({
+        DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"space-around"];
+        [comp setupFlexLayout:({
+            QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
+            flexLayout.justifyContent = QLLiveFlexLayoutSpaceAround;
+            flexLayout;
+        })];
+        [comp addDatas:data[@"flex"]];
+        comp;
+    })];
+    
+    [self.dataSource addComponent:({
+        DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"space-between"];
+        [comp setupFlexLayout:({
+            QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
+            flexLayout.justifyContent = QLLiveFlexLayoutSpaceBetween;
+            flexLayout;
+        })];
+        [comp addDatas:data[@"flex"]];
+        comp;
+    })];
+    
+    [self.dataSource addComponent:({
+        DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"table-view like"];
+        [comp setupListLayout:({
+            QLLiveListLayout * listLayout = [QLLiveListLayout new];
+            listLayout.lineSpacing = 0.5f;
+            listLayout.distribution = [QLLiveLayoutDistribution distributionValue:1];
+            listLayout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:44.0f];
+            listLayout;
+        })];
+        [comp addDatas:data[@"music"]];
+        comp;
+    })];
+    
+    [self.dataSource addComponent:({
+        DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"collection-view like"];
+        [comp setupListLayout:({
+            QLLiveListLayout * listLayout = [QLLiveListLayout new];
+            listLayout.insets = UIEdgeInsetsMake(0, 10, 0, 10);
+            listLayout.distribution = [QLLiveLayoutDistribution distributionValue:3];
+            listLayout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
+            listLayout;
+        })];
+        [comp addDatas:data[@"music"]];
+        comp;
+    })];
+    
+    [self.dataSource addComponent:({
+        DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"orthogonal scroll"];
+//        comp.arrange = QLLiveComponentArrangeHorizontal;
+        [comp setupListLayout:({
+            QLLiveListLayout * listLayout = [QLLiveListLayout new];
+            listLayout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.55];
+            listLayout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:44.0f];
+            listLayout;
+        })];
+        [comp addDatas:data[@"music"]];
+        comp;
+    })];
+    return;
     [self.dataSource addComponent:({
         YYYOneComponent * comp = [YYYOneComponent new];
         comp.arrange = QLLiveComponentArrangeHorizontal;
@@ -214,8 +329,6 @@ static NSDictionary * demoData;
     return self;
 }
 - (void)didSelectItemAtIndex:(NSInteger)index{
-//    [[[HLLAlertUtil title:[self dataAtIndex:index]]
-//      buttons:@[@"sure"]] show];
     NSLog(@"[component] did selected:%@ at:%ld",[self dataAtIndex:index],(long)index);
 }
 @end
@@ -532,5 +645,90 @@ static NSDictionary * demoData;
     
     return CGSizeMake(width, height);
 }
+
+@end
+
+@implementation DemoBaseComponent{
+    NSString *_title;
+}
+
+- (instancetype) initWithTitle:(NSString *)title{
+    self = [super init];
+    if (self) {
+        _title = title;
+    }
+    return self;
+}
+
+- (NSArray<NSString *> *)supportedElementKinds{
+    return @[UICollectionElementKindSectionHeader];
+}
+
+- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind{
+    if (elementKind == UICollectionElementKindSectionHeader) {
+        
+        DemoHeaderView *view = [self.dataSource dequeueReusableSupplementaryViewOfKind:elementKind forComponent:self clazz:DemoHeaderView.class];
+        view.titleLabel.textColor = [UIColor redColor];
+        [view setupHeaderTitle:[NSString stringWithFormat:@"%@",_title]];
+        return view;
+    }
+    return nil;
+}
+
+- (CGSize) sizeForSupplementaryViewOfKind:(NSString *)elementKind{
+    if (elementKind == UICollectionElementKindSectionHeader) {
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width, 45);
+    }
+    return CGSizeZero;
+}
+@end
+
+@implementation DemoFlexComponent
+
+- (void) setupFlexLayout:(QLLiveFlexLayout *)flexLayout{
+    flexLayout.insets = UIEdgeInsetsMake(0, 0, 0, 0);
+    flexLayout.itemHeight = 30;
+    flexLayout.delegate = self;
+    _n3wLayout = flexLayout;
+}
+
+- (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index{
+
+    DemoContentCCell * ccell = [self.dataSource dequeueReusableCellOfClass:DemoContentCCell.class forComponent:self atIndex:index];
+    ccell.contentView.layer.cornerRadius = 4.0f;
+    ccell.oneLabel.font = [UIFont systemFontOfSize:12];
+    [ccell setupWithData:@""];
+    return ccell;
+}
+
+#pragma mark - QLLiveFlexLayoutDelegate
+
+- (CGSize)layoutCustomItemSize:(QLLiveFlexLayout *)layout atIndex:(NSInteger)index{
+    NSString * category = [self dataAtIndex:index];
+    CGSize size = [category YYY_sizeWithFont:[UIFont systemFontOfSize:12]
+                                   maxSize:CGSizeMake(CGFLOAT_MAX, layout.itemHeight)];
+    size.width = size.width + 30;///30 是字体的左右间距
+    size.height = layout.itemHeight;
+    return size;
+}
+@end
+
+@implementation DemoListComponent
+
+- (void) setupListLayout:(QLLiveListLayout *)listLayout{
+    _n3wLayout = listLayout;
+}
+
+- (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index{
+
+    DemoContentCCell * ccell = [self.dataSource dequeueReusableCellOfClass:DemoContentCCell.class forComponent:self atIndex:index];
+    ccell.contentView.layer.cornerRadius = 0.0f;
+    ccell.oneLabel.font = [UIFont systemFontOfSize:16];
+    [ccell setupWithData:[self dataAtIndex:index]];
+    return ccell;
+}
+@end
+
+@implementation DemoWaterfallComponent
 
 @end

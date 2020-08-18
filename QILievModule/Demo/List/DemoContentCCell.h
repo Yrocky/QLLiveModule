@@ -21,4 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DemoPlaceholdCCell : UICollectionViewCell
 
 @end
+
+@interface DemoHeaderView : UICollectionReusableView
+@property (nonatomic ,strong) UILabel * titleLabel;
+- (void) setupHeaderTitle:(NSString *)title;
+@end
+
 NS_ASSUME_NONNULL_END

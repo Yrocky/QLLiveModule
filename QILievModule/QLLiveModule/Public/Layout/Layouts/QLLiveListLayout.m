@@ -37,7 +37,7 @@
     
     NSMutableArray<NSValue *> * result = [NSMutableArray new];
     __block CGFloat maxY = self.insets.top;
-    __block CGFloat maxX = 0.0f;
+    __block CGFloat maxX = self.insets.left;
     
     for (NSInteger index = 0; index < datas.count; index ++) {
         CGFloat x = maxX;
@@ -48,7 +48,7 @@
         [result addObject:[NSValue valueWithCGRect:frame]];
         maxX += (width + self.itemSpacing);
         if (maxX > self.insetContainerWidth) {
-            maxX = 0;
+            maxX = self.insets.left;
             maxY += (height + self.lineSpacing);
         }
         _maxY = CGRectGetMaxY(frame);

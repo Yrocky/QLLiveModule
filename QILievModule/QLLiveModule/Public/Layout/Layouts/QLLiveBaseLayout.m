@@ -7,6 +7,7 @@
 //
 
 #import "QLLiveBaseLayout.h"
+#import "QLLiveBaseLayout_Private.h"
 #import "QLLiveModelEnvironment_Protocol.h"
 
 @implementation QLLiveBaseLayout

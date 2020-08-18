@@ -10,6 +10,15 @@
 #define PrefixHeader_pch
 
 #import <Masonry.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#import "QLLiveFlexLayout.h"
+#import "QLLiveListLayout.h"
+#import "QLLiveWaterfallLayout.h"
+#import "NSArray+Sugar.h"
+#import "UIColor+Common.h"
+#import "NSString+Common.h"
+#import "DemoContentCCell.h"
 
 #define weakify(...) autoreleasepool {} __attribute__((objc_ownership(weak))) __typeof__(self) self_weak_ = (self);
 
@@ -24,4 +33,25 @@ fprintf(stderr,"\t\t %s\n",[[NSString stringWithFormat:FORMAT,##__VA_ARGS__] UTF
 #define NSLog(FORMAT, ...) nil
 #endif
 
+
+NS_INLINE NSString * QLSafeString(NSString *string){
+    if (![string isKindOfClass:[NSString class]]) {
+        string = [NSString stringWithFormat:@"%@",string];
+    }
+    if (string == nil ||
+        string == NULL ||
+        [string isKindOfClass:[NSNull class]] ||
+        [string isKindOfClass:[NSNull class]] ||
+        [string isEqualToString:@""] ||
+        [[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0){
+        return @"";
+    }
+    return string;
+}
+
+NS_INLINE NSURL * QLSafeURL(NSString *string){
+    NSURL * URL = [NSURL URLWithString:QLSafeString(string)];
+    URL = (URL == nil) ? [NSURL URLWithString:@""] : URL;
+    return URL;
+}
 #endif /* PrefixHeader_pch */
