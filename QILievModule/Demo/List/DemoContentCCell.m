@@ -37,6 +37,32 @@
 }
 @end
 
+@implementation DemoPlaceholdCCell
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+                
+        self.contentView.backgroundColor = [UIColor colorWithHexString:@"#F3F3F3"];
+
+        UILabel * oneLabel = [UILabel new];
+        oneLabel.textAlignment = NSTextAlignmentCenter;
+        oneLabel.text = @"今日门票已经售罄";
+        oneLabel.textColor = [UIColor colorWithHexString:@"#666666"];
+        oneLabel.font = [UIFont boldSystemFontOfSize:20];
+        [self.contentView addSubview:oneLabel];
+        
+        [oneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.contentView);
+            make.left.equalTo(self.contentView).mas_offset(5);
+            make.right.equalTo(self.contentView).mas_offset(-5);
+        }];
+    }
+    return self;
+}
+@end
+
 @implementation DemoHeaderView
 
 - (instancetype)initWithFrame:(CGRect)frame
