@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,strong ,readonly) id<QLLiveModelEnvironment> environment;
 
 /// default zero
-@property (nonatomic ,assign) UIEdgeInsets insets;
+@property (nonatomic ,assign) UIEdgeInsets inset;
 @property (nonatomic ,assign ,readonly) CGFloat insetContainerWidth;
 
 @property (nonatomic ,assign) CGFloat lineSpacing;// default 5

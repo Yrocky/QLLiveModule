@@ -23,6 +23,7 @@
             self.layer.cornerRadius = att.cornerRadius;
             self.layer.masksToBounds = YES;
         }
+//        self.layer.contents = CFBridgingRelease([UIColor redColor].CGColor);
     }
 }
 

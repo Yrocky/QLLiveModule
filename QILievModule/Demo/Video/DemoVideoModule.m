@@ -41,14 +41,14 @@ static NSDictionary * videoData;
                      @"https://puui.qpic.cn/vcover_vt_pic/0/mzc00200iq4oevy1587546092886/350",
                      @"https://puui.qpic.cn/vcover_vt_pic/0/mzc00200vef064r1597137067757/350"],
             @"film":@[
-                    @"https://puui.qpic.cn/vcover_vt_pic/0/380idj4s3fxn1mz1543994759/220",
+                    @"https://puui.qpic.cn/vcover_vt_pic/0/c2seabnsfozypl81523522065/220",
                     @"https://puui.qpic.cn/vcover_vt_pic/0/e0bk8kf7wllv7r81595899463119/220",
-                    @"https://puui.qpic.cn/vcover_vt_pic/0/xg95sxi4q7zc4uot1460107848.jpg/220",
                     @"https://puui.qpic.cn/vcover_vt_pic/0/v2098lbuihuqs111587100715029/220",
                     @"https://puui.qpic.cn/vcover_vt_pic/0/f7pqur8uhmzltps1559809738/220",
                     @"https://puui.qpic.cn/vcover_vt_pic/0/r5trbf8xs5uwok11590989398026/220",
                     @"https://puui.qpic.cn/vcover_vt_pic/0/803p673mlosoeog1559758979/220",
-                    @"https://puui.qpic.cn/vcover_vt_pic/0/c2seabnsfozypl81523522065/220",
+                    @"https://puui.qpic.cn/vcover_vt_pic/0/xg95sxi4q7zc4uot1460107848.jpg/220",
+                    @"https://puui.qpic.cn/vcover_vt_pic/0/380idj4s3fxn1mz1543994759/220",
                     @"https://puui.qpic.cn/vcover_vt_pic/0/is7os79rewv1iuk1560166900/220"
             ],
             @"rank":@[
@@ -63,9 +63,9 @@ static NSDictionary * videoData;
                     @"守望者",
             ],
             @"video":@[
-                    @(170),@(80),@(190),@(100),
-                    @(110),@(200),@(130),
-                    @(40),@(150),@(60),
+                    @(170),@(180),@(190),@(160),
+                    @(210),@(220),@(230),
+                    @(195),@(175),@(165),
             ],
             @"number":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10"],
             @"company":@[@"google",@"facebook",@"youtube",@"amazon",@"apple",@"Microsoft",@"Alphabet",@"IBM"],

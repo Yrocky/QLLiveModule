@@ -13,5 +13,22 @@
 @end
 
 @interface DemoModule : QLLiveModule
+- (void) setupComponents:(NSDictionary *)data;
+@end
+
+@interface DemoFlexLayoutModule : DemoModule
 
 @end
+
+@interface DemoListLayoutModule : DemoModule
+
+@end
+
+@interface DemoWaterfallLayoutModule : DemoModule
+
+@end
+
+@interface DemoBackgroundDecorateModule : DemoModule
+
+@end
+

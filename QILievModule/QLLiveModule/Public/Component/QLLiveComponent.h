@@ -33,6 +33,19 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
     QLLiveComponentBackgroundDecorateAll,
 };
 
+@protocol QLLiveComponentBackgroundDecorateAble <NSObject>
+
+@property (nonatomic ,assign) QLLiveComponentBackgroundDecorateType type;
+
+@property (nonatomic ,assign) CGFloat radius;
+@property (nonatomic ,assign) UIEdgeInsets inset;
+
+// color/image/gradient
+@property (nonatomic ,strong) id contents;
+
+@property (nonatomic ,strong) UIColor * shadowColor;
+@property (nonatomic ,strong) UIColor * shadowOffset;
+@end
 
 @interface QLLiveComponent<__covariant Data> : NSObject{
     NSMutableArray<Data> *_innerDatas;
@@ -108,18 +121,9 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
 @end
 
 /// 背景修饰
-@interface QLLiveComponent (Background)
+@interface QLLiveComponent (BackgroundDecorate)
 
-@property (nonatomic ,assign) QLLiveComponentBackgroundDecorateType decorateType;
-
-@property (nonatomic ,assign) CGFloat backgroundDecorateRadius;
-@property (nonatomic ,assign) UIEdgeInsets backgroundDecorateInset;
-
-@property (nonatomic ,strong) UIColor * backgroundDecorateColor;
-@property (nonatomic ,strong) UIImage * backgroundDecorateImage;
-// todo
-// 图片
-// 渐变
-
+- (void) addBackgroundDecorate:(void(^)(id<QLLiveComponentBackgroundDecorateAble>builder))builder;
 @end
+
 NS_ASSUME_NONNULL_END

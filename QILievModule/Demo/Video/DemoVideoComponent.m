@@ -21,9 +21,8 @@
 {
     self = [super init];
     if (self) {
-        self.backgroundDecorateInset = UIEdgeInsetsMake(0, -10, 0, -10);
         QLLiveFlexLayout * layout = [QLLiveFlexLayout new];
-        layout.insets = UIEdgeInsetsMake(10, 10, 0, 10);
+        layout.inset = UIEdgeInsetsMake(10, 10, 0, 10);
         layout.itemHeight = 30;
         layout.delegate = self;
         _n3wLayout = layout;
@@ -62,7 +61,7 @@
     self = [super init];
     if (self) {
         QLLiveListLayout * layout = [QLLiveListLayout new];
-        layout.insets = UIEdgeInsetsMake(0, 10, 0, 10);
+        layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
         layout.distribution = [QLLiveLayoutDistribution distributionValue:3];
         layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:183.0/267.0];
         _n3wLayout = layout;
@@ -157,7 +156,7 @@
     self = [super init];
     if (self) {
         QLLiveWaterfallLayout * layout = [QLLiveWaterfallLayout new];
-        layout.insets = UIEdgeInsetsMake(5, 10, 0, 10);
+        layout.inset = UIEdgeInsetsMake(5, 10, 0, 10);
         layout.column = 2;
         layout.delegate = self;
         _n3wLayout = layout;
@@ -188,13 +187,15 @@
 {
     self = [super init];
     if (self) {
-        self.decorateType = QLLiveComponentBackgroundDecorateOnlyItem;
-        self.backgroundDecorateRadius = 4.0f;
-        self.backgroundDecorateColor = [UIColor colorWithHexString:@"f3f3f3"];
-//        self.backgroundDecorateInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        [self addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+            builder.radius = 4.0f;
+//            builder.contents = [UIColor colorWithHexString:@"f3f3f3"];
+            builder.inset = UIEdgeInsetsMake(0, 0, 0, 0);
+        }];
         QLLiveListLayout * layout = [QLLiveListLayout new];
         layout.lineSpacing = 0;
-        layout.insets = UIEdgeInsetsMake(0, 10, 0, 10);
+        layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
         layout.distribution = [QLLiveLayoutDistribution distributionValue:1];
         layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:44];
         _n3wLayout = layout;

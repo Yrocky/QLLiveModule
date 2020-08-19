@@ -16,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        _insets = UIEdgeInsetsZero;
+        _inset = UIEdgeInsetsZero;
         _itemSpacing = 5.0f;
         _lineSpacing = 5.0f;
     }
@@ -24,7 +24,7 @@
 }
 
 - (CGFloat)insetContainerWidth{
-    return [self.environment effectiveContentSizeWithInsets:self.insets].width;
+    return [self.environment effectiveContentSizeWithInsets:self.inset].width;
 }
 
 - (void) clear{

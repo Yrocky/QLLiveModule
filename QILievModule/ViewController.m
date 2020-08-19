@@ -11,34 +11,10 @@
 #import "UIColor+Common.h"
 #import "NSString+Common.h"
 
-static NSInteger temp_flag = 0;
-
 @interface ViewController ()
 @end
 
 @implementation ViewController
-@end
-
-@interface DemoBaseComponent : QLLiveComponent
-- (instancetype) initWithTitle:(NSString *)title;
-@end
-
-@interface DemoPlaceholdComponent : DemoBaseComponent<QLLiveFlexLayoutDelegate>
-@end
-
-@interface DemoFlexComponent : DemoBaseComponent<QLLiveFlexLayoutDelegate>
-- (void) setupFlexLayout:(QLLiveFlexLayout *)flexLayout;
-@end
-
-@interface DemoListComponent : DemoBaseComponent
-- (void) setupListLayout:(QLLiveListLayout *)listLayout;
-@end
-
-@interface DemoWaterfallComponent : DemoBaseComponent<QLLiveWaterfallLayoutDelegate>
-- (void) setupWaterfallLayout:(QLLiveWaterfallLayout *)waterfallLayout;
-@end
-
-@interface DemoBackgroundDecorateComponent : DemoBaseComponent
 @end
 
 @implementation DemoModule
@@ -131,6 +107,35 @@ static NSDictionary * demoData;
 //        }
 //        comp;
 //    })];
+}
+@end
+
+@interface DemoBaseComponent : QLLiveComponent
+- (instancetype) initWithTitle:(NSString *)title;
+@end
+
+@interface DemoPlaceholdComponent : DemoBaseComponent<QLLiveFlexLayoutDelegate>
+@end
+
+@interface DemoFlexComponent : DemoBaseComponent<QLLiveFlexLayoutDelegate>
+- (void) setupFlexLayout:(QLLiveFlexLayout *)flexLayout;
+@end
+
+@interface DemoListComponent : DemoBaseComponent
+- (void) setupListLayout:(QLLiveListLayout *)listLayout;
+@end
+
+@interface DemoWaterfallComponent : DemoBaseComponent<QLLiveWaterfallLayoutDelegate>
+- (void) setupWaterfallLayout:(QLLiveWaterfallLayout *)waterfallLayout;
+@end
+
+@interface DemoBackgroundDecorateComponent : DemoBaseComponent
+@end
+
+
+@implementation DemoFlexLayoutModule
+
+- (void)setupComponents:(NSDictionary *)data{
     
     [self.dataSource addComponent:({
         DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"QLLiveFlexLayout：flex-start"];
@@ -162,7 +167,7 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"flex"]];
         comp;
     })];
-
+    
     [self.dataSource addComponent:({
         DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"QLLiveFlexLayout：space-around"];
         [comp setupFlexLayout:({
@@ -173,7 +178,7 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"flex"]];
         comp;
     })];
-
+    
     [self.dataSource addComponent:({
         DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"QLLiveFlexLayout：space-between"];
         [comp setupFlexLayout:({
@@ -184,10 +189,10 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"flex"]];
         comp;
     })];
-
+    
     [self.dataSource addComponent:({
         DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"QLLiveFlexLayout：orthogonal scroll"];
-//        comp.arrange = QLLiveComponentArrangeHorizontal;
+        //        comp.arrange = QLLiveComponentArrangeHorizontal;
         [comp setupFlexLayout:({
             QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
             flexLayout.justifyContent = QLLiveFlexLayoutFlexStart;
@@ -196,12 +201,19 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"flex"]];
         comp;
     })];
+}
+@end
 
+@implementation DemoListLayoutModule
+
+- (void)setupComponents:(NSDictionary *)data{
+    
     [self.dataSource addComponent:({
         DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"QLLiveListLayout：table-view like"];
         [comp setupListLayout:({
             QLLiveListLayout * listLayout = [QLLiveListLayout new];
             listLayout.lineSpacing = 0.5f;
+            listLayout.inset = UIEdgeInsetsMake(10, 0, 10, 0);
             listLayout.distribution = [QLLiveLayoutDistribution distributionValue:1];
             listLayout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:44.0f];
             listLayout;
@@ -209,12 +221,12 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"music"]];
         comp;
     })];
-
+    
     [self.dataSource addComponent:({
         DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"QLLiveListLayout：collection-view like"];
         [comp setupListLayout:({
             QLLiveListLayout * listLayout = [QLLiveListLayout new];
-            listLayout.insets = UIEdgeInsetsMake(0, 10, 0, 10);
+            listLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
             listLayout.distribution = [QLLiveLayoutDistribution distributionValue:3];
             listLayout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
             listLayout;
@@ -222,10 +234,10 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"music"]];
         comp;
     })];
-
+    
     [self.dataSource addComponent:({
         DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"QLLiveListLayout：orthogonal scroll"];
-//        comp.arrange = QLLiveComponentArrangeHorizontal;
+        //        comp.arrange = QLLiveComponentArrangeHorizontal;
         [comp setupListLayout:({
             QLLiveListLayout * listLayout = [QLLiveListLayout new];
             listLayout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.55];
@@ -235,6 +247,14 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"music"]];
         comp;
     })];
+}
+
+@end
+
+@implementation DemoWaterfallLayoutModule
+
+- (void)setupComponents:(NSDictionary *)data{
+    
     [self.dataSource addComponent:({
         DemoWaterfallComponent * comp = [[DemoWaterfallComponent alloc] initWithTitle:@"QLLiveWaterfallLayout：shortest first"];
         [comp setupWaterfallLayout:({
@@ -270,7 +290,7 @@ static NSDictionary * demoData;
     })];
     [self.dataSource addComponent:({
         DemoWaterfallComponent * comp = [[DemoWaterfallComponent alloc] initWithTitle:@"QLLiveWaterfallLayout：orthogonal scroll"];
-//        comp.arrange = QLLiveComponentArrangeHorizontal;
+        //        comp.arrange = QLLiveComponentArrangeHorizontal;
         [comp setupWaterfallLayout:({
             QLLiveWaterfallLayout * waterfallLayout = [QLLiveWaterfallLayout new];
             waterfallLayout.column = 3;
@@ -280,35 +300,66 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"waterFlow"]];
         comp;
     })];
+}
+@end
+
+@implementation DemoBackgroundDecorateModule
+
+- (void)setupComponents:(NSDictionary *)data{
+    
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：only item"];
-        comp.decorateType = QLLiveComponentBackgroundDecorateOnlyItem;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+            builder.radius = 4.0f;
+        }];
         [comp addDatas:data[@"languages"]];
         comp;
     })];
     
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：contain header"];
-        comp.decorateType = QLLiveComponentBackgroundDecorateContainHeader;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateContainHeader;
+            builder.radius = 4.0f;
+        }];
         [comp addDatas:data[@"languages"]];
         comp;
     })];
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：all"];
-        comp.decorateType = QLLiveComponentBackgroundDecorateAll;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateAll;
+            builder.radius = 4.0f;
+        }];
         [comp addDatas:data[@"languages"]];
         comp;
     })];
     
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：contain footer"];
-        comp.decorateType = QLLiveComponentBackgroundDecorateContainFooter;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateContainFooter;
+            builder.radius = 4.0f;
+        }];
         [comp addDatas:data[@"languages"]];
         comp;
     })];
-    temp_flag ++;
+    [self.dataSource addComponent:({
+        DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：only item & insets"];
+        comp.n3wLayout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+            builder.radius = 4.0f;
+            builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
+            //            builder
+        }];
+        [comp addDatas:data[@"languages"]];
+        comp;
+    })];
 }
 @end
+
 
 @implementation DemoBaseComponent{
     NSString *_title;
@@ -317,14 +368,16 @@ static NSDictionary * demoData;
 - (instancetype) initWithTitle:(NSString *)title{
     self = [super init];
     if (self) {
-        self.decorateType = QLLiveComponentBackgroundDecorateNone;
         _title = title;
     }
     return self;
 }
 
 - (NSArray<NSString *> *)supportedElementKinds{
-    return @[UICollectionElementKindSectionHeader];
+    return @[
+        UICollectionElementKindSectionHeader,
+        UICollectionElementKindSectionFooter
+    ];
 }
 
 - (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind{
@@ -334,16 +387,24 @@ static NSDictionary * demoData;
         view.titleLabel.textColor = [UIColor redColor];
         [view setupHeaderTitle:[NSString stringWithFormat:@"%@",_title]];
         return view;
+    } else if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
+        DemoFooterView * footerView =
+        [self.dataSource dequeueReusableSupplementaryViewOfKind:elementKind forComponent:self clazz:DemoFooterView.class];
+        return footerView;
     }
     return nil;
 }
-
-- (CGSize) sizeForSupplementaryViewOfKind:(NSString *)elementKind{
-    if (elementKind == UICollectionElementKindSectionHeader) {
-        return CGSizeMake([UIScreen mainScreen].bounds.size.width, 45);
+- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind{
+    if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
+        return CGSizeMake(200, 30);
     }
-    return CGSizeZero;
+    return CGSizeMake(200, 45);
 }
+
+- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind{
+    return UIEdgeInsetsMake(0, 10, 0, 10);
+}
+
 @end
 
 @implementation DemoPlaceholdComponent
@@ -388,7 +449,7 @@ static NSDictionary * demoData;
 @implementation DemoFlexComponent
 
 - (void) setupFlexLayout:(QLLiveFlexLayout *)flexLayout{
-    flexLayout.insets = UIEdgeInsetsMake(0, 0, 0, 0);
+    flexLayout.inset = UIEdgeInsetsMake(10, 0, 10, 0);
     flexLayout.itemHeight = 30;
     flexLayout.delegate = self;
     _n3wLayout = flexLayout;
@@ -434,6 +495,7 @@ static NSDictionary * demoData;
 @implementation DemoWaterfallComponent
 
 - (void) setupWaterfallLayout:(QLLiveWaterfallLayout *)waterfallLayout{
+    waterfallLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
     waterfallLayout.delegate = self;
     _n3wLayout = waterfallLayout;
 }
@@ -461,10 +523,8 @@ static NSDictionary * demoData;
 - (instancetype)initWithTitle:(NSString *)title{
     self = [super initWithTitle:title];
     if (self) {
-        self.backgroundDecorateColor = [UIColor colorWithHexString:@"f3f3f3"];
-        self.backgroundDecorateRadius = 4.0f;
         QLLiveListLayout * listLayout = [QLLiveListLayout new];
-        listLayout.insets = UIEdgeInsetsMake(0, 10, 0, 10);
+        listLayout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
         listLayout.distribution = [QLLiveLayoutDistribution distributionValue:3];
         listLayout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:183.0/267.0];
         _n3wLayout = listLayout;
@@ -481,32 +541,32 @@ static NSDictionary * demoData;
     return ccell;
 }
 
-- (NSArray<NSString *> *)supportedElementKinds{
-    return @[
-        UICollectionElementKindSectionHeader,
-        UICollectionElementKindSectionFooter
-    ];
-}
-
-- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind{
-    if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
-        return [super viewForSupplementaryElementOfKind:elementKind];
-    } else if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
-        DemoFooterView * footerView =
-        [self.dataSource dequeueReusableSupplementaryViewOfKind:elementKind forComponent:self clazz:DemoFooterView.class];
-        return footerView;
-    }
-    return nil;
-}
-
-- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind{
-    if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
-        return CGSizeMake(200, 30);
-    }
-    return CGSizeMake(200, 50);
-}
-
-- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind{
-    return UIEdgeInsetsMake(0, 10, 0, 10);
-}
+//- (NSArray<NSString *> *)supportedElementKinds{
+//    return @[
+//        UICollectionElementKindSectionHeader,
+//        UICollectionElementKindSectionFooter
+//    ];
+//}
+//
+//- (__kindof UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind{
+//    if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+//        return [super viewForSupplementaryElementOfKind:elementKind];
+//    } else if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
+//        DemoFooterView * footerView =
+//        [self.dataSource dequeueReusableSupplementaryViewOfKind:elementKind forComponent:self clazz:DemoFooterView.class];
+//        return footerView;
+//    }
+//    return nil;
+//}
+//
+//- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind{
+//    if ([elementKind isEqualToString:UICollectionElementKindSectionFooter]) {
+//        return CGSizeMake(200, 30);
+//    }
+//    return CGSizeMake(200, 50);
+//}
+//
+//- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind{
+//    return UIEdgeInsetsMake(0, 10, 0, 10);
+//}
 @end

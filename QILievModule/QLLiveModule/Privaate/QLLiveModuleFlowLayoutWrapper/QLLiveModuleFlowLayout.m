@@ -8,6 +8,7 @@
 
 #import "QLLiveModuleFlowLayout.h"
 #import "QLLiveDecorateSectionLayoutAttributes.h"
+#import "QLLiveComponent_Private.h"
 
 @interface QLLiveModuleFlowLayout ()
 
@@ -79,7 +80,7 @@ static const NSInteger unionSize = 20;
         }
         
         QLLiveBaseLayout * layout = component.n3wLayout;
-        UIEdgeInsets sectionInset = layout.insets;
+        UIEdgeInsets sectionInset = layout.inset;
         
         NSArray * supportedKinds = [component supportedElementKinds];
         CGFloat headerHeight = 0.0f;
@@ -147,26 +148,23 @@ static const NSInteger unionSize = 20;
                 top = CGRectGetMaxY(attributes.frame) + footerInset.bottom;
             }
         }
-        top += sectionInset.bottom;
+//        top += sectionInset.bottom;
         
-        if (component.decorateType != QLLiveComponentBackgroundDecorateNone) {
+        QLLiveComponentBackgroundDecorateBuilder * builder = component.backgroundDecorateBuilder;
+        if (builder &&
+            builder.type != QLLiveComponentBackgroundDecorateNone) {
             CGFloat y = 0;
             if (self.sectionHeights.count) {
                 y = self.sectionHeights[self.sectionHeights.count - 1].floatValue;
             }
             CGFloat height = top - y;
-            if (component.decorateType == QLLiveComponentBackgroundDecorateOnlyItem) {
-                // y
+            if (builder.type == QLLiveComponentBackgroundDecorateOnlyItem) {
                 y += headerHeight;
-                // height
                 height -= (footerHeight + headerHeight);
-            } else if (component.decorateType == QLLiveComponentBackgroundDecorateContainHeader) {
-                // height
+            } else if (builder.type == QLLiveComponentBackgroundDecorateContainHeader) {
                 height -= footerHeight;
-            } else if (component.decorateType == QLLiveComponentBackgroundDecorateContainFooter) {
-                // y
+            } else if (builder.type == QLLiveComponentBackgroundDecorateContainFooter) {
                 y += headerHeight;
-                // height
                 height -= headerHeight;
             }
             
@@ -174,10 +172,10 @@ static const NSInteger unionSize = 20;
             [QLLiveDecorateSectionLayoutAttributes layoutAttributesForDecorationViewOfKind:@"QLLiveDecorateSectionView" withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
             attr.frame = [self calculatfDecorationViewFrame:sectionInset
                                                sectionFrame:CGRectMake(0, y, collectionViewWidth, height)
-                                              decorateInset:component.backgroundDecorateInset];
+                                              decorateInset:builder.inset];
             attr.zIndex = -1;
-            attr.backgroundColor = component.backgroundDecorateColor;
-            attr.cornerRadius = component.backgroundDecorateRadius;
+            attr.backgroundColor = [UIColor colorWithHexString:@"#8091a5"];
+            attr.cornerRadius = builder.radius;
             self.decorateViewAttributes[@(section)] = attr;
             [self.allItemAttributes addObject:attr];
         }

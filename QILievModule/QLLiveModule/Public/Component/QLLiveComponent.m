@@ -28,9 +28,7 @@
         layout.distribution = [QLLiveLayoutDistribution distributionValue:2];
         layout.lineSpacing = 5;
         layout.interitemSpacing = 5;
-        _layout = layout;
-        
-        self.decorateType = QLLiveComponentBackgroundDecorateNone;
+        _layout = layout;        
     }
     return self;
 }
@@ -176,6 +174,30 @@
 
 - (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind{
     return UIEdgeInsetsZero;
+}
+
+@end
+
+@implementation QLLiveComponentBackgroundDecorateBuilder
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.type = QLLiveComponentBackgroundDecorateNone;
+        self.inset = UIEdgeInsetsZero;
+    }
+    return self;
+}
+
+@end
+
+@implementation QLLiveComponent (BackgroundDecorate)
+
+- (void) addBackgroundDecorate:(void(^)(id<QLLiveComponentBackgroundDecorateAble>builder))builder{
+    self.backgroundDecorateBuilder = [QLLiveComponentBackgroundDecorateBuilder new];
+    if (builder) {
+        builder(self.backgroundDecorateBuilder);
+    }
 }
 
 @end

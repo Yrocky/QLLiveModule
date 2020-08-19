@@ -55,7 +55,7 @@
                                          result:result];
     }
     _maxY = self.minY + lineNumber * self.itemHeight +
-    (lineNumber - 1) * self.lineSpacing;
+    (lineNumber - 1) * self.lineSpacing + self.inset.bottom;
 }
 
 - (void) _calculatorFlexLayoutLineMaxWidth:(CGFloat)lineMaxWidth line:(NSMutableArray<NSValue *> *)line lineNumber:(NSInteger)lineNumber result:(NSMutableArray<NSValue *> *)result{
@@ -76,7 +76,7 @@
     } else if (self.justifyContent == QLLiveFlexLayoutSpaceAround){
         preItemX = (self.insetContainerWidth - totalItemsWidth) / (line.count + 1);
     }
-    preItemX += self.insets.left;
+    preItemX += self.inset.left;
     // 为line中的元素进行布局
     [line enumerateObjectsUsingBlock:^(NSValue * item, NSUInteger idx, BOOL * _Nonnull stop) {
         CGSize innerItemSize = item.CGSizeValue;
