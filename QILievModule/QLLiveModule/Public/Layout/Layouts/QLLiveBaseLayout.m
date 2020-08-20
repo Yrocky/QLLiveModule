@@ -16,6 +16,7 @@
 {
     self = [super init];
     if (self) {
+        _arrange = QLLiveLayoutArrangeVertical;
         _inset = UIEdgeInsetsZero;
         _itemSpacing = 5.0f;
         _lineSpacing = 5.0f;
@@ -57,6 +58,23 @@
 }
 
 - (void) calculatorLayoutWithDatas:(NSArray *)datas{
-    // override
+    
+    if (self.arrange == QLLiveLayoutArrangeHorizontal) {
+        [self calculatorHorizontalLayoutWithDatas:datas];
+    } else {
+        [self calculatorVerticalLayoutWithDatas:datas];
+    }
 }
+
+@end
+
+@implementation QLLiveBaseLayout (SubclassingOverride)
+
+- (void) calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
+    
+}
+- (void) calculatorVerticalLayoutWithDatas:(NSArray *)datas{
+    
+}
+
 @end

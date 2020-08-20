@@ -21,13 +21,7 @@ QLLiveComponentBackgroundDecorateAble>
 @property (nonatomic ,assign) UIEdgeInsets inset;
 
 // color/image/gradient
-@property (nonatomic ,strong) id contents;
-
-// shadow
-@property (nonatomic ,strong) UIColor * shadowColor;
-@property (nonatomic ,assign) float shadowOpacity;
-@property (nonatomic ,assign) CGSize shadowOffset;
-@property (nonatomic ,assign) CGFloat shadowRadius;
+@property (nonatomic ,strong) QLLiveComponentBackgroundDecorateContents * contents;
 
 @end
 

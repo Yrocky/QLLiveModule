@@ -48,7 +48,6 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
 
 @interface QLLiveComponent<__covariant Data> : NSObject{
     NSMutableArray<Data> *_innerDatas;
-//    QLLiveComponentLayout * _layout;
     __kindof QLLiveBaseLayout * _layout;
 }
 
@@ -68,7 +67,6 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
 @property (nonatomic ,assign ,readonly) BOOL isOrthogonallyScrolls;
 
 /// layout
-//@property (nonatomic ,strong ,readonly) QLLiveComponentLayout * layout;
 @property (nonatomic ,strong ,readonly) __kindof QLLiveBaseLayout * layout;
 
 @property (nonatomic ,assign) QLLiveComponentArrange arrange;

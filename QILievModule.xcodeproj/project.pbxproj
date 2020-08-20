@@ -20,7 +20,6 @@
 		3290921824E3C7E3006D60AB /* QLLiveWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921724E3C7E3006D60AB /* QLLiveWaterfallLayout.m */; };
 		3290921B24E3C7F5006D60AB /* QLLiveListLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921A24E3C7F5006D60AB /* QLLiveListLayout.m */; };
 		3290921E24E3C805006D60AB /* QLLiveGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921D24E3C805006D60AB /* QLLiveGridLayout.m */; };
-		3290922124E3C83B006D60AB /* QLLiveLayoutDescriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290922024E3C83B006D60AB /* QLLiveLayoutDescriber.m */; };
 		3290922524E3CD66006D60AB /* QLLiveBaseLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290922424E3CD66006D60AB /* QLLiveBaseLayout.m */; };
 		32DB563E24DFA63900AD669F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB563D24DFA63900AD669F /* AppDelegate.m */; };
 		32DB564424DFA63900AD669F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB564324DFA63900AD669F /* ViewController.m */; };
@@ -79,8 +78,6 @@
 		3290921A24E3C7F5006D60AB /* QLLiveListLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveListLayout.m; sourceTree = "<group>"; };
 		3290921C24E3C805006D60AB /* QLLiveGridLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveGridLayout.h; sourceTree = "<group>"; };
 		3290921D24E3C805006D60AB /* QLLiveGridLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveGridLayout.m; sourceTree = "<group>"; };
-		3290921F24E3C83A006D60AB /* QLLiveLayoutDescriber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveLayoutDescriber.h; sourceTree = "<group>"; };
-		3290922024E3C83B006D60AB /* QLLiveLayoutDescriber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveLayoutDescriber.m; sourceTree = "<group>"; };
 		3290922324E3CD66006D60AB /* QLLiveBaseLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveBaseLayout.h; sourceTree = "<group>"; };
 		3290922424E3CD66006D60AB /* QLLiveBaseLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveBaseLayout.m; sourceTree = "<group>"; };
 		32DB563924DFA63900AD669F /* QILievModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QILievModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -328,8 +325,6 @@
 			children = (
 				32DB568A24E1495600AD669F /* QLLiveComponentLayout.h */,
 				32DB568B24E1495600AD669F /* QLLiveComponentLayout.m */,
-				3290921F24E3C83A006D60AB /* QLLiveLayoutDescriber.h */,
-				3290922024E3C83B006D60AB /* QLLiveLayoutDescriber.m */,
 				3290922224E3CD0E006D60AB /* Layouts */,
 			);
 			path = Layout;
@@ -642,7 +637,6 @@
 				32DB56A824E1495600AD669F /* QLLiveModule.m in Sources */,
 				32DB566524DFA95900AD669F /* NSArray+Sugar.m in Sources */,
 				32DB565B24DFA7D200AD669F /* DemoCompositeListViewController.m in Sources */,
-				3290922124E3C83B006D60AB /* QLLiveLayoutDescriber.m in Sources */,
 				32DB56AD24E1495600AD669F /* QLOrthogonalScrollerEmbeddedScrollView.m in Sources */,
 				3290921B24E3C7F5006D60AB /* QLLiveListLayout.m in Sources */,
 				32DB56B824E15FFF00AD669F /* DemoVideoModule.m in Sources */,

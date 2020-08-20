@@ -198,10 +198,6 @@
     if (self) {
         self.type = QLLiveComponentBackgroundDecorateNone;
         self.inset = UIEdgeInsetsZero;
-        self.shadowColor = UIColor.clearColor;
-        self.shadowOffset = CGSizeZero;
-        self.shadowRadius = 0;
-        self.shadowOpacity = 0;
         self.contents = nil;
     }
     return self;

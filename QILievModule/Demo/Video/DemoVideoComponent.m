@@ -190,7 +190,9 @@
         [self addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
             builder.radius = 4.0f;
-//            builder.contents = [UIColor colorWithHexString:@"f3f3f3"];
+            builder.contents = ({
+                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"f3f3f3"]];
+            });
             builder.inset = UIEdgeInsetsMake(0, 0, 0, 0);
         }];
         QLLiveListLayout * layout = [QLLiveListLayout new];

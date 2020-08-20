@@ -213,7 +213,7 @@ static NSDictionary * demoData;
         [comp setupListLayout:({
             QLLiveListLayout * listLayout = [QLLiveListLayout new];
             listLayout.lineSpacing = 0.5f;
-            listLayout.inset = UIEdgeInsetsMake(10, 0, 10, 0);
+            listLayout.inset = UIEdgeInsetsMake(0, 0, 0, 0);
             listLayout.distribution = [QLLiveLayoutDistribution distributionValue:1];
             listLayout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:44.0f];
             listLayout;
@@ -226,7 +226,7 @@ static NSDictionary * demoData;
         DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"QLLiveListLayout：collection-view like"];
         [comp setupListLayout:({
             QLLiveListLayout * listLayout = [QLLiveListLayout new];
-            listLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
+            listLayout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
             listLayout.distribution = [QLLiveLayoutDistribution distributionValue:3];
             listLayout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
             listLayout;
@@ -567,7 +567,7 @@ static NSDictionary * demoData;
 @implementation DemoFlexComponent
 
 - (void) setupFlexLayout:(QLLiveFlexLayout *)flexLayout{
-    flexLayout.inset = UIEdgeInsetsMake(10, 0, 10, 0);
+    flexLayout.inset = UIEdgeInsetsMake(0, 0, 0, 0);
     flexLayout.itemHeight = 30;
     flexLayout.delegate = self;
     _layout = flexLayout;
@@ -582,6 +582,9 @@ static NSDictionary * demoData;
     return ccell;
 }
 
+- (NSArray<NSString *> *)supportedElementKinds{
+    return @[UICollectionElementKindSectionHeader];
+}
 #pragma mark - QLLiveFlexLayoutDelegate
 
 - (CGSize)layoutCustomItemSize:(QLLiveFlexLayout *)layout atIndex:(NSInteger)index{
@@ -608,12 +611,15 @@ static NSDictionary * demoData;
     [ccell setupWithData:[self dataAtIndex:index]];
     return ccell;
 }
+- (NSArray<NSString *> *)supportedElementKinds{
+    return @[UICollectionElementKindSectionHeader];
+}
 @end
 
 @implementation DemoWaterfallComponent
 
 - (void) setupWaterfallLayout:(QLLiveWaterfallLayout *)waterfallLayout{
-    waterfallLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
+    waterfallLayout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
     waterfallLayout.delegate = self;
     _layout = waterfallLayout;
 }
@@ -626,7 +632,9 @@ static NSDictionary * demoData;
     [ccell setupWithData:[NSString stringWithFormat:@"%d %@",index,[self dataAtIndex:index]]];
     return ccell;
 }
-
+- (NSArray<NSString *> *)supportedElementKinds{
+    return @[UICollectionElementKindSectionHeader];
+}
 #pragma mark - QLLiveWaterfallLayoutDelegate
 
 - (CGSize)layoutCustomItemSize:(QLLiveWaterfallLayout *)layout atIndex:(NSInteger)index{

@@ -10,8 +10,28 @@
 
 @implementation QLLiveFlexLayout
 
-- (void)calculatorLayoutWithDatas:(NSArray *)datas{
+- (CGFloat)horizontalArrangeContentHeight{
+    return self.itemHeight;
+}
 
+- (QLLiveFlexLayoutGravity)justifyContent{
+    if (self.arrange == QLLiveLayoutArrangeHorizontal) {
+        return QLLiveFlexLayoutFlexStart;
+    }
+    return _justifyContent;
+}
+
+#pragma mark - calculator Horizontal
+
+- (void) calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
+    
+}
+
+
+#pragma mark - calculator Vertical
+
+- (void) calculatorVerticalLayoutWithDatas:(NSArray *)datas{
+    
     CGFloat maxWidth = 0.0f;
     NSMutableArray<NSValue *> * result = [NSMutableArray new];
 

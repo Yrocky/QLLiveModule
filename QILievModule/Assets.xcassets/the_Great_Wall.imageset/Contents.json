@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "the_Great_Wall.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "the_Great_Wall@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

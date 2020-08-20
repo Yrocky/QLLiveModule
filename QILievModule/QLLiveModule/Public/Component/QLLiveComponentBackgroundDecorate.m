@@ -11,6 +11,18 @@
 
 @implementation QLLiveComponentBackgroundDecorateContents
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.shadowColor = UIColor.clearColor;
+        self.shadowOffset = CGSizeZero;
+        self.shadowRadius = 0;
+        self.shadowOpacity = 0;
+    }
+    return self;
+}
+
 + (instancetype)colorContents:(UIColor *)color{
     QLLiveComponentBackgroundDecorateContents * mine = [self new];
     mine.color = color;

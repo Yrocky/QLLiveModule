@@ -10,21 +10,17 @@
 
 @interface QLLiveWaterfallLayout ()
 @property (nonatomic ,strong) NSMutableArray * columnHeights;
+@property (nonatomic ,strong) NSMutableArray * columnWidths;
 @end
 
 @implementation QLLiveWaterfallLayout
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.columnHeights = [NSMutableArray new];
-    }
-    return self;
-}
-
 - (CGFloat)itemWidth{
     return (self.insetContainerWidth - (self.column - 1) * self.itemSpacing) / self.column;
+}
+
+- (CGFloat)itemHeight{
+    return (self.horizontalArrangeContentHeight - (self.column - 1) * self.itemSpacing) / self.column;
 }
 #pragma mark - override
 
@@ -33,7 +29,12 @@
     [self.columnHeights removeAllObjects];
 }
 
-- (void)calculatorLayoutWithDatas:(NSArray *)datas{
+#pragma mark - calculator Horizontal
+
+
+#pragma mark - calculator Vertical
+
+- (void) calculatorVerticalLayoutWithDatas:(NSArray *)datas{
     
     // 初始化每一列的最大值
     for (NSInteger index = 0; index < self.column; index ++) {
@@ -101,4 +102,12 @@
     return longestHeight;
 }
 
+#pragma mark - Getter
+- (NSMutableArray *)columnHeights{
+    
+    if (!_columnHeights) {
+        _columnHeights = [NSMutableArray new];
+    }
+    return _columnHeights;;
+}
 @end
