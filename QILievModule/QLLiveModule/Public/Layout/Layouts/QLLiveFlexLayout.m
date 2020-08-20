@@ -25,8 +25,26 @@
 
 - (void) calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
     
+    _contentWidth = self.inset.left;
+    for (NSInteger index = 0; index < datas.count; index ++) {
+        CGFloat itemWidth = 0.0f;
+        if ([self.delegate respondsToSelector:@selector(layoutCustomItemSize:atIndex:)]) {
+            itemWidth = [self.delegate layoutCustomItemSize:self atIndex:index].width;
+        }
+        CGSize itemSize = (CGSize){
+            itemWidth,self.itemHeight
+        };
+        CGRect frame = (CGRect){
+            _contentWidth,
+            self.inset.top,
+            itemSize
+        };
+        [self cacheItemFrame:frame at:index];
+        _contentWidth += (itemWidth + self.itemSpacing);
+        NSLog(@"[cal] itemSize:%@",NSStringFromCGSize(itemSize));
+    }
+    _contentWidth -= self.itemSpacing;
 }
-
 
 #pragma mark - calculator Vertical
 
@@ -74,7 +92,7 @@
                                      lineNumber:lineNumber
                                          result:result];
     }
-    _maxY = self.minY + lineNumber * self.itemHeight +
+    _contentHeight = lineNumber * self.itemHeight +
     (lineNumber - 1) * self.lineSpacing + self.inset.bottom;
 }
 
@@ -114,7 +132,7 @@
             x = preItemX;
             preItemX += (innerItemSize.width + totalSpacing / (line.count + 1));
         }
-        y = (lineNumber - 1) * (innerItemSize.height + self.lineSpacing) + self.minY;
+        y = (lineNumber - 1) * (innerItemSize.height + self.lineSpacing);
         CGRect frame = (CGRect){
             CGPointMake(x, y), innerItemSize
         };

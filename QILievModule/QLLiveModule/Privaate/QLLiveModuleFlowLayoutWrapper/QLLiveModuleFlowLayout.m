@@ -124,7 +124,7 @@ static const NSInteger unionSize = 20;
         }
         [self.sectionItemAttributes addObject:itemAttributes];
         //
-        top += layout.maxY;
+        top += layout.contentHeight;
         
         // footer
         CGFloat footerHeight = 0.0f;

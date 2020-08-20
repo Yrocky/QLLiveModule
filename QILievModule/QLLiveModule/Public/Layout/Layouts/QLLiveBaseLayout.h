@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, QLLiveLayoutArrange) {
     NSMutableDictionary * _cacheItemFrame;
     /// 减去insets的left、right之后的宽度
     CGFloat _insetContainerWidth;
-    CGFloat _maxY;
+    CGFloat _contentWidth;
+    CGFloat _contentHeight;
 }
 
 @property (nonatomic ,strong ,readonly) id<QLLiveModelEnvironment> environment;
@@ -34,9 +35,14 @@ typedef NS_ENUM(NSInteger, QLLiveLayoutArrange) {
 
 @property (nonatomic ,assign) CGFloat lineSpacing;// default 5
 @property (nonatomic ,assign) CGFloat itemSpacing;// default 5
-
-@property (nonatomic ,assign) CGFloat minY;// default 0.0f
-@property (nonatomic ,assign ,readonly) CGFloat maxY;// default 0.0f
+/*
+ 经过计算之后的内容宽度，仅用于 arrange = QLLiveLayoutArrangeHorizontal
+ */
+@property (nonatomic ,assign ,readonly) CGFloat contentWidth;
+/*
+ 经过计算之后的内容高度，仅用于 arrange = QLLiveLayoutArrangeVertical
+ */
+@property (nonatomic ,assign ,readonly) CGFloat contentHeight;
 
 /*
  layout的布局方向，默认为 QLLiveLayoutArrangeVertical 垂直

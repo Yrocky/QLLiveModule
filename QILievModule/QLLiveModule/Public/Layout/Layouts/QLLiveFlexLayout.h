@@ -20,7 +20,6 @@ typedef NS_ENUM(NSInteger, QLLiveFlexLayoutGravity) {
 
 @protocol QLLiveFlexLayoutDelegate;
 @interface QLLiveFlexLayout : QLLiveBaseLayout
-
 /*
  如果是水平布局，horizontalArrangeHeight 的值将等于 itemHeight
  设置 horizontalArrangeContentHeight 无效

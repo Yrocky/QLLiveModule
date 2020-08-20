@@ -31,6 +31,9 @@
 
 #pragma mark - calculator Horizontal
 
+- (void)calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
+    
+}
 
 #pragma mark - calculator Vertical
 
@@ -59,7 +62,7 @@
         [self cacheItemFrame:frame at:index];
         [result addObject:[NSValue valueWithCGRect:frame]];
     }
-    _maxY = [self _longestColumnHeight] - self.lineSpacing + self.inset.bottom;
+    _contentHeight = [self _longestColumnHeight] - self.lineSpacing + self.inset.bottom;
 }
 
 #pragma mark - private

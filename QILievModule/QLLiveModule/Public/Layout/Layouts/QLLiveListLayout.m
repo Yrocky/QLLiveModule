@@ -38,6 +38,10 @@ typedef NS_ENUM(NSUInteger, QLLiveLayoutSemantic) {
 
 #pragma mark - calculator Horizontal
 
+- (void)calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
+    
+}
+
 #pragma mark - calculator Vertical
 
 - (void) calculatorVerticalLayoutWithDatas:(NSArray *)datas{
@@ -79,9 +83,9 @@ typedef NS_ENUM(NSUInteger, QLLiveLayoutSemantic) {
             maxX = self.inset.left;
             maxY += (height + self.lineSpacing);
         }
-        _maxY = CGRectGetMaxY(frame);
+        _contentHeight = CGRectGetMaxY(frame);
     }
-    _maxY += self.inset.bottom;
+    _contentHeight += self.inset.bottom;
 }
 
 @end
