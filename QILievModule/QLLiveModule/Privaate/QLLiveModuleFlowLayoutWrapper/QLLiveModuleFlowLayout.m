@@ -79,7 +79,7 @@ static const NSInteger unionSize = 20;
             component = [self.delegate collectionView:self.collectionView layout:self componentAtSection:section];
         }
         
-        QLLiveBaseLayout * layout = component.n3wLayout;
+        QLLiveBaseLayout * layout = component.layout;
         UIEdgeInsets sectionInset = layout.inset;
         
         NSArray * supportedKinds = [component supportedElementKinds];
@@ -174,8 +174,8 @@ static const NSInteger unionSize = 20;
                                                sectionFrame:CGRectMake(0, y, collectionViewWidth, height)
                                               decorateInset:builder.inset];
             attr.zIndex = -1;
+            attr.builder = builder;
             attr.backgroundColor = [UIColor colorWithHexString:@"#8091a5"];
-            attr.cornerRadius = builder.radius;
             self.decorateViewAttributes[@(section)] = attr;
             [self.allItemAttributes addObject:attr];
         }

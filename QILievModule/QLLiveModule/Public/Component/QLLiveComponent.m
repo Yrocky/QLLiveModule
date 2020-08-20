@@ -23,20 +23,22 @@
         _innerDatas = [NSMutableArray new];
         
         // default layout
-        QLLiveComponentLayout * layout = [QLLiveComponentLayout new];
-        layout.insets = UIEdgeInsetsMake(0, 6, 0, 6);
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:2];
-        layout.lineSpacing = 5;
-        layout.interitemSpacing = 5;
-        _layout = layout;        
+//        QLLiveComponentLayout * layout = [QLLiveComponentLayout new];
+//        layout.insets = UIEdgeInsetsMake(0, 6, 0, 6);
+//        layout.distribution = [QLLiveLayoutDistribution distributionValue:2];
+//        layout.lineSpacing = 5;
+//        layout.interitemSpacing = 5;
+//        _layout = layout;
+        
+        self.backgroundDecorateBuilder = nil;
     }
     return self;
 }
 
 - (void)setEnvironment:(id<QLLiveModelEnvironment>)environment{
     _environment = environment;
+//    self.layout.environment = environment;
     self.layout.environment = environment;
-    self.n3wLayout.environment = environment;
 }
 
 - (void) addData:(id)data{
@@ -101,8 +103,8 @@
 
 - (void)clear{
     // 清除布局缓存
+//    [self.layout clear];
     [self.layout clear];
-    [self.n3wLayout clear];
     @synchronized (_innerDatas) {
         [_innerDatas removeAllObjects];
     }
@@ -137,7 +139,7 @@
 }
 
 - (void)calculatorLayout{
-    [self.n3wLayout calculatorLayoutWithDatas:_innerDatas];
+    [self.layout calculatorLayoutWithDatas:_innerDatas];
 }
 
 @end
@@ -178,19 +180,6 @@
 
 @end
 
-@implementation QLLiveComponentBackgroundDecorateBuilder
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.type = QLLiveComponentBackgroundDecorateNone;
-        self.inset = UIEdgeInsetsZero;
-    }
-    return self;
-}
-
-@end
-
 @implementation QLLiveComponent (BackgroundDecorate)
 
 - (void) addBackgroundDecorate:(void(^)(id<QLLiveComponentBackgroundDecorateAble>builder))builder{
@@ -201,3 +190,22 @@
 }
 
 @end
+
+@implementation QLLiveComponentBackgroundDecorateBuilder
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.type = QLLiveComponentBackgroundDecorateNone;
+        self.inset = UIEdgeInsetsZero;
+        self.shadowColor = UIColor.clearColor;
+        self.shadowOffset = CGSizeZero;
+        self.shadowRadius = 0;
+        self.shadowOpacity = 0;
+        self.contents = nil;
+    }
+    return self;
+}
+
+@end
+

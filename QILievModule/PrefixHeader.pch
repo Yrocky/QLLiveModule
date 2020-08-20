@@ -18,6 +18,7 @@
 #import "NSArray+Sugar.h"
 #import "UIColor+Common.h"
 #import "NSString+Common.h"
+#import "UIImage+Common.h"
 #import "DemoContentCCell.h"
 
 #define weakify(...) autoreleasepool {} __attribute__((objc_ownership(weak))) __typeof__(self) self_weak_ = (self);

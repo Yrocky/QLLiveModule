@@ -114,6 +114,8 @@
     _nameLabel.text = [NSString stringWithFormat:@"%@",name];
     
     _sepLineView.hidden = !showSepLine;
+    
+//    self.layer.shadowColor
 }
 
 @end

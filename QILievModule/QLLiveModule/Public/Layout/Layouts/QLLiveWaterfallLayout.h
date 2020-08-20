@@ -23,6 +23,8 @@ typedef NS_ENUM (NSUInteger, QLLiveWaterfallItemRenderDirection) {
 @property (nonatomic ,assign) QLLiveWaterfallItemRenderDirection renderDirection;
 
 @property (nonatomic ,weak) id<QLLiveWaterfallLayoutDelegate> delegate;
+
+@property (nonatomic ,assign ,readonly) CGFloat itemWidth;
 @end
 
 @protocol QLLiveWaterfallLayoutDelegate <NSObject>

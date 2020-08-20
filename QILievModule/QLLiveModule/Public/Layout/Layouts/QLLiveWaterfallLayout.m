@@ -23,6 +23,9 @@
     return self;
 }
 
+- (CGFloat)itemWidth{
+    return (self.insetContainerWidth - (self.column - 1) * self.itemSpacing) / self.column;
+}
 #pragma mark - override
 
 - (void)clear{

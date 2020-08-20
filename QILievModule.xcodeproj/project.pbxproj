@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		085A806A856DB764E7A59007 /* Pods_QILievModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */; };
+		3210653024EE4D2900C8FCB1 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */; };
+		3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m */; };
 		32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */; };
 		32644D1024EB6EEC002078D2 /* DemoVideoCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0F24EB6EEC002078D2 /* DemoVideoCCell.m */; };
 		32644D1424EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D1324EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m */; };
+		32644D1724ECE9DC002078D2 /* DemoSearchComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D1624ECE9DC002078D2 /* DemoSearchComponent.m */; };
+		32644D1924ECEEF3002078D2 /* huaban.json in Resources */ = {isa = PBXBuildFile; fileRef = 32644D1824ECEEF3002078D2 /* huaban.json */; };
+		32644D1D24ECEF47002078D2 /* DemoHuabanModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D1C24ECEF47002078D2 /* DemoHuabanModule.m */; };
 		3290921524E3C7C1006D60AB /* QLLiveFlexLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921424E3C7C0006D60AB /* QLLiveFlexLayout.m */; };
 		3290921824E3C7E3006D60AB /* QLLiveWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921724E3C7E3006D60AB /* QLLiveWaterfallLayout.m */; };
 		3290921B24E3C7F5006D60AB /* QLLiveListLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921A24E3C7F5006D60AB /* QLLiveListLayout.m */; };
@@ -50,6 +55,10 @@
 
 /* Begin PBXFileReference section */
 		1AA14438CEA24C750502FBCD /* Pods-QILievModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QILievModule.release.xcconfig"; path = "Target Support Files/Pods-QILievModule/Pods-QILievModule.release.xcconfig"; sourceTree = "<group>"; };
+		3210652E24EE4D2900C8FCB1 /* UIImage+Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
+		3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
+		3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveComponentBackgroundDecorate.h; sourceTree = "<group>"; };
+		3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveComponentBackgroundDecorate.m; sourceTree = "<group>"; };
 		32644D0B24EB6A80002078D2 /* DemoVideoComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoVideoComponent.h; sourceTree = "<group>"; };
 		32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoVideoComponent.m; sourceTree = "<group>"; };
 		32644D0E24EB6EEC002078D2 /* DemoVideoCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoVideoCCell.h; sourceTree = "<group>"; };
@@ -57,6 +66,11 @@
 		32644D1124EB719F002078D2 /* QLLiveBaseLayout_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveBaseLayout_Private.h; sourceTree = "<group>"; };
 		32644D1224EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveDecorateSectionLayoutAttributes.h; sourceTree = "<group>"; };
 		32644D1324EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveDecorateSectionLayoutAttributes.m; sourceTree = "<group>"; };
+		32644D1524ECE9DC002078D2 /* DemoSearchComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoSearchComponent.h; sourceTree = "<group>"; };
+		32644D1624ECE9DC002078D2 /* DemoSearchComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoSearchComponent.m; sourceTree = "<group>"; };
+		32644D1824ECEEF3002078D2 /* huaban.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = huaban.json; sourceTree = "<group>"; };
+		32644D1B24ECEF47002078D2 /* DemoHuabanModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoHuabanModule.h; sourceTree = "<group>"; };
+		32644D1C24ECEF47002078D2 /* DemoHuabanModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoHuabanModule.m; sourceTree = "<group>"; };
 		3290921324E3C7C0006D60AB /* QLLiveFlexLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveFlexLayout.h; sourceTree = "<group>"; };
 		3290921424E3C7C0006D60AB /* QLLiveFlexLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveFlexLayout.m; sourceTree = "<group>"; };
 		3290921624E3C7E3006D60AB /* QLLiveWaterfallLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveWaterfallLayout.h; sourceTree = "<group>"; };
@@ -157,6 +171,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		32644D1A24ECEF1D002078D2 /* Huaban */ = {
+			isa = PBXGroup;
+			children = (
+				32644D1B24ECEF47002078D2 /* DemoHuabanModule.h */,
+				32644D1C24ECEF47002078D2 /* DemoHuabanModule.m */,
+			);
+			path = Huaban;
+			sourceTree = "<group>";
+		};
 		3290922224E3CD0E006D60AB /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +226,7 @@
 				32DB565C24DFA7E800AD669F /* Ease */,
 				32DB568324E1495600AD669F /* QLLiveModule */,
 				32DB564824DFA63D00AD669F /* Assets.xcassets */,
+				32644D1824ECEEF3002078D2 /* huaban.json */,
 				32DB567A24DFAD9E00AD669F /* PrefixHeader.pch */,
 				32DB564A24DFA63D00AD669F /* LaunchScreen.storyboard */,
 				32DB564D24DFA63D00AD669F /* Info.plist */,
@@ -219,7 +243,8 @@
 				32DB56BC24E1601E00AD669F /* Search */,
 				32DB56C024E1603B00AD669F /* Living */,
 				32DB56C424E1605400AD669F /* Shopping */,
-				32DB56C824E1607200AD669F /* DemoMusicModule */,
+				32644D1A24ECEF1D002078D2 /* Huaban */,
+				32DB56C824E1607200AD669F /* Music */,
 				32DB56CC24E166E400AD669F /* Mine */,
 				32DB56D924E2417D00AD669F /* Resume */,
 			);
@@ -245,6 +270,8 @@
 				32DB566724DFA98300AD669F /* NSObject+EaseRuntime.m */,
 				32DB56CD24E171B700AD669F /* UIColor+Common.h */,
 				32DB56CE24E171B700AD669F /* UIColor+Common.m */,
+				3210652E24EE4D2900C8FCB1 /* UIImage+Common.h */,
+				3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */,
 				32DB566424DFA95900AD669F /* NSArray+Sugar.h */,
 				32DB566324DFA95900AD669F /* NSArray+Sugar.m */,
 				32DB56D024E1727800AD669F /* NSString+Common.h */,
@@ -322,6 +349,8 @@
 			children = (
 				32DB569024E1495600AD669F /* QLLiveComponent.h */,
 				32DB569124E1495600AD669F /* QLLiveComponent.m */,
+				3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorate.h */,
+				3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -406,6 +435,8 @@
 			children = (
 				32DB56B924E1601200AD669F /* DemoSearchModule.h */,
 				32DB56BA24E1601200AD669F /* DemoSearchModule.m */,
+				32644D1524ECE9DC002078D2 /* DemoSearchComponent.h */,
+				32644D1624ECE9DC002078D2 /* DemoSearchComponent.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -428,13 +459,13 @@
 			path = Shopping;
 			sourceTree = "<group>";
 		};
-		32DB56C824E1607200AD669F /* DemoMusicModule */ = {
+		32DB56C824E1607200AD669F /* Music */ = {
 			isa = PBXGroup;
 			children = (
 				32DB56C524E1606500AD669F /* DemoMusicModule.h */,
 				32DB56C624E1606500AD669F /* DemoMusicModule.m */,
 			);
-			path = DemoMusicModule;
+			path = Music;
 			sourceTree = "<group>";
 		};
 		32DB56CC24E166E400AD669F /* Mine */ = {
@@ -524,6 +555,7 @@
 			files = (
 				32DB564C24DFA63D00AD669F /* LaunchScreen.storyboard in Resources */,
 				32DB564924DFA63D00AD669F /* Assets.xcassets in Resources */,
+				32644D1924ECEEF3002078D2 /* huaban.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,9 +620,12 @@
 				32DB56D824E2417700AD669F /* DemoResumeModule.m in Sources */,
 				32DB566224DFA91B00AD669F /* EaseAlertController.m in Sources */,
 				32DB563E24DFA63900AD669F /* AppDelegate.m in Sources */,
+				3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m in Sources */,
 				32DB565F24DFA82800AD669F /* EaseRefreshProxy.m in Sources */,
 				32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */,
 				32DB56BF24E1603000AD669F /* DemoLivingModule.m in Sources */,
+				32644D1D24ECEF47002078D2 /* DemoHuabanModule.m in Sources */,
+				32644D1724ECE9DC002078D2 /* DemoSearchComponent.m in Sources */,
 				32DB56A724E1495600AD669F /* QLLiveComponentLayout.m in Sources */,
 				32DB564F24DFA63D00AD669F /* main.m in Sources */,
 				32DB56AA24E1495600AD669F /* QLLiveModuleFlowLayout.m in Sources */,
@@ -599,6 +634,7 @@
 				32644D1424EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m in Sources */,
 				32DB56BB24E1601200AD669F /* DemoSearchModule.m in Sources */,
 				3290921524E3C7C1006D60AB /* QLLiveFlexLayout.m in Sources */,
+				3210653024EE4D2900C8FCB1 /* UIImage+Common.m in Sources */,
 				32DB56A924E1495600AD669F /* QLLiveComponent.m in Sources */,
 				32DB56C724E1606500AD669F /* DemoMusicModule.m in Sources */,
 				3290922524E3CD66006D60AB /* QLLiveBaseLayout.m in Sources */,

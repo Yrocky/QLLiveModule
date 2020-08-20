@@ -10,6 +10,7 @@
 #import "QLLiveComponentLayout.h"
 #import "QLLiveModuleDataSourceAble.h"
 #import "QLLiveBaseLayout.h"
+#import "QLLiveComponentBackgroundDecorate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,16 +42,20 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
 @property (nonatomic ,assign) UIEdgeInsets inset;
 
 // color/image/gradient
-@property (nonatomic ,strong) id contents;
+@property (nonatomic ,strong) QLLiveComponentBackgroundDecorateContents * contents;
 
+// shadow
 @property (nonatomic ,strong) UIColor * shadowColor;
-@property (nonatomic ,strong) UIColor * shadowOffset;
+@property (nonatomic ,assign) float shadowOpacity;
+@property (nonatomic ,assign) CGSize shadowOffset;
+@property (nonatomic ,assign) CGFloat shadowRadius;
+
 @end
 
 @interface QLLiveComponent<__covariant Data> : NSObject{
     NSMutableArray<Data> *_innerDatas;
-    QLLiveComponentLayout * _layout;
-    __kindof QLLiveBaseLayout * _n3wLayout;
+//    QLLiveComponentLayout * _layout;
+    __kindof QLLiveBaseLayout * _layout;
 }
 
 @property (nonatomic, weak, readonly) id<QLLiveModuleDataSourceAble> dataSource;
@@ -69,8 +74,8 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
 @property (nonatomic ,assign ,readonly) BOOL isOrthogonallyScrolls;
 
 /// layout
-@property (nonatomic ,strong ,readonly) QLLiveComponentLayout * layout;
-@property (nonatomic ,strong ,readonly) __kindof QLLiveBaseLayout * n3wLayout;
+//@property (nonatomic ,strong ,readonly) QLLiveComponentLayout * layout;
+@property (nonatomic ,strong ,readonly) __kindof QLLiveBaseLayout * layout;
 
 @property (nonatomic ,assign) QLLiveComponentArrange arrange;
 /// headerView是否要黏性

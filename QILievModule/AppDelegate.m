@@ -15,6 +15,7 @@
 #import "DemoMusicModule.h"
 #import "DemoMineModule.h"
 #import "DemoResumeModule.h"
+#import "DemoHuabanModule.h"
 
 @interface AppDelegate ()
 
@@ -45,6 +46,9 @@
         })];
         [module addModule:({
             [[DemoVideoModule alloc] initWithName:@"视频app"];
+        })];
+        [module addModule:({
+            [[DemoHuabanModule alloc] initWithName:@"花瓣app"];
         })];
         [module addModule:({
             [[DemoSearchModule alloc] initWithName:@"搜索界面"];

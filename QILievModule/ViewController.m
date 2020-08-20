@@ -308,20 +308,87 @@ static NSDictionary * demoData;
 - (void)setupComponents:(NSDictionary *)data{
     
     [self.dataSource addComponent:({
-        DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：only item"];
+        DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：image"];
+        comp.layout.inset = UIEdgeInsetsMake(100, 20, 10, 20);
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+            builder.radius = 10.0f;
+            builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
+            builder.contents = ({
+                QLLiveComponentBackgroundDecorateContents * contents =
+                [QLLiveComponentBackgroundDecorateContents imageContents:[UIImage imageNamed:@"forbid"]];
+                contents;
+            });
+        }];
+        [comp addDatas:data[@"languages"]];
+        comp;
+    })];
+    [self.dataSource addComponent:({
+        DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：image"];
+        comp.layout.inset = UIEdgeInsetsMake(10, 20, 130, 20);
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+            builder.radius = 10.0f;
+            builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
+            builder.contents = ({
+                QLLiveComponentBackgroundDecorateContents * contents =
+                [QLLiveComponentBackgroundDecorateContents imageContents:[UIImage imageNamed:@"the_Great_Wall"]];
+                contents;
+            });
+        }];
+        [comp addDatas:data[@"languages"]];
+        comp;
+    })];
+    [self.dataSource addComponent:({
+        DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：gradient"];
+        comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
         [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
             builder.radius = 4.0f;
+            builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
+            builder.contents = ({
+                QLLiveComponentBackgroundDecorateContents * contents =
+                [QLLiveComponentBackgroundDecorateContents gradientContents:^(id<QLLiveComponentBackgroundDecorateGradientContentsAble>  _Nonnull contents) {
+                    contents.startPoint = CGPointMake(0.5, 0);
+                    contents.endPoint = CGPointMake(0.5, 1);
+                    contents.colors = @[
+                        [UIColor colorWithHexString:@"#FF9E5C"],
+                        [UIColor colorWithHexString:@"#FF659F"]
+                    ];
+                    contents.locations = @[@(0), @(1.0f)];
+                }];
+                contents;
+            });
         }];
         [comp addDatas:data[@"languages"]];
         comp;
     })];
     
     [self.dataSource addComponent:({
+        DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：only item"];
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+            builder.radius = 4.0f;
+            builder.contents = ({
+                QLLiveComponentBackgroundDecorateContents * contents =
+                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                contents;
+            });
+        }];
+        [comp addDatas:data[@"languages"]];
+        comp;
+    })];
+
+    [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：contain header"];
         [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateContainHeader;
             builder.radius = 4.0f;
+            builder.contents = ({
+                QLLiveComponentBackgroundDecorateContents * contents =
+                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                contents;
+            });
         }];
         [comp addDatas:data[@"languages"]];
         comp;
@@ -331,28 +398,77 @@ static NSDictionary * demoData;
         [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateAll;
             builder.radius = 4.0f;
+            builder.contents = ({
+                QLLiveComponentBackgroundDecorateContents * contents =
+                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                contents;
+            });
         }];
         [comp addDatas:data[@"languages"]];
         comp;
     })];
-    
+
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：contain footer"];
         [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateContainFooter;
             builder.radius = 4.0f;
+            builder.contents = ({
+                QLLiveComponentBackgroundDecorateContents * contents =
+                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                contents;
+            });
         }];
         [comp addDatas:data[@"languages"]];
         comp;
     })];
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：only item & insets"];
-        comp.n3wLayout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
+        comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
         [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
-            //            builder
+            builder.contents = ({
+                QLLiveComponentBackgroundDecorateContents * contents =
+                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                contents;
+            });
+        }];
+        [comp addDatas:data[@"languages"]];
+        comp;
+    })];
+    [self.dataSource addComponent:({
+        DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：all & insets"];
+        comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateAll;
+            builder.radius = 4.0f;
+            builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
+            builder.contents = ({
+                QLLiveComponentBackgroundDecorateContents * contents =
+                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                contents;
+            });
+        }];
+        [comp addDatas:data[@"languages"]];
+        comp;
+    })];
+
+    [self.dataSource addComponent:({
+        DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：shadow"];
+        comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
+        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+            builder.radius = 4.0f;
+            builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
+            [builder setContents:({
+                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor whiteColor]];
+            })];
+            builder.shadowColor = [UIColor redColor];
+            builder.shadowOffset = CGSizeMake(0, 0);
+            builder.shadowOpacity = 0.5;
+            builder.shadowRadius = 3;
         }];
         [comp addDatas:data[@"languages"]];
         comp;
@@ -416,7 +532,7 @@ static NSDictionary * demoData;
         flexLayout.itemHeight = 30.0f;
         flexLayout.justifyContent = QLLiveFlexLayoutFlexStart;
         flexLayout.delegate = self;
-        _n3wLayout = flexLayout;
+        _layout = flexLayout;
     }
     return self;;
 }
@@ -452,7 +568,7 @@ static NSDictionary * demoData;
     flexLayout.inset = UIEdgeInsetsMake(10, 0, 10, 0);
     flexLayout.itemHeight = 30;
     flexLayout.delegate = self;
-    _n3wLayout = flexLayout;
+    _layout = flexLayout;
 }
 
 - (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index{
@@ -479,7 +595,7 @@ static NSDictionary * demoData;
 @implementation DemoListComponent
 
 - (void) setupListLayout:(QLLiveListLayout *)listLayout{
-    _n3wLayout = listLayout;
+    _layout = listLayout;
 }
 
 - (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index{
@@ -497,7 +613,7 @@ static NSDictionary * demoData;
 - (void) setupWaterfallLayout:(QLLiveWaterfallLayout *)waterfallLayout{
     waterfallLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
     waterfallLayout.delegate = self;
-    _n3wLayout = waterfallLayout;
+    _layout = waterfallLayout;
 }
 
 - (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index{
@@ -527,7 +643,7 @@ static NSDictionary * demoData;
         listLayout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
         listLayout.distribution = [QLLiveLayoutDistribution distributionValue:3];
         listLayout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:183.0/267.0];
-        _n3wLayout = listLayout;
+        _layout = listLayout;
     }
     return self;;
 }

@@ -22,6 +22,13 @@ QLLiveComponentBackgroundDecorateAble>
 
 // color/image/gradient
 @property (nonatomic ,strong) id contents;
+
+// shadow
+@property (nonatomic ,strong) UIColor * shadowColor;
+@property (nonatomic ,assign) float shadowOpacity;
+@property (nonatomic ,assign) CGSize shadowOffset;
+@property (nonatomic ,assign) CGFloat shadowRadius;
+
 @end
 
 @interface QLLiveComponent ()
@@ -35,4 +42,23 @@ QLLiveComponentBackgroundDecorateAble>
 - (void) calculatorLayout;
 @end
 
+@interface QLLiveComponentBackgroundDecorateContents ()
+
+@property (nonatomic ,strong) UIColor * color;
+
+@property (nonatomic ,strong) UIImage * image;
+
+//@property (nonatomic ,copy ,readwrite) NSArray <UIColor *>* colors;
+//@property (nonatomic ,copy ,readwrite) NSArray <NSNumber *>* locations;
+//@property (nonatomic ,readwrite) CGPoint startPoint;// 0,0
+//@property (nonatomic ,readwrite) CGPoint endPoint;// 1,0
+@property (nonatomic ,copy) NSArray <UIColor *>* colors;
+@property (nonatomic ,copy) NSArray <NSNumber *>* locations;
+@property (nonatomic) CGPoint startPoint;// 0,0
+@property (nonatomic) CGPoint endPoint;// 1,0
+
+@property (nonatomic ,assign ,readwrite) BOOL isColor;
+@property (nonatomic ,assign ,readwrite) BOOL isImage;
+@property (nonatomic ,assign ,readwrite) BOOL isGradient;
+@end
 NS_ASSUME_NONNULL_END

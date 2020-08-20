@@ -25,7 +25,7 @@
         layout.inset = UIEdgeInsetsMake(10, 10, 0, 10);
         layout.itemHeight = 30;
         layout.delegate = self;
-        _n3wLayout = layout;
+        _layout = layout;
     }
     return self;
 }
@@ -64,7 +64,7 @@
         layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
         layout.distribution = [QLLiveLayoutDistribution distributionValue:3];
         layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:183.0/267.0];
-        _n3wLayout = layout;
+        _layout = layout;
         
         _changeIndex = 0;
     }
@@ -159,7 +159,7 @@
         layout.inset = UIEdgeInsetsMake(5, 10, 0, 10);
         layout.column = 2;
         layout.delegate = self;
-        _n3wLayout = layout;
+        _layout = layout;
     }
     return self;
 }
@@ -198,7 +198,7 @@
         layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
         layout.distribution = [QLLiveLayoutDistribution distributionValue:1];
         layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:44];
-        _n3wLayout = layout;
+        _layout = layout;
     }
     return self;
 }

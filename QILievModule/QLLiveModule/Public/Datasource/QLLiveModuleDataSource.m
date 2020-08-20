@@ -461,20 +461,20 @@
 
 @implementation QLLiveModuleDataSource (UICollectionViewDelegateFlowLayout)
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    /// component & layout
-    __kindof QLLiveComponent * component = [self usageHidenWhenMeptyComponentAtIndex:indexPath.section];
-    CGSize itemSize = [component.layout itemSizeAtIndex:indexPath.item];
-    if (component.isOrthogonallyScrolls &&
-        ![self targetWasOrthogonalScrollView:collectionView]) {
-        // 内嵌的效果需要将height修改一下，这样就可以完成垂直多个cell的效果了
-        itemSize = (CGSize){
-            component.layout.insetContainerWidth,
-            itemSize.height
-        };
-    }
-    return itemSize;
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    /// component & layout
+//    __kindof QLLiveComponent * component = [self usageHidenWhenMeptyComponentAtIndex:indexPath.section];
+//    CGSize itemSize = [component.layout itemSizeAtIndex:indexPath.item];
+//    if (component.isOrthogonallyScrolls &&
+//        ![self targetWasOrthogonalScrollView:collectionView]) {
+//        // 内嵌的效果需要将height修改一下，这样就可以完成垂直多个cell的效果了
+//        itemSize = (CGSize){
+//            component.layout.insetContainerWidth,
+//            itemSize.height
+//        };
+//    }
+//    return itemSize;
+//}
 
 //- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
 //    /// layout
@@ -524,14 +524,14 @@
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 //}
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout columnCountForSection:(NSInteger)section{
-    __kindof QLLiveComponent * comp = [self usageHidenWhenMeptyComponentAtIndex:section];
-    if (comp.layout.distribution.isFractional ||
-        comp.layout.distribution.isAbsolute) {
-        return 1;
-    }
-    return comp.layout.distribution.value;
-}
+//- (NSInteger)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout columnCountForSection:(NSInteger)section{
+//    __kindof QLLiveComponent * comp = [self usageHidenWhenMeptyComponentAtIndex:section];
+//    if (comp.layout.distribution.isFractional ||
+//        comp.layout.distribution.isAbsolute) {
+//        return 1;
+//    }
+//    return comp.layout.distribution.value;
+//}
 
 //- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForHeaderInSection:(NSInteger)section{
 //    return [self collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section].height;
