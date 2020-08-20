@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		085A806A856DB764E7A59007 /* Pods_QILievModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */; };
 		3210653024EE4D2900C8FCB1 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */; };
-		3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m */; };
+		3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */; };
 		32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */; };
 		32644D1024EB6EEC002078D2 /* DemoVideoCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0F24EB6EEC002078D2 /* DemoVideoCCell.m */; };
 		32644D1424EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D1324EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m */; };
@@ -56,8 +56,8 @@
 		1AA14438CEA24C750502FBCD /* Pods-QILievModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QILievModule.release.xcconfig"; path = "Target Support Files/Pods-QILievModule/Pods-QILievModule.release.xcconfig"; sourceTree = "<group>"; };
 		3210652E24EE4D2900C8FCB1 /* UIImage+Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
 		3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
-		3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveComponentBackgroundDecorate.h; sourceTree = "<group>"; };
-		3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveComponentBackgroundDecorate.m; sourceTree = "<group>"; };
+		3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveComponentBackgroundDecorateContents.h; sourceTree = "<group>"; };
+		3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveComponentBackgroundDecorateContents.m; sourceTree = "<group>"; };
 		32644D0B24EB6A80002078D2 /* DemoVideoComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoVideoComponent.h; sourceTree = "<group>"; };
 		32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoVideoComponent.m; sourceTree = "<group>"; };
 		32644D0E24EB6EEC002078D2 /* DemoVideoCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoVideoCCell.h; sourceTree = "<group>"; };
@@ -344,8 +344,8 @@
 			children = (
 				32DB569024E1495600AD669F /* QLLiveComponent.h */,
 				32DB569124E1495600AD669F /* QLLiveComponent.m */,
-				3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorate.h */,
-				3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m */,
+				3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.h */,
+				3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -615,7 +615,7 @@
 				32DB56D824E2417700AD669F /* DemoResumeModule.m in Sources */,
 				32DB566224DFA91B00AD669F /* EaseAlertController.m in Sources */,
 				32DB563E24DFA63900AD669F /* AppDelegate.m in Sources */,
-				3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorate.m in Sources */,
+				3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m in Sources */,
 				32DB565F24DFA82800AD669F /* EaseRefreshProxy.m in Sources */,
 				32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */,
 				32DB56BF24E1603000AD669F /* DemoLivingModule.m in Sources */,

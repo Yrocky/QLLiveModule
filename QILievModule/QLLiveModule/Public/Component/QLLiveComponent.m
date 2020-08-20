@@ -135,7 +135,7 @@
     });
 }
 - (BOOL)isOrthogonallyScrolls{
-    return self.arrange == QLLiveComponentArrangeHorizontal;
+    return self.layout.arrange == QLLiveLayoutArrangeHorizontal;
 }
 
 - (void)calculatorLayout{

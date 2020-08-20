@@ -9,6 +9,7 @@
 #import "QLLiveModuleFlowLayout.h"
 #import "QLLiveDecorateSectionLayoutAttributes.h"
 #import "QLLiveComponent_Private.h"
+#import "QLLiveBaseLayout_Private.h"
 
 @interface QLLiveModuleFlowLayout ()
 
@@ -148,7 +149,6 @@ static const NSInteger unionSize = 20;
                 top = CGRectGetMaxY(attributes.frame) + footerInset.bottom;
             }
         }
-//        top += sectionInset.bottom;
         
         QLLiveComponentBackgroundDecorateBuilder * builder = component.backgroundDecorateBuilder;
         if (builder &&

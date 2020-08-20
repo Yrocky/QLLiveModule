@@ -10,7 +10,7 @@
 #import "QLLiveComponentLayout.h"
 #import "QLLiveModuleDataSourceAble.h"
 #import "QLLiveBaseLayout.h"
-#import "QLLiveComponentBackgroundDecorate.h"
+#import "QLLiveComponentBackgroundDecorateContents.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

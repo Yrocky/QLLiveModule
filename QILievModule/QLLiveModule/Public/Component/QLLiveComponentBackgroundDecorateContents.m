@@ -1,12 +1,12 @@
 //
-//  QLLiveComponentBackgroundDecorate.m
+//  QLLiveComponentBackgroundDecorateContents.m
 //  QILievModule
 //
 //  Created by rocky on 2020/8/19.
 //  Copyright © 2020 Rocky. All rights reserved.
 //
 
-#import "QLLiveComponentBackgroundDecorate.h"
+#import "QLLiveComponentBackgroundDecorateContents.h"
 #import "QLLiveComponent_Private.h"
 
 @implementation QLLiveComponentBackgroundDecorateContents
@@ -29,6 +29,7 @@
     mine.isColor = YES;
     return mine;;
 }
+
 + (instancetype)imageContents:(UIImage *)image{
     QLLiveComponentBackgroundDecorateContents * mine = [self new];
     mine.image = image;
@@ -39,6 +40,7 @@
 + (instancetype) gradientContents:(void(^)(id<QLLiveComponentBackgroundDecorateGradientContentsAble>contents))builder{
     QLLiveComponentBackgroundDecorateContents * mine = [self new];
     mine.isGradient = YES;
+    // TODO:消除警告
     if (builder) {
         builder(mine);
     }

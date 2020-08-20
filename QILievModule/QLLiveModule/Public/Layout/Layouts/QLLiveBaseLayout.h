@@ -38,23 +38,25 @@ typedef NS_ENUM(NSInteger, QLLiveLayoutArrange) {
 @property (nonatomic ,assign) CGFloat minY;// default 0.0f
 @property (nonatomic ,assign ,readonly) CGFloat maxY;// default 0.0f
 
-// 默认为垂直
+/*
+ layout的布局方向，默认为 QLLiveLayoutArrangeVertical 垂直
+ */
 @property (nonatomic ,assign) QLLiveLayoutArrange arrange;
 
-// 限制水平布局时候的高度
+/*
+ arrange = QLLiveLayoutArrangeHorizontal 的时候
+ 限制垂直方向的高度
+ */
 @property (nonatomic ,assign) CGFloat horizontalArrangeContentHeight;
 
-- (void) clear;
-
-// 缓存每一个索引下的frame，子类调用
+/*
+ 缓存每一个索引下的frame，子类调用
+ */
 - (void) cacheItemFrame:(CGRect)itemFrame at:(NSInteger)index;
-
-// 获取每一个index的位置
-- (CGRect) itemFrameAtIndex:(NSInteger)index;
-
-// 根据数据计算cell的位置
-- (void) calculatorLayoutWithDatas:(NSArray *)datas;
-
+/*
+ 清除缓存的frame
+ */
+- (void) clear;
 @end
 
 @interface QLLiveBaseLayout (SubclassingOverride)

@@ -1,5 +1,5 @@
 //
-//  QLLiveComponentBackgroundDecorate.h
+//  QLLiveComponentBackgroundDecorateContents.h
 //  QILievModule
 //
 //  Created by rocky on 2020/8/19.

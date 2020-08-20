@@ -12,6 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// 用于构建背景装饰效果的私有类
 @interface QLLiveComponentBackgroundDecorateBuilder : NSObject<
 QLLiveComponentBackgroundDecorateAble>
 
@@ -42,10 +43,6 @@ QLLiveComponentBackgroundDecorateAble>
 
 @property (nonatomic ,strong) UIImage * image;
 
-//@property (nonatomic ,copy ,readwrite) NSArray <UIColor *>* colors;
-//@property (nonatomic ,copy ,readwrite) NSArray <NSNumber *>* locations;
-//@property (nonatomic ,readwrite) CGPoint startPoint;// 0,0
-//@property (nonatomic ,readwrite) CGPoint endPoint;// 1,0
 @property (nonatomic ,copy) NSArray <UIColor *>* colors;
 @property (nonatomic ,copy) NSArray <NSNumber *>* locations;
 @property (nonatomic) CGPoint startPoint;// 0,0

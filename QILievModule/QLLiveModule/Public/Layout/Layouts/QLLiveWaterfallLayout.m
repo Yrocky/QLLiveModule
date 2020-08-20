@@ -10,7 +10,7 @@
 
 @interface QLLiveWaterfallLayout ()
 @property (nonatomic ,strong) NSMutableArray * columnHeights;
-@property (nonatomic ,strong) NSMutableArray * columnWidths;
+@property (nonatomic ,strong) NSMutableArray * rowWidths;
 @end
 
 @implementation QLLiveWaterfallLayout
@@ -103,11 +103,19 @@
 }
 
 #pragma mark - Getter
+
 - (NSMutableArray *)columnHeights{
     
     if (!_columnHeights) {
         _columnHeights = [NSMutableArray new];
     }
     return _columnHeights;;
+}
+- (NSMutableArray *)rowWidths{
+    
+    if (!_rowWidths) {
+        _rowWidths = [NSMutableArray new];
+    }
+    return _rowWidths;;
 }
 @end
