@@ -20,12 +20,13 @@
         QLLiveDecorateSectionLayoutAttributes * att =
         (QLLiveDecorateSectionLayoutAttributes *)layoutAttributes;
         id<QLLiveComponentBackgroundDecorateAble> builder = att.builder;
-        self.layer.cornerRadius = builder.radius;
-        self.layer.shadowColor = builder.shadowColor.CGColor;
-        self.layer.shadowOffset = builder.shadowOffset;
-        self.layer.shadowRadius = builder.shadowRadius;
-        self.layer.shadowOpacity = builder.shadowOpacity;
         QLLiveComponentBackgroundDecorateContents * contents = builder.contents;
+
+        self.layer.cornerRadius = builder.radius;
+        self.layer.shadowColor = contents.shadowColor.CGColor;
+        self.layer.shadowOffset = contents.shadowOffset;
+        self.layer.shadowRadius = contents.shadowRadius;
+        self.layer.shadowOpacity = contents.shadowOpacity;
 
         [self clear];
         if (contents.isColor) {

@@ -44,12 +44,6 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
 // color/image/gradient
 @property (nonatomic ,strong) QLLiveComponentBackgroundDecorateContents * contents;
 
-// shadow
-@property (nonatomic ,strong) UIColor * shadowColor;
-@property (nonatomic ,assign) float shadowOpacity;
-@property (nonatomic ,assign) CGSize shadowOffset;
-@property (nonatomic ,assign) CGFloat shadowRadius;
-
 @end
 
 @interface QLLiveComponent<__covariant Data> : NSObject{

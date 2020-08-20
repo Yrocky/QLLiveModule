@@ -463,12 +463,14 @@ static NSDictionary * demoData;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             [builder setContents:({
+                QLLiveComponentBackgroundDecorateContents * contents =
                 [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor whiteColor]];
+                contents.shadowColor = [UIColor redColor];
+                contents.shadowOffset = CGSizeMake(0, 0);
+                contents.shadowOpacity = 0.5;
+                contents.shadowRadius = 3;
+                contents;
             })];
-            builder.shadowColor = [UIColor redColor];
-            builder.shadowOffset = CGSizeMake(0, 0);
-            builder.shadowOpacity = 0.5;
-            builder.shadowRadius = 3;
         }];
         [comp addDatas:data[@"languages"]];
         comp;

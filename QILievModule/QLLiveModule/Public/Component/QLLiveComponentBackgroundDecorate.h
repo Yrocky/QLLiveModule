@@ -25,6 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype) imageContents:(UIImage *)image;
 + (instancetype) gradientContents:(void(^)(id<QLLiveComponentBackgroundDecorateGradientContentsAble>contents))builder;
 
+// shadow
+@property (nonatomic ,strong) UIColor * shadowColor;
+@property (nonatomic ,assign) float shadowOpacity;
+@property (nonatomic ,assign) CGSize shadowOffset;
+@property (nonatomic ,assign) CGFloat shadowRadius;
+
 @property (nonatomic ,assign ,readonly) BOOL isColor;
 @property (nonatomic ,assign ,readonly) BOOL isImage;
 @property (nonatomic ,assign ,readonly) BOOL isGradient;
