@@ -299,7 +299,81 @@ static const NSInteger unionSize = 20;
     }
     return NO;
 }
-
+//- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+//    switch (self.containerSection.orthogonalScrollingBehavior) {
+//        case IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorContinuousGroupLeadingBoundary:
+//        case IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorGroupPaging:
+//        case IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorGroupPagingCentered:
+//            return [self orthogonalContentOffsetForProposedContentOffset:proposedContentOffset scrollingVelocity:velocity];
+//        case IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorNone:
+//        case IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorContinuous:
+//        case IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorPaging:
+//            return [super targetContentOffsetForProposedContentOffset:proposedContentOffset withScrollingVelocity:velocity];
+//    }
+//}
+//
+//- (CGPoint)orthogonalContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset
+//                                         scrollingVelocity:(CGPoint)velocity {
+//    IBPCollectionCompositionalLayoutSolver *solver = solvers.lastObject;
+//    CGPoint contentOffset = CGPointZero;
+//
+//    CGRect layoutFrame = solver.layoutFrame;
+//    CGFloat interGroupSpacing = solver.layoutSection.interGroupSpacing;
+//
+//    CGFloat width = CGRectGetWidth(layoutFrame);
+//    CGFloat height = CGRectGetHeight(layoutFrame);
+//
+//    CGSize containerSize = self.collectionView.bounds.size;
+//    CGPoint translation = [self.collectionView.panGestureRecognizer translationInView:self.collectionView.superview];
+//
+//    UICollectionViewScrollDirection scrollDirection = self.scrollDirection;
+//    IBPUICollectionLayoutSectionOrthogonalScrollingBehavior orthogonalScrollingBehavior = self.containerSection.orthogonalScrollingBehavior;
+//
+//    if (orthogonalScrollingBehavior == IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorContinuousGroupLeadingBoundary) {
+//        if (scrollDirection == UICollectionViewScrollDirectionVertical) {
+//            contentOffset.y += height * floor(proposedContentOffset.y / height) + interGroupSpacing * floor(proposedContentOffset.y / height) + height * (translation.y < 0 ? 1 : 0);
+//            return contentOffset;
+//        }
+//        if (scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+//            contentOffset.x += width * floor(proposedContentOffset.x / width) + interGroupSpacing * floor(proposedContentOffset.x / width) + width * (translation.x < 0 ? 1 : 0);
+//            return contentOffset;
+//        }
+//    }
+//    if (orthogonalScrollingBehavior == IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorGroupPaging) {
+//        if (fabs(velocity.x) > 0.2) {
+//            translation.x = width / 2 * (translation.x < 0 ? -1 : 1);
+//        }
+//        contentOffset.x += width * round((proposedContentOffset.x + translation.x) / width);
+//        contentOffset.y += height * round((proposedContentOffset.y + translation.y) / height);
+//
+//        if (scrollDirection == UICollectionViewScrollDirectionVertical) {
+//            contentOffset.y += height * round(-translation.y / (height / 2)) + interGroupSpacing * round(-translation.y / (height / 2));
+//            return contentOffset;
+//        }
+//        if (scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+//            contentOffset.x += width * round(-translation.x / (width / 2)) + interGroupSpacing * round(-translation.x / (width / 2));
+//            return contentOffset;
+//        }
+//    }
+//    if (orthogonalScrollingBehavior == IBPUICollectionLayoutSectionOrthogonalScrollingBehaviorGroupPagingCentered) {
+//        if (fabs(velocity.x) > 0.2) {
+//            translation.x = width / 2 * (translation.x < 0 ? -1 : 1);
+//        }
+//        contentOffset.x += width * round((proposedContentOffset.x + translation.x) / width);
+//        contentOffset.y += height * round((proposedContentOffset.y + translation.y) / height);
+//
+//        if (scrollDirection == UICollectionViewScrollDirectionVertical) {
+//            contentOffset.y += height * round(-translation.y / (height / 2)) + interGroupSpacing * round(-translation.y / (height / 2)) - (containerSize.height - height) / 2;
+//            return contentOffset;
+//        }
+//        if (scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+//            contentOffset.x += width * round(-translation.x / (width / 2)) + interGroupSpacing * round(-translation.x / (width / 2)) - (containerSize.width - width) / 2;
+//            return contentOffset;
+//        }
+//    }
+//
+//    return [super targetContentOffsetForProposedContentOffset:proposedContentOffset withScrollingVelocity:velocity];
+//}
 #pragma mark - Private Methods
 
 - (CGRect) calculatfDecorationViewFrame:(UIEdgeInsets)sectionInset sectionFrame:(CGRect)sectionFrame decorateInset:(UIEdgeInsets)decorateInset{

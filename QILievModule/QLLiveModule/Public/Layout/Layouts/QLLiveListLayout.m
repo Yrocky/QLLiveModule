@@ -7,6 +7,7 @@
 //
 
 #import "QLLiveListLayout.h"
+#import "QLLiveBaseLayout_Private.h"
 
 typedef NS_ENUM(NSUInteger, QLLiveLayoutSemantic) {
     
@@ -34,17 +35,21 @@ typedef NS_ENUM(NSUInteger, QLLiveLayoutSemantic) {
 
 @end
 
-@implementation QLLiveListLayout
-
-#pragma mark - calculator Horizontal
-
-- (void)calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
-    
+@implementation QLLiveListLayout{
+    CGFloat _itemWidth;
+    CGFloat _itemHeight;
 }
 
-#pragma mark - calculator Vertical
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.row = NSNotFound;
+    }
+    return self;
+}
 
-- (void) calculatorVerticalLayoutWithDatas:(NSArray *)datas{
+- (void) _calculatorItemSize{
     
     CGFloat width = 0;
     CGFloat height = 0;
@@ -66,22 +71,78 @@ typedef NS_ENUM(NSUInteger, QLLiveLayoutSemantic) {
     } else {
         height = width / MAX(0.01, self.itemRatio.value);
     }
+    _itemWidth = width;
+    _itemHeight = height;
+}
+
+#pragma mark - calculator Horizontal
+
+- (void)calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
     
-    NSMutableArray<NSValue *> * result = [NSMutableArray new];
+    [self _calculatorItemSize];
+    
+    if (self.row != NSNotFound) {
+        // 根据row计算出来 horizontalArrangeContentHeight
+        self.horizontalArrangeContentHeight = ({
+            self.row * _itemHeight +
+            (self.row - 1) * self.lineSpacing;
+        });
+    } else if (self.horizontalArrangeContentHeight == 0.0f) {
+        // 既没有设置 row 也没有设置 horizontalArrangeContentHeight
+        NSLog(@"[layout]⚠️ 既没有设置 row 也没有设置 horizontalArrangeContentHeight");
+        return;
+    }
+    
+    // for safe
+    _itemHeight = MIN(self.horizontalArrangeContentHeight, _itemHeight);
+    
+    CGFloat maxY = 0;
+    CGFloat maxX = self.inset.left;
+    BOOL lastOneNeedShift = NO;
+    for (NSInteger index = 0; index < datas.count; index ++) {
+        
+        CGRect frame = (CGRect){
+            maxX,maxY,
+            (CGSizeMake(_itemWidth, _itemHeight))
+        };
+        lastOneNeedShift = CGRectGetMaxY(frame) > self.horizontalArrangeContentHeight;
+        if (lastOneNeedShift) {
+            // 需要换行
+            maxY = 0;
+            maxX += (_itemWidth + self.itemSpacing);
+            frame.origin.x = maxX;
+            frame.origin.y = maxY;
+        }
+        
+        [self cacheItemFrame:frame at:index];
+        // 更新y
+        maxY += (_itemHeight + self.lineSpacing);
+    }
+    _contentWidth = CGRectGetMaxX([self itemFrameAtIndex:datas.count - 1]) - self.inset.left;
+}
+
+#pragma mark - calculator Vertical
+
+- (void) calculatorVerticalLayoutWithDatas:(NSArray *)datas{
+    
+    [self _calculatorItemSize];
+
     __block CGFloat maxY = 0;
     __block CGFloat maxX = self.inset.left;
     
     for (NSInteger index = 0; index < datas.count; index ++) {
         CGFloat x = maxX;
         CGFloat y = maxY;
-        CGRect frame = (CGRect){x,y,width,height};
+        CGRect frame = (CGRect){
+            x,y,
+            _itemWidth,_itemHeight
+        };
         // cache
         [self cacheItemFrame:frame at:index];
-        [result addObject:[NSValue valueWithCGRect:frame]];
-        maxX += (width + self.itemSpacing);
+        maxX += (_itemWidth + self.itemSpacing);
         if (maxX > self.insetContainerWidth) {
             maxX = self.inset.left;
-            maxY += (height + self.lineSpacing);
+            maxY += (_itemHeight + self.lineSpacing);
         }
         _contentHeight = CGRectGetMaxY(frame);
     }

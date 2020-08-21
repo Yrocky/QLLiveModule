@@ -20,6 +20,7 @@
         _inset = UIEdgeInsetsZero;
         _itemSpacing = 5.0f;
         _lineSpacing = 5.0f;
+        _horizontalArrangeContentHeight = 0.0f;
     }
     return self;
 }
