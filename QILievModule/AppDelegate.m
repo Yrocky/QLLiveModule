@@ -40,16 +40,12 @@
     ViewController * vc = [[ViewController alloc] initWithModule:({
         QLLiveCompositeModule * module = [[QLLiveCompositeModule alloc] initWithName:@"demo"];
         [module addModule:({
-            [[DemoFlexLayoutModule alloc] initWithName:@"Flex"];
-        })];
-        [module addModule:({
-            [[DemoListLayoutModule alloc] initWithName:@"List"];
-        })];
-        [module addModule:({
-            [[DemoWaterfallLayoutModule alloc] initWithName:@"Waterfall"];
-        })];
-        [module addModule:({
-            [[DemoBackgroundDecorateModule alloc] initWithName:@"Decorate"];
+            QLLiveCompositeModule * demoModule = [[QLLiveCompositeModule alloc] initWithName:@"DEMO"];
+            [demoModule addModule:[[DemoFlexLayoutModule alloc] initWithName:@"Flex"]];
+            [demoModule addModule:[[DemoBackgroundDecorateModule alloc] initWithName:@"Decorate"]];
+            [demoModule addModule:[[DemoListLayoutModule alloc] initWithName:@"List"]];
+            [demoModule addModule:[[DemoWaterfallLayoutModule alloc] initWithName:@"Waterfall"]];
+            demoModule;
         })];
         [module addModule:({
             [[DemoVideoModule alloc] initWithName:@"视频app"];

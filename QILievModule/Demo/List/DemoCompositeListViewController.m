@@ -73,14 +73,51 @@ JXCategoryViewDelegate>
 #pragma mark - JXCategoryListContainerViewDelegate
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    DemoListViewController * vc = [[DemoListViewController alloc] initWithModule:self.module.modules[index]];
-    [self addChildViewController:vc];
-    return vc;
+    QLLiveModule * module = self.module.modules[index];
+    if ([module isKindOfClass:[QLLiveCompositeModule class]]) {
+        QLLiveCompositeModule * compositeModule = (QLLiveCompositeModule *)module;
+        DemoCompositeListViewController * vc = [[DemoCompositeListViewController alloc] initWithModule:compositeModule];
+        [self addChildViewController:vc];
+        return vc;
+    } else {
+        DemoListViewController * vc = [[DemoListViewController alloc] initWithModule:module];
+        [self addChildViewController:vc];
+        return vc;
+    }
+    return nil;
 }
 
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
     return self.module.modules.count;
 }
 
+#pragma mark - JXCategoryListContentViewDelegate
+
+- (UIScrollView *)listScrollView {
+    return _mainPageView.scrollView;
+}
+
+- (UIView *)listView {
+    return self.view;
+}
+
+- (void)listDidAppear{
+
+    if (self.module.didAppeared) {
+        NSLog(@"[home] error: %@ did appeared",self.module.name);
+        return;
+    }
+    
+    self.module.didAppeared = YES;
+    // 出现的时候刷新数据
+    [self.module refresh];
+    
+    NSLog(@"[home] %@ appear",self.module.name);
+}
+
+- (void)listDidDisappear{
+    self.module.didAppeared = NO;
+    NSLog(@"[home] %@ disappear", self.module.name);
+}
 @end
 

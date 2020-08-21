@@ -12,7 +12,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoCompositeListViewController : UIViewController{
+@interface DemoCompositeListViewController : UIViewController<
+JXCategoryListContentViewDelegate>{
     JXCategoryListContainerView * _mainPageView;
 }
 
