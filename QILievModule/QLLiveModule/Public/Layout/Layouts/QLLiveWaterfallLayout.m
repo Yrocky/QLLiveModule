@@ -20,24 +20,58 @@
 }
 
 - (CGFloat)itemHeight{
-    return (self.horizontalArrangeContentHeight - (self.column - 1) * self.itemSpacing) / self.column;
+    return (self.horizontalArrangeContentHeight - (self.row - 1) * self.itemSpacing) / self.row;
 }
+
 #pragma mark - override
 
 - (void)clear{
     [super clear];
-    [self.columnHeights removeAllObjects];
+    [_columnHeights removeAllObjects];
+    [_rowWidths removeAllObjects];
 }
 
 #pragma mark - calculator Horizontal
 
 - (void)calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
     
+    if (self.renderDirection == QLLiveWaterfallItemRenderLeftToRight ||
+        self.renderDirection == QLLiveWaterfallItemRenderRightToLeft) {
+        NSLog(@"[layout] ⚠️ 水平布局的时候请设置正确的 renderDirection");
+        return;
+    }
+    // 初始化每一列的最大值
+    for (NSInteger index = 0; index < self.row; index ++) {
+        [self.rowWidths addObject:@(0)];
+    }
+
+    CGFloat height = (self.horizontalArrangeContentHeight - (self.row - 1) * self.lineSpacing) / self.row;
+    CGFloat width = 0.0f;
+    
+    for (NSInteger index = 0; index < datas.count; index ++) {
+        if ([self.delegate respondsToSelector:@selector(layoutCustomItemSize:atIndex:)]) {
+            width = [self.delegate layoutCustomItemSize:self atIndex:index].width;
+        }
+        NSUInteger rowIndex = [self _nextRowIndexForItem:index];
+        CGFloat y = (height + self.lineSpacing) * rowIndex;
+        CGFloat x = [self.rowWidths[rowIndex] floatValue];
+        CGRect frame = CGRectMake(x, y, width, height);
+        self.rowWidths[rowIndex] = @(CGRectGetMaxX(frame) + self.lineSpacing);
+        // cache
+        [self cacheItemFrame:frame at:index];
+    }
+    _contentWidth = [self _longestRowWidth] - self.itemSpacing;
 }
 
 #pragma mark - calculator Vertical
 
 - (void) calculatorVerticalLayoutWithDatas:(NSArray *)datas{
+    
+    if (self.renderDirection == QLLiveWaterfallItemRenderTopToBottom ||
+        self.renderDirection == QLLiveWaterfallItemRenderBottomToTop) {
+        NSLog(@"[layout] ⚠️ 垂直布局的时候请设置正确的 renderDirection");
+        return;
+    }
     
     // 初始化每一列的最大值
     for (NSInteger index = 0; index < self.column; index ++) {
@@ -46,7 +80,6 @@
 
     CGFloat width = (self.insetContainerWidth - (self.column - 1) * self.itemSpacing) / self.column;
     CGFloat height = 0.0f;
-    NSMutableArray<NSValue *> * result = [NSMutableArray new];
 
     for (NSInteger index = 0; index < datas.count; index ++) {
         if ([self.delegate respondsToSelector:@selector(layoutCustomItemSize:atIndex:)]) {
@@ -60,7 +93,6 @@
         self.columnHeights[columnIndex] = @(CGRectGetMaxY(frame) + self.lineSpacing);
         // cache
         [self cacheItemFrame:frame at:index];
-        [result addObject:[NSValue valueWithCGRect:frame]];
     }
     _contentHeight = [self _longestColumnHeight] - self.lineSpacing + self.inset.bottom;
 }
@@ -103,6 +135,44 @@
         }
     }];
     return longestHeight;
+}
+
+- (NSUInteger) _nextRowIndexForItem:(NSInteger)item {
+
+    NSUInteger index = 0;
+    if (self.renderDirection == QLLiveWaterfallItemRenderTopToBottom) {
+        index = (item % self.row);
+    } else if (self.renderDirection == QLLiveWaterfallItemRenderBottomToTop) {
+        index = (self.row - 1) - (item % self.row);
+    } else {
+        index = [self _shortestRowIndex];
+    }
+    return index;
+}
+
+- (NSUInteger) _shortestRowIndex{
+    __block NSUInteger index = 0;
+    __block CGFloat shortestWidth = MAXFLOAT;
+
+    [self.rowWidths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        CGFloat width = [obj floatValue];
+        if (width < shortestWidth) {
+            shortestWidth = width;
+            index = idx;
+        }
+    }];
+    return index;
+}
+
+- (CGFloat) _longestRowWidth{
+    __block CGFloat longestWidth = 0;
+    [self.rowWidths enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        CGFloat width = [obj floatValue];
+        if (width > longestWidth) {
+            longestWidth = width;
+        }
+    }];
+    return longestWidth;
 }
 
 #pragma mark - Getter
