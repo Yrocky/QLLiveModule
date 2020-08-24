@@ -44,7 +44,6 @@
         };
         [self cacheItemFrame:frame at:index];
         _contentWidth += (itemWidth + self.itemSpacing);
-        NSLog(@"[cal] itemSize:%@",NSStringFromCGSize(itemSize));
     }
     _contentWidth -= self.itemSpacing;
 }
@@ -71,7 +70,6 @@
             self.itemHeight
         };
 
-        NSLog(@"[cal] itemSize:%@",NSStringFromCGSize(itemSize));
         maxWidth += (itemSize.width + self.itemSpacing);
 
         if ((maxWidth - self.itemSpacing) > self.insetContainerWidth) {

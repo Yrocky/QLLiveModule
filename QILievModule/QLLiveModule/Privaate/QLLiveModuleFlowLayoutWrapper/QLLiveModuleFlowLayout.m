@@ -231,8 +231,10 @@ static const NSInteger unionSize = 20;
     if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
         contentSize.height = self.sectionHeights.lastObject.floatValue;
     } else {
-        // todo宽度不对
-        contentSize.width = CGRectGetMaxX(self.allItemAttributes.lastObject.frame);
+        // 水平布局的时候，就只会有一个section，这里先这么获取数据，不是很优雅
+        QLLiveBaseLayout * layout = [self.delegate collectionView:self.collectionView
+                                                           layout:self componentAtSection:0].layout;
+        contentSize.width = layout.contentWidth;
     }
     return contentSize;
 }

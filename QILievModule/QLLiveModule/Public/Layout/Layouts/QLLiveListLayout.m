@@ -118,7 +118,7 @@ typedef NS_ENUM(NSUInteger, QLLiveLayoutSemantic) {
         // 更新y
         maxY += (_itemHeight + self.lineSpacing);
     }
-    _contentWidth = CGRectGetMaxX([self itemFrameAtIndex:datas.count - 1]) - self.inset.left;
+    _contentWidth = CGRectGetMaxX([self itemFrameAtIndex:datas.count - 1]);
 }
 
 #pragma mark - calculator Vertical

@@ -64,9 +64,9 @@ static NSDictionary * demoData;
                     @"8 black or white"
             ],
             @"waterFlow":@[
-                    @(170),@(80),@(190),@(100),
-                    @(110),@(130),@(130),
-                    @(90),@(155),@(60),
+                    @(170),@(180),@(190),@(100),
+                    @(110),@(135),@(130),
+                    @(90),@(155),@(65),
             ],
         };
     }
@@ -302,7 +302,7 @@ static NSDictionary * demoData;
             waterfallLayout.row = 3;
             waterfallLayout.horizontalArrangeContentHeight = 300;
             waterfallLayout.arrange = QLLiveLayoutArrangeHorizontal;
-            waterfallLayout.renderDirection = QLLiveWaterfallItemRenderShortestFirst;
+            waterfallLayout.renderDirection = QLLiveWaterfallItemRenderBottomToTop;
             waterfallLayout;
         })];
         [comp addDatas:data[@"waterFlow"]];

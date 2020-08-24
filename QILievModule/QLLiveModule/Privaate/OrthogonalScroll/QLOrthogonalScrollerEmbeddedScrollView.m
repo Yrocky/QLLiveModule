@@ -18,7 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.contentView.backgroundColor = [UIColor redColor];
+        self.contentView.backgroundColor = [UIColor clearColor];
         _orthogonalScrollView = [[QLOrthogonalScrollerEmbeddedScrollView alloc] initWithFrame:CGRectZero collectionViewLayout:({
             QLLiveModuleFlowLayout * layout = QLLiveModuleFlowLayout.new;
             layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
