@@ -37,8 +37,7 @@ typedef NS_ENUM(NSInteger, QLLiveFlexLayoutGravity) {
 
 @protocol QLLiveFlexLayoutDelegate <NSObject>
 /*
- 返回的size.height可以是任意值，
- 在内部只取size.width，height固定为设置的 itemHeight
+ 返回的size.height可以是任意值，内部会使用 itemHeight
 */
 - (CGSize) layoutCustomItemSize:(QLLiveFlexLayout *)layout atIndex:(NSInteger)index;
 @end

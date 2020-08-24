@@ -43,18 +43,15 @@ typedef NS_ENUM(NSInteger, QLLiveLayoutArrange) {
  经过计算之后的内容高度，仅用于 arrange = QLLiveLayoutArrangeVertical
  */
 @property (nonatomic ,assign ,readonly) CGFloat contentHeight;
-
 /*
  layout的布局方向，默认为 QLLiveLayoutArrangeVertical 垂直
  */
 @property (nonatomic ,assign) QLLiveLayoutArrange arrange;
-
 /*
  arrange = QLLiveLayoutArrangeHorizontal 的时候
  限制垂直方向的高度
  */
 @property (nonatomic ,assign) CGFloat horizontalArrangeContentHeight;
-
 /*
  缓存每一个索引下的frame，子类调用
  */
@@ -75,4 +72,5 @@ typedef NS_ENUM(NSInteger, QLLiveLayoutArrange) {
 */
 - (void) calculatorVerticalLayoutWithDatas:(NSArray *)datas;
 @end
+
 NS_ASSUME_NONNULL_END

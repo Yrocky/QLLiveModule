@@ -69,7 +69,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [[UIColor colorWithHexString:@"#333333"] colorWithAlphaComponent:0.3];
+        self.backgroundColor = [[UIColor colorWithHexString:@"#333333"] colorWithAlphaComponent:0.3];
         
         self.titleLabel = [UILabel new];
         self.titleLabel.font = [UIFont systemFontOfSize:17];
@@ -95,7 +95,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [[UIColor colorWithHexString:@"#ff183e"] colorWithAlphaComponent:0.3];
+        self.backgroundColor = [[UIColor colorWithHexString:@"#ff183e"] colorWithAlphaComponent:0.3];
         
         UILabel * titleLabel = [UILabel new];
         titleLabel.text = @"- This is Footer -";

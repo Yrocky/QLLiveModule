@@ -86,7 +86,8 @@ static const NSInteger unionSize = 20;
         NSArray * supportedKinds = [component supportedElementKinds];
         CGFloat headerHeight = 0.0f;
         // header
-        if ([supportedKinds containsObject:UICollectionElementKindSectionHeader]) {
+        if ([supportedKinds containsObject:UICollectionElementKindSectionHeader] &&
+            self.scrollDirection != UICollectionViewScrollDirectionHorizontal) {
             headerHeight =
             [component sizeForSupplementaryViewOfKind:UICollectionElementKindSectionHeader].height;
             if (headerHeight > 0) {
@@ -112,15 +113,33 @@ static const NSInteger unionSize = 20;
         // items
         NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
         NSMutableArray * itemAttributes = [NSMutableArray new];
-        for (NSInteger item = 0; item < itemCount; item++) {
-            CGRect frame = [layout itemFrameAtIndex:item];
-            frame.origin.y += top;
+        if (layout.arrange == QLLiveLayoutArrangeHorizontal &&
+            self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+            CGRect frame = CGRectZero;
+            frame.origin.y = top;
+            frame.origin.x = layout.inset.left;
+            frame.size.width = layout.insetContainerWidth;
+            frame.size.height = layout.horizontalArrangeContentHeight;
             attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:({
-                [NSIndexPath indexPathForItem:item inSection:section];
+                [NSIndexPath indexPathForItem:0 inSection:section];
             })];
             attributes.frame = frame;
             [itemAttributes addObject:attributes];
             [self.allItemAttributes addObject:attributes];
+        } else {
+            for (NSInteger item = 0; item < itemCount; item++) {
+                CGRect frame = [layout itemFrameAtIndex:item];
+                frame.origin.y += ({
+                    (self.scrollDirection == UICollectionViewScrollDirectionHorizontal ?
+                    0 : top);
+                });
+                attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:({
+                    [NSIndexPath indexPathForItem:item inSection:section];
+                })];
+                attributes.frame = frame;
+                [itemAttributes addObject:attributes];
+                [self.allItemAttributes addObject:attributes];
+            }
         }
         [self.sectionItemAttributes addObject:itemAttributes];
         //
@@ -128,7 +147,8 @@ static const NSInteger unionSize = 20;
         
         // footer
         CGFloat footerHeight = 0.0f;
-        if ([supportedKinds containsObject:UICollectionElementKindSectionFooter]) {
+        if ([supportedKinds containsObject:UICollectionElementKindSectionFooter] &&
+            self.scrollDirection != UICollectionViewScrollDirectionHorizontal) {
             footerHeight =
             [component sizeForSupplementaryViewOfKind:UICollectionElementKindSectionFooter].height;
             if (footerHeight > 0) {
@@ -211,6 +231,7 @@ static const NSInteger unionSize = 20;
     if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
         contentSize.height = self.sectionHeights.lastObject.floatValue;
     } else {
+        // todo宽度不对
         contentSize.width = CGRectGetMaxX(self.allItemAttributes.lastObject.frame);
     }
     return contentSize;

@@ -25,7 +25,11 @@
 
 - (void) calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
     
-    _contentWidth = self.inset.left;
+    if (self.itemHeight == 0.0f) {
+        NSLog(@"[layout]⚠️ 没有设置 self.itemHeight");
+        return;
+    }
+    _contentWidth = 0;
     for (NSInteger index = 0; index < datas.count; index ++) {
         CGFloat itemWidth = 0.0f;
         if ([self.delegate respondsToSelector:@selector(layoutCustomItemSize:atIndex:)]) {
@@ -35,8 +39,7 @@
             itemWidth,self.itemHeight
         };
         CGRect frame = (CGRect){
-            _contentWidth,
-            self.inset.top,
+            _contentWidth,0,
             itemSize
         };
         [self cacheItemFrame:frame at:index];

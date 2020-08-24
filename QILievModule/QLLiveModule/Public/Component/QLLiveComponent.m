@@ -8,7 +8,6 @@
 
 #import "QLLiveComponent.h"
 #import "QLLiveComponent_Private.h"
-#import "QLLiveComponentLayout_Private.h"
 #import "QLLiveBaseLayout_Private.h"
 
 @implementation QLLiveComponent
@@ -21,15 +20,6 @@
     self = [super init];
     if (self) {
         _innerDatas = [NSMutableArray new];
-        
-        // default layout
-//        QLLiveComponentLayout * layout = [QLLiveComponentLayout new];
-//        layout.insets = UIEdgeInsetsMake(0, 6, 0, 6);
-//        layout.distribution = [QLLiveLayoutDistribution distributionValue:2];
-//        layout.lineSpacing = 5;
-//        layout.interitemSpacing = 5;
-//        _layout = layout;
-        
         self.backgroundDecorateBuilder = nil;
     }
     return self;

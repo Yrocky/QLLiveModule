@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  在水平布局中，如果 通过 `distribution` 和 `itemRatio`计算出来的 cell高度大于 `horizontalArrangeContentHeight`，则会限制为`horizontalArrangeContentHeight`
  如果小于则会按照`从上之下、从左至右`的顺序进行排列，
- 还可以设置`row`来决定 `horizontalArrangeContentHeight`，此时设置 `horizontalArrangeContentHeight`将无效
+ 
+ 另外，还可以设置`row`来决定 `horizontalArrangeContentHeight`，
+ 此时设置 `horizontalArrangeContentHeight`将无效
  */
 @interface QLLiveListLayout : QLLiveBaseLayout
 /*
@@ -31,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,strong) QLLiveLayoutItemRatio * itemRatio;
 /*
  当 arrange 为 ...Horizontal 的时候，可以通过这个来便捷计算出来cell的高度，
- 如果设置了row，上面的itemRatio将无效
+ 如果设置了row，设置的horizontalArrangeContentHeight 将无效
  */
 @property (nonatomic ,assign) NSInteger row;
 

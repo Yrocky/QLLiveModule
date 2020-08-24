@@ -7,6 +7,7 @@
 //
 
 #import "QLOrthogonalScrollerEmbeddedScrollView.h"
+#import "QLLiveModuleDataSource_Private.h"
 #import "QLLiveModuleFlowLayout.h"
 #import "NSArray+Sugar.h"
 #import <Masonry.h>
@@ -17,6 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.contentView.backgroundColor = [UIColor redColor];
         _orthogonalScrollView = [[QLOrthogonalScrollerEmbeddedScrollView alloc] initWithFrame:CGRectZero collectionViewLayout:({
             QLLiveModuleFlowLayout * layout = QLLiveModuleFlowLayout.new;
             layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -26,7 +28,7 @@
         self.orthogonalScrollView.directionalLockEnabled = YES;
         self.orthogonalScrollView.showsHorizontalScrollIndicator = NO;
         self.orthogonalScrollView.showsVerticalScrollIndicator = NO;
-        self.orthogonalScrollView.clipsToBounds = NO;
+        self.orthogonalScrollView.clipsToBounds = YES;
         [self.contentView addSubview:self.orthogonalScrollView];
         [self.orthogonalScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);
@@ -53,34 +55,6 @@
     return @"QLOrthogonalScrollerEmbeddedCCell";
 }
 
-#pragma mark - QLHomePreviewCellAble
-
-- (NSArray<__kindof UICollectionViewCell *> *) fullRectVisibleCells{
-    CGRect scrollViewRect = self.contentView.frame;
-    NSArray * tmp = [[self.orthogonalScrollView visibleCells] ease_select:^BOOL(UICollectionViewCell * cell) {
-        CGRect cellRect = [self.orthogonalScrollView convertRect:cell.frame toView:self.contentView];
-        return CGRectContainsRect(scrollViewRect, cellRect);
-    }];
-    
-    return tmp;
-}
-
-- (BOOL) compositionalCell{
-    return YES;
-}
-
-- (BOOL) needPreview{
-    return YES;
-}
-
-- (__kindof UIView *) previewView{
-    return nil;
-}
-
-- (NSString *) previewStreamID{
-    return @"";
-}
-
 @end
 
 @implementation QLOrthogonalScrollerEmbeddedScrollView
@@ -89,7 +63,8 @@
 
 @interface QLOrthogonalScrollerSectionController ()<
 UICollectionViewDataSource,
-UICollectionViewDelegateFlowLayout>
+UICollectionViewDelegateFlowLayout,
+QLLiveModuleFlowLayout>
 
 @property (nonatomic, strong) NSMutableSet<NSString *> *registeredCellIdentifiers;
 
@@ -162,28 +137,42 @@ UICollectionViewDelegateFlowLayout>
     return nil;
 }
 
+#pragma mark - QLLiveModuleFlowLayout
+
+- (QLLiveComponent *)collectionView:(UICollectionView *)collectionView layout:(QLLiveModuleFlowLayout *)collectionViewLayout componentAtSection:(NSInteger)section{
+    if ([self.collectionView.dataSource isKindOfClass:[QLLiveModuleDataSource class]]) {
+        QLLiveModuleDataSource * dataSource = (QLLiveModuleDataSource *)self.collectionView.dataSource;
+        if ([dataSource respondsToSelector:_cmd]) {
+            return [dataSource collectionView:collectionView
+                                       layout:collectionViewLayout
+                           componentAtSection:self.sectionIndex];
+        }
+    }
+    return nil;
+}
+
 #pragma mark - Delegate
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-
-    return [self.collectionViewDelegate collectionView:collectionView
-                                                layout:collectionViewLayout
-                                sizeForItemAtIndexPath:({
-        [self wrapIndexPath:indexPath];
-    })];
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return [self.collectionViewDelegate collectionView:collectionView
-                                                layout:collectionViewLayout
-                   minimumLineSpacingForSectionAtIndex:self.sectionIndex];
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return [self.collectionViewDelegate collectionView:collectionView
-                                                layout:collectionViewLayout
-              minimumInteritemSpacingForSectionAtIndex:self.sectionIndex];
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    return [self.collectionViewDelegate collectionView:collectionView
+//                                                layout:collectionViewLayout
+//                                sizeForItemAtIndexPath:({
+//        [self wrapIndexPath:indexPath];
+//    })];
+//}
+//
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+//    return [self.collectionViewDelegate collectionView:collectionView
+//                                                layout:collectionViewLayout
+//                   minimumLineSpacingForSectionAtIndex:self.sectionIndex];
+//}
+//
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+//    return [self.collectionViewDelegate collectionView:collectionView
+//                                                layout:collectionViewLayout
+//              minimumInteritemSpacingForSectionAtIndex:self.sectionIndex];
+//}
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsZero;

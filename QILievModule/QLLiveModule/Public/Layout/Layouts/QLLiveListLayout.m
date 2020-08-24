@@ -97,7 +97,7 @@ typedef NS_ENUM(NSUInteger, QLLiveLayoutSemantic) {
     _itemHeight = MIN(self.horizontalArrangeContentHeight, _itemHeight);
     
     CGFloat maxY = 0;
-    CGFloat maxX = self.inset.left;
+    CGFloat maxX = 0;
     BOOL lastOneNeedShift = NO;
     for (NSInteger index = 0; index < datas.count; index ++) {
         

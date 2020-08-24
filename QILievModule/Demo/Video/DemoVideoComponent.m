@@ -23,7 +23,8 @@
     if (self) {
         QLLiveFlexLayout * layout = [QLLiveFlexLayout new];
         layout.inset = UIEdgeInsetsMake(10, 10, 0, 10);
-        layout.itemHeight = 30;
+        layout.arrange = QLLiveLayoutArrangeHorizontal;
+        layout.itemHeight = 40;
         layout.delegate = self;
         _layout = layout;
     }
@@ -42,7 +43,7 @@
 
 - (CGSize)layoutCustomItemSize:(QLLiveFlexLayout *)layout atIndex:(NSInteger)index{
     NSString * category = [self dataAtIndex:index];
-    CGSize size = [category YYY_sizeWithFont:[UIFont systemFontOfSize:12]
+    CGSize size = [category YYY_sizeWithFont:[UIFont systemFontOfSize:15]
                                    maxSize:CGSizeMake(CGFLOAT_MAX, layout.itemHeight)];
     size.width = size.width + 30;///30 是字体的左右间距
     size.height = layout.itemHeight;

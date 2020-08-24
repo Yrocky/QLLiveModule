@@ -35,6 +35,10 @@
 
 - (void)calculatorHorizontalLayoutWithDatas:(NSArray *)datas{
     
+    if (self.horizontalArrangeContentHeight == 0.0f) {
+        NSLog(@"[layout]⚠️ 没有设置 horizontalArrangeContentHeight");
+        return;
+    }
     if (self.renderDirection == QLLiveWaterfallItemRenderLeftToRight ||
         self.renderDirection == QLLiveWaterfallItemRenderRightToLeft) {
         NSLog(@"[layout] ⚠️ 水平布局的时候请设置正确的 renderDirection");

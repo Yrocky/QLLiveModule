@@ -29,6 +29,13 @@
     return [self.environment effectiveContentSizeWithInsets:self.inset].width;
 }
 
+- (CGFloat)contentHeight{
+    if (self.arrange == QLLiveLayoutArrangeHorizontal) {
+        return self.horizontalArrangeContentHeight;
+    }
+    return _contentHeight;
+}
+
 - (void) clear{
     [_cacheItemFrame removeAllObjects];
     _cacheItemFrame = nil;

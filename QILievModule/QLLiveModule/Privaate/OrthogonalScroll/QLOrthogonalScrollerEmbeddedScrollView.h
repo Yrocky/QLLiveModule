@@ -16,8 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface QLOrthogonalScrollerEmbeddedCCell : UICollectionViewCell//<
-//QLHomePreviewCellAble>
+@interface QLOrthogonalScrollerEmbeddedCCell : UICollectionViewCell
 
 @property (nonatomic ,strong ,readonly) QLOrthogonalScrollerEmbeddedScrollView * orthogonalScrollView;
 

@@ -44,11 +44,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.contentView.backgroundColor = [UIColor colorWithHexString:@"#F3F3F3"];
-
+        self.contentView.layer.cornerRadius = 6;
+        self.contentView.layer.masksToBounds = YES;
+        
         _categoryLabel = [UILabel new];
         _categoryLabel.textColor = [UIColor colorWithHexString:@"5c5c5c"];
         _categoryLabel.textAlignment = NSTextAlignmentCenter;
-        _categoryLabel.font = [UIFont systemFontOfSize:12];
+        _categoryLabel.font = [UIFont systemFontOfSize:15];
         [self.contentView addSubview:_categoryLabel];
         
         [_categoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {

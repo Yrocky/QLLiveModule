@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QLLiveComponentLayout.h"
 #import "QLLiveModuleDataSourceAble.h"
 #import "QLLiveBaseLayout.h"
 #import "QLLiveComponentBackgroundDecorateContents.h"
@@ -69,7 +68,7 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
 /// layout
 @property (nonatomic ,strong ,readonly) __kindof QLLiveBaseLayout * layout;
 
-@property (nonatomic ,assign) QLLiveComponentArrange arrange;
+//@property (nonatomic ,assign) QLLiveComponentArrange arrange;
 /// headerView是否要黏性
 @property (nonatomic ,assign) BOOL headerPin;
 

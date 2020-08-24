@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic ,strong) id<QLLiveModelEnvironment> environment;
 
+- (QLLiveComponent *) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout componentAtSection:(NSInteger)section;
 @end
 
 NS_ASSUME_NONNULL_END
