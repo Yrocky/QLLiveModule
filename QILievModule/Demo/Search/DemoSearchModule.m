@@ -7,7 +7,13 @@
 //
 
 #import "DemoSearchModule.h"
+#import "DemoSearchComponent.h"
 
 @implementation DemoSearchModule
+
+- (NSArray<__kindof QLLiveComponent *> *)defaultComponents{
+    
+    return nil;
+}
 
 @end

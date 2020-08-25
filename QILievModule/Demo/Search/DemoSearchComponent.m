@@ -8,11 +8,6 @@
 
 #import "DemoSearchComponent.h"
 
-@implementation DemoSearchComponent
-
-@end
-
-
 @implementation SearchWatchHistoryComponent
 
 @end

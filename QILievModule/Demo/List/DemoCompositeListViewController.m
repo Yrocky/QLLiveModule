@@ -65,9 +65,6 @@ JXCategoryViewDelegate>
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
     [_mainPageView didClickSelectedItemAtIndex:index];
-
-    //侧滑手势处理
-    self.navigationController.interactivePopGestureRecognizer.enabled = (index == 0);
 }
 
 #pragma mark - JXCategoryListContainerViewDelegate

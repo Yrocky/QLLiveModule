@@ -575,7 +575,7 @@ static NSDictionary * demoData;
 @implementation DemoFlexComponent
 
 - (void) setupFlexLayout:(QLLiveFlexLayout *)flexLayout{
-    flexLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
+//    flexLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
     flexLayout.itemHeight = 30;
     flexLayout.delegate = self;
     _layout = flexLayout;

@@ -45,6 +45,9 @@ typedef NS_ENUM(NSInteger, QLLivePureListModuleType) {
 
 @property (nonatomic ,strong ,readonly) QLLiveModuleDataSource * dataSource;
 
+// 如果一部分需要网络请求，另一部分不需要网络请求
+- (NSArray<__kindof QLLiveComponent *> *) defaultComponents;
+
 - (void) refresh;///< 刷新数据
 - (void) loadMore;///< 加载下一页
 

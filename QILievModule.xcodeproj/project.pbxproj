@@ -10,6 +10,8 @@
 		085A806A856DB764E7A59007 /* Pods_QILievModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */; };
 		3210653024EE4D2900C8FCB1 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */; };
 		3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */; };
+		324C362324F3DE7B0037DB8F /* DemoMineComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C362224F3DE7A0037DB8F /* DemoMineComponent.m */; };
+		324C362624F3E5570037DB8F /* DemoMineCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C362524F3E5570037DB8F /* DemoMineCCell.m */; };
 		32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */; };
 		32644D1024EB6EEC002078D2 /* DemoVideoCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0F24EB6EEC002078D2 /* DemoVideoCCell.m */; };
 		32644D1424EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D1324EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m */; };
@@ -58,6 +60,10 @@
 		3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveComponentBackgroundDecorateContents.h; sourceTree = "<group>"; };
 		3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveComponentBackgroundDecorateContents.m; sourceTree = "<group>"; };
+		324C362124F3DE7A0037DB8F /* DemoMineComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoMineComponent.h; sourceTree = "<group>"; };
+		324C362224F3DE7A0037DB8F /* DemoMineComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoMineComponent.m; sourceTree = "<group>"; };
+		324C362424F3E5570037DB8F /* DemoMineCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoMineCCell.h; sourceTree = "<group>"; };
+		324C362524F3E5570037DB8F /* DemoMineCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoMineCCell.m; sourceTree = "<group>"; };
 		32644D0B24EB6A80002078D2 /* DemoVideoComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoVideoComponent.h; sourceTree = "<group>"; };
 		32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoVideoComponent.m; sourceTree = "<group>"; };
 		32644D0E24EB6EEC002078D2 /* DemoVideoCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoVideoCCell.h; sourceTree = "<group>"; };
@@ -468,6 +474,10 @@
 			children = (
 				32DB56C924E166DF00AD669F /* DemoMineModule.h */,
 				32DB56CA24E166DF00AD669F /* DemoMineModule.m */,
+				324C362124F3DE7A0037DB8F /* DemoMineComponent.h */,
+				324C362224F3DE7A0037DB8F /* DemoMineComponent.m */,
+				324C362424F3E5570037DB8F /* DemoMineCCell.h */,
+				324C362524F3E5570037DB8F /* DemoMineCCell.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -606,6 +616,7 @@
 				32DB56A624E1495600AD669F /* QLLiveModuleDataSource.m in Sources */,
 				32DB566824DFA98300AD669F /* NSObject+EaseRuntime.m in Sources */,
 				32644D1024EB6EEC002078D2 /* DemoVideoCCell.m in Sources */,
+				324C362624F3E5570037DB8F /* DemoMineCCell.m in Sources */,
 				32DB56C324E1604B00AD669F /* DemoShoppingModule.m in Sources */,
 				32DB565724DFA78F00AD669F /* DemoListViewController.m in Sources */,
 				32DB564424DFA63900AD669F /* ViewController.m in Sources */,
@@ -621,6 +632,7 @@
 				32DB56BF24E1603000AD669F /* DemoLivingModule.m in Sources */,
 				32644D1D24ECEF47002078D2 /* DemoHuabanModule.m in Sources */,
 				32644D1724ECE9DC002078D2 /* DemoSearchComponent.m in Sources */,
+				324C362324F3DE7B0037DB8F /* DemoMineComponent.m in Sources */,
 				32DB56A724E1495600AD669F /* QLLiveComponentLayout.m in Sources */,
 				32DB564F24DFA63D00AD669F /* main.m in Sources */,
 				32DB56AA24E1495600AD669F /* QLLiveModuleFlowLayout.m in Sources */,

@@ -11,6 +11,12 @@
 #import "QLLiveModelEnvironment.h"
 #import "QLLiveModuleDataSource_Private.h"
 
+@interface QLLiveModule (){
+    NSArray<__kindof QLLiveComponent *> * _defaultComponents;
+}
+@property (nonatomic ,assign) BOOL haveDefaultComponents;
+@end
+
 @implementation QLLiveModule
 
 - (void)dealloc
@@ -43,7 +49,21 @@
     return self;
 }
 
+- (NSArray<__kindof QLLiveComponent *> *) defaultComponents{
+    return nil;
+}
+
 - (void) refresh{
+    // 如果有默认的comp，就先展示出来
+    if (!_defaultComponents) {
+        _defaultComponents = [self defaultComponents];
+        self.haveDefaultComponents = _defaultComponents.count != 0;
+        if (self.haveDefaultComponents) {
+            [self.dataSource addComponents:_defaultComponents];
+            [self.collectionView reloadData];
+        }
+    }
+    
     _isRefresh = YES;
     [self resetIndex];
     [self fetchModuleDataFromService];
@@ -82,8 +102,13 @@
     YTKRequest * request = [self fetchModuleRequest];
 //    request.successOnMainQueue = NO;
     [request startWithCompletionBlockWithSuccess:^(YTKRequest * _Nonnull request) {
-        if (_isRefresh) {
-            [self.dataSource clear];
+        if (self->_isRefresh) {
+            // clear
+            if (self.haveDefaultComponents) {
+                [self.dataSource clearExceptComponents:self->_defaultComponents];
+            } else {
+                [self.dataSource clear];
+            }
         }
         [self parseModuleDataWithRequest:request];
         [self increaseIndex];

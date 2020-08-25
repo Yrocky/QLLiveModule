@@ -264,6 +264,19 @@
         [self updateHideWhenEmptyComponents];
     }
 }
+- (void) clearExceptComponents:(NSArray<__kindof QLLiveComponent *> *)components{
+    @synchronized (_innerComponents) {
+        
+        NSPredicate * pred = [NSPredicate predicateWithFormat:@"NOT SELF IN %@",_innerComponents];
+    
+        [_innerComponents removeObjectsInArray:[[components filteredArrayUsingPredicate:pred] ease_map:^id(__kindof QLLiveComponent * component) {
+            [component clear];
+            return component;
+        }]];
+        
+        [self updateHideWhenEmptyComponents];
+    }
+}
 
 - (void) addComponent:(__kindof QLLiveComponent *)component{
     if (!component) {
