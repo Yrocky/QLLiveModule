@@ -18,6 +18,13 @@ typedef NS_ENUM(NSInteger, QLLiveLayoutArrange) {
     QLLiveLayoutArrangeHorizontal,
 };
 
+typedef NS_ENUM(NSInteger, QLLiveLayoutHorizontalScrollingBehavior) {
+    QLLiveLayoutHorizontalScrollingBehaviorNone,
+    QLLiveLayoutHorizontalScrollingBehaviorContinuous,
+    QLLiveLayoutHorizontalScrollingBehaviorPaging,
+    QLLiveLayoutHorizontalScrollingBehaviorCentered,
+};
+
 @protocol QLLiveModelEnvironment;
 @interface QLLiveBaseLayout : NSObject{
     NSMutableDictionary * _cacheItemFrame;
@@ -52,6 +59,12 @@ typedef NS_ENUM(NSInteger, QLLiveLayoutArrange) {
  限制垂直方向的高度
  */
 @property (nonatomic ,assign) CGFloat horizontalArrangeContentHeight;
+/*
+ arrange = QLLiveLayoutArrangeHorizontal 的时候
+ 内嵌ScrollView的滚动效果
+ */
+@property (nonatomic ,assign) QLLiveLayoutHorizontalScrollingBehavior horizontalScrollingBehavior;
+
 /*
  缓存每一个索引下的frame，子类调用
  */

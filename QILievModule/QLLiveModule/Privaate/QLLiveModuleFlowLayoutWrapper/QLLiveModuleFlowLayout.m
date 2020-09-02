@@ -172,7 +172,8 @@ static const NSInteger unionSize = 20;
         
         QLLiveComponentBackgroundDecorateBuilder * builder = component.backgroundDecorateBuilder;
         if (builder &&
-            builder.type != QLLiveComponentBackgroundDecorateNone) {
+            builder.type != QLLiveComponentBackgroundDecorateNone &&
+            self.scrollDirection == UICollectionViewScrollDirectionVertical) {
             CGFloat y = 0;
             if (self.sectionHeights.count) {
                 y = self.sectionHeights[self.sectionHeights.count - 1].floatValue;

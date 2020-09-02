@@ -7,6 +7,7 @@
 //
 
 #import "DemoShoppingModule.h"
+#import "DemoShoppingComponent.h"
 
 @implementation DemoShoppingModule
 

@@ -10,6 +10,15 @@
 
 @implementation QLLiveFlexLayout
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.justifyContent = QLLiveFlexLayoutFlexStart;
+    }
+    return self;
+}
+
 - (CGFloat)horizontalArrangeContentHeight{
     return self.itemHeight;
 }

@@ -18,11 +18,10 @@ static NSDictionary * videoData;
     if (self) {
         videoData = @{
             @"banner":@[
-                    @"https://puui.qpic.cn/video_caps/0/r3135gxdhof.q4.jpg/0",
-                    @"https://puui.qpic.cn/qqvideo_ori/0/n3137n50b4l_360_204/0",
-                    @"https://puui.qpic.cn/tv/0/1216476595_285160/0",
-                    @"https://puui.qpic.cn/tv/0/1215971255_285160/0",
-                    @"https://puui.qpic.cn/qqvideo/0/t31376jilpk/332"
+                    @"https://puui.qpic.cn/tv/0/1221861328_498280/0",
+                    @"https://puui.qpic.cn/tv/0/841100946_498280/0",
+                    @"https://puui.qpic.cn/tv/0/1221860096_498280/0",
+                    @"https://puui.qpic.cn/tv/0/1221855502_498280/0"
             ],
             @"category":@[
                     @"精选",
@@ -108,6 +107,12 @@ static NSDictionary * videoData;
 - (void) setupComponents:(NSDictionary *)data{
     
     [self.dataSource addComponent:({
+        VideoBannerComponent * comp = [VideoBannerComponent new];
+        [comp addData:data[@"banner"]];
+        comp;
+    })];
+
+    [self.dataSource addComponent:({
         VideoCategoryComponent * comp = [VideoCategoryComponent new];
         [comp addDatas:data[@"category"]];
         comp;
@@ -129,14 +134,5 @@ static NSDictionary * videoData;
         [comp addDatas:data[@"video"]];
         comp;
     })];
-    
-    return;
-    
-    [self.dataSource addComponent:({
-        VideoBannerComponent * comp = [VideoBannerComponent new];
-        [comp addDatas:data[@"banner"]];
-        comp;
-    })];
-    
 }
 @end

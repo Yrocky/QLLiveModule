@@ -27,7 +27,6 @@
 
 - (void)setEnvironment:(id<QLLiveModelEnvironment>)environment{
     _environment = environment;
-//    self.layout.environment = environment;
     self.layout.environment = environment;
 }
 

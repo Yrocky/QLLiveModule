@@ -11,6 +11,26 @@
 
 @implementation VideoBannerComponent
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        QLLiveListLayout * layout = [QLLiveListLayout new];
+        layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
+        layout.distribution = [QLLiveLayoutDistribution distributionValue:1];
+        layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:498.0f/280.0];
+        _layout = layout;
+    }
+    return self;
+}
+
+- (__kindof UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index{
+    DemoBannerCCell * ccell =
+    [self.dataSource dequeueReusableCellOfClass:DemoBannerCCell.class
+                                   forComponent:self atIndex:index];
+    [ccell setupBannerDatas:[self dataAtIndex:index]];
+    return ccell;
+}
 @end
 
 @interface VideoCategoryComponent ()<QLLiveFlexLayoutDelegate>

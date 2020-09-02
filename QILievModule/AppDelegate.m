@@ -37,7 +37,7 @@
     ViewController * vc = [[ViewController alloc] initWithModule:({
         QLLiveCompositeModule * module = [[QLLiveCompositeModule alloc] initWithName:@"demo"];
         [module addModule:({
-            [[DemoMineModule alloc] initWithName:@"个人中心"];
+            [[DemoMusicModule alloc] initWithName:@"音乐app"];
         })];
         [module addModule:({
             QLLiveCompositeModule * demoModule = [[QLLiveCompositeModule alloc] initWithName:@"DEMO"];
@@ -63,9 +63,8 @@
             [[DemoShoppingModule alloc] initWithName:@"购物app"];
         })];
         [module addModule:({
-            [[DemoMusicModule alloc] initWithName:@"音乐app"];
+            [[DemoMineModule alloc] initWithName:@"个人中心"];
         })];
-        
         [module addModule:({
             [[DemoResumeModule alloc] initWithName:@"Resume"];
         })];

@@ -10,19 +10,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SearchWatchHistoryComponent : QLLiveComponent
+@interface SearchComponent : QLLiveComponent
+
+- (instancetype) initWithTitle:(NSString *)title;
+@end
+
+@interface SearchHistoryComponent : SearchComponent<QLLiveFlexLayoutDelegate>
 
 @end
 
-@interface SearchHistoryComponent : QLLiveComponent
+@interface SearchHotRankComponent : SearchComponent
 
 @end
 
-@interface SearchHotRankComponent : QLLiveComponent
-
-@end
-
-@interface SearchRecommendComponent : QLLiveComponent
+@interface SearchRecommendComponent : SearchComponent
 
 @end
 NS_ASSUME_NONNULL_END

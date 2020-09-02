@@ -138,6 +138,17 @@ static NSDictionary * demoData;
 - (void)setupComponents:(NSDictionary *)data{
     
     [self.dataSource addComponent:({
+        DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"QLLiveFlexLayout：orthogonal scroll"];
+        [comp setupFlexLayout:({
+            QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
+            flexLayout.arrange = QLLiveLayoutArrangeHorizontal;
+            flexLayout.inset = UIEdgeInsetsMake(0, 0, 0, 0);
+            flexLayout;
+        })];
+        [comp addDatas:data[@"flex"]];
+        comp;
+    })];
+    [self.dataSource addComponent:({
         DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"QLLiveFlexLayout：flex-start"];
         [comp setupFlexLayout:({
             QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
@@ -194,18 +205,6 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"flex"]];
         comp;
     })];
-    
-    [self.dataSource addComponent:({
-        DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"QLLiveFlexLayout：orthogonal scroll"];
-        [comp setupFlexLayout:({
-            QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
-            flexLayout.arrange = QLLiveLayoutArrangeHorizontal;
-            flexLayout.inset = UIEdgeInsetsMake(0, 0, 0, 0);
-            flexLayout;
-        })];
-        [comp addDatas:data[@"flex"]];
-        comp;
-    })];
 }
 @end
 
@@ -213,6 +212,20 @@ static NSDictionary * demoData;
 
 - (void)setupComponents:(NSDictionary *)data{
     
+    [self.dataSource addComponent:({
+        DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"QLLiveListLayout：orthogonal scroll"];
+        [comp setupListLayout:({
+            QLLiveListLayout * listLayout = [QLLiveListLayout new];
+            listLayout.arrange = QLLiveLayoutArrangeHorizontal;
+            listLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
+            listLayout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.55];
+            listLayout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:50];
+            listLayout.row = 3;
+            listLayout;
+        })];
+        [comp addDatas:data[@"music"]];
+        comp;
+    })];
     [self.dataSource addComponent:({
         DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"QLLiveListLayout：table-view like"];
         [comp setupListLayout:({
@@ -239,21 +252,6 @@ static NSDictionary * demoData;
         [comp addDatas:data[@"music"]];
         comp;
     })];
-    
-    [self.dataSource addComponent:({
-        DemoListComponent * comp = [[DemoListComponent alloc] initWithTitle:@"QLLiveListLayout：orthogonal scroll"];
-        [comp setupListLayout:({
-            QLLiveListLayout * listLayout = [QLLiveListLayout new];
-            listLayout.arrange = QLLiveLayoutArrangeHorizontal;
-            listLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
-            listLayout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.55];
-            listLayout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:50];
-            listLayout.row = 3;
-            listLayout;
-        })];
-        [comp addDatas:data[@"music"]];
-        comp;
-    })];
 }
 
 @end
@@ -262,6 +260,19 @@ static NSDictionary * demoData;
 
 - (void)setupComponents:(NSDictionary *)data{
     
+    [self.dataSource addComponent:({
+        DemoWaterfallComponent * comp = [[DemoWaterfallComponent alloc] initWithTitle:@"QLLiveWaterfallLayout：orthogonal scroll"];
+        [comp setupWaterfallLayout:({
+            QLLiveWaterfallLayout * waterfallLayout = [QLLiveWaterfallLayout new];
+            waterfallLayout.row = 3;
+            waterfallLayout.horizontalArrangeContentHeight = 300;
+            waterfallLayout.arrange = QLLiveLayoutArrangeHorizontal;
+            waterfallLayout.renderDirection = QLLiveWaterfallItemRenderBottomToTop;
+            waterfallLayout;
+        })];
+        [comp addDatas:data[@"waterFlow"]];
+        comp;
+    })];
     [self.dataSource addComponent:({
         DemoWaterfallComponent * comp = [[DemoWaterfallComponent alloc] initWithTitle:@"QLLiveWaterfallLayout：shortest first"];
         [comp setupWaterfallLayout:({
@@ -290,19 +301,6 @@ static NSDictionary * demoData;
             QLLiveWaterfallLayout * waterfallLayout = [QLLiveWaterfallLayout new];
             waterfallLayout.column = 3;
             waterfallLayout.renderDirection = QLLiveWaterfallItemRenderRightToLeft;
-            waterfallLayout;
-        })];
-        [comp addDatas:data[@"waterFlow"]];
-        comp;
-    })];
-    [self.dataSource addComponent:({
-        DemoWaterfallComponent * comp = [[DemoWaterfallComponent alloc] initWithTitle:@"QLLiveWaterfallLayout：orthogonal scroll"];
-        [comp setupWaterfallLayout:({
-            QLLiveWaterfallLayout * waterfallLayout = [QLLiveWaterfallLayout new];
-            waterfallLayout.row = 3;
-            waterfallLayout.horizontalArrangeContentHeight = 300;
-            waterfallLayout.arrange = QLLiveLayoutArrangeHorizontal;
-            waterfallLayout.renderDirection = QLLiveWaterfallItemRenderBottomToTop;
             waterfallLayout;
         })];
         [comp addDatas:data[@"waterFlow"]];

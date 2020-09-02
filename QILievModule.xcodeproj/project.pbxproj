@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		085A806A856DB764E7A59007 /* Pods_QILievModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */; };
 		3210653024EE4D2900C8FCB1 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */; };
+		323220AA24F6560F00B1EDB3 /* DemoSearchCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 323220A924F6560F00B1EDB3 /* DemoSearchCCell.m */; };
 		3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */; };
 		324C362324F3DE7B0037DB8F /* DemoMineComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C362224F3DE7A0037DB8F /* DemoMineComponent.m */; };
 		324C362624F3E5570037DB8F /* DemoMineCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C362524F3E5570037DB8F /* DemoMineCCell.m */; };
@@ -52,12 +53,25 @@
 		32DB56D224E1727800AD669F /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56D124E1727800AD669F /* NSString+Common.m */; };
 		32DB56D524E1762500AD669F /* DemoContentCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56D424E1762500AD669F /* DemoContentCCell.m */; };
 		32DB56D824E2417700AD669F /* DemoResumeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56D724E2417700AD669F /* DemoResumeModule.m */; };
+		32EC35DE24F4DC9200D6D297 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35D224F4DC9200D6D297 /* SDCycleScrollView.m */; };
+		32EC35DF24F4DC9200D6D297 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35D324F4DC9200D6D297 /* UIView+SDExtension.m */; };
+		32EC35E024F4DC9200D6D297 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35D424F4DC9200D6D297 /* SDCollectionViewCell.m */; };
+		32EC35E124F4DC9200D6D297 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35D724F4DC9200D6D297 /* TADotView.m */; };
+		32EC35E224F4DC9200D6D297 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35D824F4DC9200D6D297 /* TAPageControl.m */; };
+		32EC35E324F4DC9200D6D297 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35D924F4DC9200D6D297 /* TAAnimatedDotView.m */; };
+		32EC35E424F4DC9200D6D297 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35DA24F4DC9200D6D297 /* TAAbstractDotView.m */; };
+		32EC35E724F4E2CD00D6D297 /* DemoShoppingComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35E624F4E2CD00D6D297 /* DemoShoppingComponent.m */; };
+		32EC35E924F4F96200D6D297 /* music.json in Resources */ = {isa = PBXBuildFile; fileRef = 32EC35E824F4F96200D6D297 /* music.json */; };
+		32EC35EC24F4FC8E00D6D297 /* DemoMusicComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35EB24F4FC8E00D6D297 /* DemoMusicComponent.m */; };
+		32EC35EF24F4FCA400D6D297 /* DemoMusicCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC35EE24F4FCA400D6D297 /* DemoMusicCCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1AA14438CEA24C750502FBCD /* Pods-QILievModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QILievModule.release.xcconfig"; path = "Target Support Files/Pods-QILievModule/Pods-QILievModule.release.xcconfig"; sourceTree = "<group>"; };
 		3210652E24EE4D2900C8FCB1 /* UIImage+Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
 		3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
+		323220A824F6560F00B1EDB3 /* DemoSearchCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoSearchCCell.h; sourceTree = "<group>"; };
+		323220A924F6560F00B1EDB3 /* DemoSearchCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoSearchCCell.m; sourceTree = "<group>"; };
 		3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveComponentBackgroundDecorateContents.h; sourceTree = "<group>"; };
 		3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveComponentBackgroundDecorateContents.m; sourceTree = "<group>"; };
 		324C362124F3DE7A0037DB8F /* DemoMineComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoMineComponent.h; sourceTree = "<group>"; };
@@ -149,6 +163,27 @@
 		32DB56D424E1762500AD669F /* DemoContentCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoContentCCell.m; sourceTree = "<group>"; };
 		32DB56D624E2417700AD669F /* DemoResumeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoResumeModule.h; sourceTree = "<group>"; };
 		32DB56D724E2417700AD669F /* DemoResumeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoResumeModule.m; sourceTree = "<group>"; };
+		32EC35CF24F4DC9200D6D297 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		32EC35D024F4DC9200D6D297 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		32EC35D124F4DC9200D6D297 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		32EC35D224F4DC9200D6D297 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		32EC35D324F4DC9200D6D297 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		32EC35D424F4DC9200D6D297 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		32EC35D624F4DC9200D6D297 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		32EC35D724F4DC9200D6D297 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		32EC35D824F4DC9200D6D297 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		32EC35D924F4DC9200D6D297 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		32EC35DA24F4DC9200D6D297 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		32EC35DB24F4DC9200D6D297 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		32EC35DC24F4DC9200D6D297 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		32EC35DD24F4DC9200D6D297 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		32EC35E524F4E2CD00D6D297 /* DemoShoppingComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoShoppingComponent.h; sourceTree = "<group>"; };
+		32EC35E624F4E2CD00D6D297 /* DemoShoppingComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoShoppingComponent.m; sourceTree = "<group>"; };
+		32EC35E824F4F96200D6D297 /* music.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music.json; sourceTree = "<group>"; };
+		32EC35EA24F4FC8E00D6D297 /* DemoMusicComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoMusicComponent.h; sourceTree = "<group>"; };
+		32EC35EB24F4FC8E00D6D297 /* DemoMusicComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoMusicComponent.m; sourceTree = "<group>"; };
+		32EC35ED24F4FCA400D6D297 /* DemoMusicCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoMusicCCell.h; sourceTree = "<group>"; };
+		32EC35EE24F4FCA400D6D297 /* DemoMusicCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoMusicCCell.m; sourceTree = "<group>"; };
 		925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QILievModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D365873B42315CDB568B76 /* Pods-QILievModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QILievModule.debug.xcconfig"; path = "Target Support Files/Pods-QILievModule/Pods-QILievModule.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,8 +263,10 @@
 				32DB565824DFA79400AD669F /* Demo */,
 				32DB565C24DFA7E800AD669F /* Ease */,
 				32DB568324E1495600AD669F /* QLLiveModule */,
-				32DB564824DFA63D00AD669F /* Assets.xcassets */,
+				32EC35CE24F4DC9200D6D297 /* SDCycleScrollView */,
 				32644D1824ECEEF3002078D2 /* huaban.json */,
+				32EC35E824F4F96200D6D297 /* music.json */,
+				32DB564824DFA63D00AD669F /* Assets.xcassets */,
 				32DB567A24DFAD9E00AD669F /* PrefixHeader.pch */,
 				32DB564A24DFA63D00AD669F /* LaunchScreen.storyboard */,
 				32DB564D24DFA63D00AD669F /* Info.plist */,
@@ -438,6 +475,8 @@
 				32DB56BA24E1601200AD669F /* DemoSearchModule.m */,
 				32644D1524ECE9DC002078D2 /* DemoSearchComponent.h */,
 				32644D1624ECE9DC002078D2 /* DemoSearchComponent.m */,
+				323220A824F6560F00B1EDB3 /* DemoSearchCCell.h */,
+				323220A924F6560F00B1EDB3 /* DemoSearchCCell.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -456,6 +495,8 @@
 			children = (
 				32DB56C124E1604B00AD669F /* DemoShoppingModule.h */,
 				32DB56C224E1604B00AD669F /* DemoShoppingModule.m */,
+				32EC35E524F4E2CD00D6D297 /* DemoShoppingComponent.h */,
+				32EC35E624F4E2CD00D6D297 /* DemoShoppingComponent.m */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -465,6 +506,10 @@
 			children = (
 				32DB56C524E1606500AD669F /* DemoMusicModule.h */,
 				32DB56C624E1606500AD669F /* DemoMusicModule.m */,
+				32EC35EA24F4FC8E00D6D297 /* DemoMusicComponent.h */,
+				32EC35EB24F4FC8E00D6D297 /* DemoMusicComponent.m */,
+				32EC35ED24F4FCA400D6D297 /* DemoMusicCCell.h */,
+				32EC35EE24F4FCA400D6D297 /* DemoMusicCCell.m */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -489,6 +534,35 @@
 				32DB56D724E2417700AD669F /* DemoResumeModule.m */,
 			);
 			path = Resume;
+			sourceTree = "<group>";
+		};
+		32EC35CE24F4DC9200D6D297 /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				32EC35D524F4DC9200D6D297 /* PageControl */,
+				32EC35D124F4DC9200D6D297 /* SDCollectionViewCell.h */,
+				32EC35D424F4DC9200D6D297 /* SDCollectionViewCell.m */,
+				32EC35D024F4DC9200D6D297 /* SDCycleScrollView.h */,
+				32EC35D224F4DC9200D6D297 /* SDCycleScrollView.m */,
+				32EC35CF24F4DC9200D6D297 /* UIView+SDExtension.h */,
+				32EC35D324F4DC9200D6D297 /* UIView+SDExtension.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		32EC35D524F4DC9200D6D297 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				32EC35D624F4DC9200D6D297 /* TAAbstractDotView.h */,
+				32EC35DA24F4DC9200D6D297 /* TAAbstractDotView.m */,
+				32EC35DC24F4DC9200D6D297 /* TAAnimatedDotView.h */,
+				32EC35D924F4DC9200D6D297 /* TAAnimatedDotView.m */,
+				32EC35DB24F4DC9200D6D297 /* TADotView.h */,
+				32EC35D724F4DC9200D6D297 /* TADotView.m */,
+				32EC35DD24F4DC9200D6D297 /* TAPageControl.h */,
+				32EC35D824F4DC9200D6D297 /* TAPageControl.m */,
+			);
+			path = PageControl;
 			sourceTree = "<group>";
 		};
 		C8C3E5F001457B4DBB3EF2A3 /* Frameworks */ = {
@@ -561,6 +635,7 @@
 				32DB564C24DFA63D00AD669F /* LaunchScreen.storyboard in Resources */,
 				32DB564924DFA63D00AD669F /* Assets.xcassets in Resources */,
 				32644D1924ECEEF3002078D2 /* huaban.json in Resources */,
+				32EC35E924F4F96200D6D297 /* music.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +689,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				32DB56A624E1495600AD669F /* QLLiveModuleDataSource.m in Sources */,
+				32EC35E324F4DC9200D6D297 /* TAAnimatedDotView.m in Sources */,
+				32EC35DE24F4DC9200D6D297 /* SDCycleScrollView.m in Sources */,
 				32DB566824DFA98300AD669F /* NSObject+EaseRuntime.m in Sources */,
 				32644D1024EB6EEC002078D2 /* DemoVideoCCell.m in Sources */,
 				324C362624F3E5570037DB8F /* DemoMineCCell.m in Sources */,
@@ -623,6 +700,9 @@
 				32DB56D524E1762500AD669F /* DemoContentCCell.m in Sources */,
 				32DB56D224E1727800AD669F /* NSString+Common.m in Sources */,
 				32DB56AE24E1495600AD669F /* QLLiveModelEnvironment.m in Sources */,
+				32EC35E224F4DC9200D6D297 /* TAPageControl.m in Sources */,
+				32EC35E024F4DC9200D6D297 /* SDCollectionViewCell.m in Sources */,
+				323220AA24F6560F00B1EDB3 /* DemoSearchCCell.m in Sources */,
 				32DB56D824E2417700AD669F /* DemoResumeModule.m in Sources */,
 				32DB566224DFA91B00AD669F /* EaseAlertController.m in Sources */,
 				32DB563E24DFA63900AD669F /* AppDelegate.m in Sources */,
@@ -630,9 +710,11 @@
 				32DB565F24DFA82800AD669F /* EaseRefreshProxy.m in Sources */,
 				32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */,
 				32DB56BF24E1603000AD669F /* DemoLivingModule.m in Sources */,
+				32EC35E124F4DC9200D6D297 /* TADotView.m in Sources */,
 				32644D1D24ECEF47002078D2 /* DemoHuabanModule.m in Sources */,
 				32644D1724ECE9DC002078D2 /* DemoSearchComponent.m in Sources */,
 				324C362324F3DE7B0037DB8F /* DemoMineComponent.m in Sources */,
+				32EC35E424F4DC9200D6D297 /* TAAbstractDotView.m in Sources */,
 				32DB56A724E1495600AD669F /* QLLiveComponentLayout.m in Sources */,
 				32DB564F24DFA63D00AD669F /* main.m in Sources */,
 				32DB56AA24E1495600AD669F /* QLLiveModuleFlowLayout.m in Sources */,
@@ -641,7 +723,9 @@
 				32644D1424EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m in Sources */,
 				32DB56BB24E1601200AD669F /* DemoSearchModule.m in Sources */,
 				3290921524E3C7C1006D60AB /* QLLiveFlexLayout.m in Sources */,
+				32EC35EC24F4FC8E00D6D297 /* DemoMusicComponent.m in Sources */,
 				3210653024EE4D2900C8FCB1 /* UIImage+Common.m in Sources */,
+				32EC35DF24F4DC9200D6D297 /* UIView+SDExtension.m in Sources */,
 				32DB56A924E1495600AD669F /* QLLiveComponent.m in Sources */,
 				32DB56C724E1606500AD669F /* DemoMusicModule.m in Sources */,
 				3290922524E3CD66006D60AB /* QLLiveBaseLayout.m in Sources */,
@@ -650,10 +734,12 @@
 				32DB566524DFA95900AD669F /* NSArray+Sugar.m in Sources */,
 				32DB565B24DFA7D200AD669F /* DemoCompositeListViewController.m in Sources */,
 				32DB56AD24E1495600AD669F /* QLOrthogonalScrollerEmbeddedScrollView.m in Sources */,
+				32EC35EF24F4FCA400D6D297 /* DemoMusicCCell.m in Sources */,
 				3290921B24E3C7F5006D60AB /* QLLiveListLayout.m in Sources */,
 				32DB56B824E15FFF00AD669F /* DemoVideoModule.m in Sources */,
 				3290921E24E3C805006D60AB /* QLLiveGridLayout.m in Sources */,
 				32DB56CB24E166DF00AD669F /* DemoMineModule.m in Sources */,
+				32EC35E724F4E2CD00D6D297 /* DemoShoppingComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

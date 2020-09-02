@@ -7,6 +7,7 @@
 //
 
 #import "DemoContentCCell.h"
+#import "SDCycleScrollView.h"
 
 @implementation DemoContentCCell
 
@@ -24,7 +25,7 @@
         [self.contentView addSubview:self.oneLabel];
         
         [self.oneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self.contentView);
+            make.centerX.equalTo(self.contentView);
             make.left.equalTo(self.contentView).mas_offset(5);
             make.right.equalTo(self.contentView).mas_offset(-5);
         }];
@@ -37,6 +38,33 @@
 }
 @end
 
+@implementation DemoBannerCCell{
+    SDCycleScrollView * _cycleScrollView;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _cycleScrollView = [SDCycleScrollView new];
+//        _cycleScrollView.layer.cornerRadius = 4.0f;
+//        _cycleScrollView.layer.masksToBounds = YES;
+        _cycleScrollView.autoScrollTimeInterval = 3.5f;
+        _cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
+        _cycleScrollView.clipsToBounds = YES;
+        [self.contentView addSubview:_cycleScrollView];
+        
+        [_cycleScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.contentView);
+        }];
+    }
+    return self;
+}
+- (void) setupBannerDatas:(NSArray<NSString *> *)datas{
+    _cycleScrollView.imageURLStringsGroup = datas;
+}
+
+@end
 @implementation DemoPlaceholdCCell
 
 - (instancetype)initWithFrame:(CGRect)frame
