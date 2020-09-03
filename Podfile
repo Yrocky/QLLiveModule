@@ -14,4 +14,5 @@ target 'QILievModule' do
   pod 'MJRefresh', '~> 3.1.15.3'
   pod 'JXPagingView/Pager','1.1.8'
   pod 'JXCategoryView','1.5.5'
+  pod 'LookinServer', :configurations => ['Debug']
 end

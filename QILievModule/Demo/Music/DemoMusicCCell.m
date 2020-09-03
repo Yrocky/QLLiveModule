@@ -61,6 +61,7 @@
 
 - (void) setupSong:(id)songData atIndex:(NSInteger)index{
 //    _heightConstraint.mas_equalTo(_albumImageView.mas_width);;
+//    [_albumImageView sd_setImageWithURL:QLSafeURL(@"http://p3.music.126.net/zel4pIUebw09fhwdirOUJw==/109951164310145356.jpg?param=140y140")];
     [_albumImageView sd_setImageWithURL:QLSafeURL(songData[@"album"][@"picUrl"])];
     _songNameLabel.text = songData[@"name"];
 }
@@ -120,6 +121,7 @@
 
 - (void) setupSong:(id)songData atIndex:(NSInteger)index{
     [_albumImageView sd_setImageWithURL:QLSafeURL(songData[@"album"][@"picUrl"])];
+//    [_albumImageView sd_setImageWithURL:QLSafeURL(@"http://p3.music.126.net/zel4pIUebw09fhwdirOUJw==/109951164310145356.jpg?param=140y140")];
     _songNameLabel.text = songData[@"name"];
     _artistsNameLabel.text = songData[@"artists"][0][@"name"];
 }
@@ -167,6 +169,7 @@
 
 - (void) setupSong:(id)songData atIndex:(NSInteger)index{
     [_albumImageView sd_setImageWithURL:QLSafeURL(songData[@"album"][@"picUrl"])];
+//    [_albumImageView sd_setImageWithURL:QLSafeURL(@"http://p3.music.126.net/zel4pIUebw09fhwdirOUJw==/109951164310145356.jpg?param=140y140")];
     _songNameLabel.text = songData[@"name"];
 }
 

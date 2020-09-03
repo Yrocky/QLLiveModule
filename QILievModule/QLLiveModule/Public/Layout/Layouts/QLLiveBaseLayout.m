@@ -51,7 +51,7 @@
     }
     NSString * key = [self cacheKeyAt:index];
     _cacheItemFrame[key] = [NSValue valueWithCGRect:itemFrame];
-    NSLog(@"[cache] %ld %@", (long)index,NSStringFromCGRect(itemFrame));
+//    NSLog(@"[cache] %ld %@", (long)index,NSStringFromCGRect(itemFrame));
 }
 
 - (CGRect) itemFrameAtIndex:(NSInteger)index{

@@ -17,6 +17,7 @@
 - (instancetype) initWithName:(NSString *)name{
     self = [super init];
     if (self) {
+        self.headerPin = YES;
         _name = name;
     }
     return self;;
@@ -31,6 +32,7 @@
         headerView.titleLabel.textColor = [UIColor redColor];
         headerView.titleLabel.font = [UIFont systemFontOfSize:17
         weight:UIFontWeightMedium];
+        headerView.backgroundColor = [UIColor whiteColor];
         [headerView setupHeaderTitle:_name];
         return headerView;;
     }

@@ -150,6 +150,7 @@ static NSDictionary * demoData;
     })];
     [self.dataSource addComponent:({
         DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"QLLiveFlexLayout：flex-start"];
+        comp.headerPin = YES;
         [comp setupFlexLayout:({
             QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
             flexLayout.justifyContent = QLLiveFlexLayoutFlexStart;
@@ -161,6 +162,7 @@ static NSDictionary * demoData;
     })];
     [self.dataSource addComponent:({
         DemoFlexComponent * comp = [[DemoFlexComponent alloc] initWithTitle:@"QLLiveFlexLayout：center"];
+//        comp.headerPin = YES;
         [comp setupFlexLayout:({
             QLLiveFlexLayout * flexLayout = [QLLiveFlexLayout new];
             flexLayout.justifyContent = QLLiveFlexLayoutCenter;
@@ -275,6 +277,7 @@ static NSDictionary * demoData;
     })];
     [self.dataSource addComponent:({
         DemoWaterfallComponent * comp = [[DemoWaterfallComponent alloc] initWithTitle:@"QLLiveWaterfallLayout：shortest first"];
+        comp.headerPin = YES;
         [comp setupWaterfallLayout:({
             QLLiveWaterfallLayout * waterfallLayout = [QLLiveWaterfallLayout new];
             waterfallLayout.column = 3;
@@ -525,9 +528,9 @@ static NSDictionary * demoData;
     return CGSizeMake(200, 45);
 }
 
-- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind{
-    return UIEdgeInsetsMake(0, 10, 0, 10);
-}
+//- (UIEdgeInsets) insetForSupplementaryViewOfKind:(NSString *)elementKind{
+//    return UIEdgeInsetsMake(0, 10, 0, 10);
+//}
 
 @end
 

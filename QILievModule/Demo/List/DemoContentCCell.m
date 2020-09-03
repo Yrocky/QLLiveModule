@@ -25,7 +25,7 @@
         [self.contentView addSubview:self.oneLabel];
         
         [self.oneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView);
+            make.centerY.equalTo(self.contentView);
             make.left.equalTo(self.contentView).mas_offset(5);
             make.right.equalTo(self.contentView).mas_offset(-5);
         }];
@@ -114,6 +114,10 @@
 }
 - (void) setupHeaderTitle:(NSString *)title{
     self.titleLabel.text = QLSafeString(title);
+}
+- (void)setHidden:(BOOL)hidden{
+    [super setHidden:hidden];
+    NSLog(@"hidden");
 }
 @end
 

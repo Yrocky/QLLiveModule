@@ -30,12 +30,17 @@
 
 /// Array to store union rectangles
 @property (nonatomic, strong) NSMutableArray *unionRects;
+
+/// pin
+@property (nonatomic ,assign) BOOL hasPinnedSupplementaryItems;
+@property (nonatomic, strong) NSMutableArray *layoutAttributesForPinnedSupplementaryItems;
+
 @end
 
 @implementation QLLiveModuleFlowLayout
 
 /// How many items to be union into a single rectangle
-static const NSInteger unionSize = 20;
+static const NSInteger unionSize = 50;
 - (instancetype)init
 {
     self = [super init];
@@ -46,11 +51,11 @@ static const NSInteger unionSize = 20;
     return self;
 }
 
-#pragma mark - override
-
-- (void)prepareLayout {
-    [super prepareLayout];
-
+- (void) resetState {
+    
+    self.hasPinnedSupplementaryItems = NO;
+    [self.layoutAttributesForPinnedSupplementaryItems removeAllObjects];
+    
     // clear datas
     [self.unionRects removeAllObjects];
     [self.columnHeights removeAllObjects];
@@ -61,14 +66,31 @@ static const NSInteger unionSize = 20;
     [self.sectionItemAttributes removeAllObjects];
     [self.footersAttribute removeAllObjects];
     [self.decorateViewAttributes removeAllObjects];
+}
+
+#pragma mark - override
+
+- (void)prepareLayout {
+    [super prepareLayout];
+
+    UICollectionView *collectionView = self.collectionView;
+    if (!collectionView) {
+        return;
+    }
+    CGRect collectionViewBounds = collectionView.bounds;
+    if (CGRectIsEmpty(collectionViewBounds)) {
+        return;
+    }
     
     NSInteger numberOfSections = [self.collectionView numberOfSections];
     if (numberOfSections == 0) {
         // for safe
         return;
     }
+
+    [self resetState];
     
-    CGFloat collectionViewWidth = self.collectionView.bounds.size.width;
+    CGFloat collectionViewWidth = collectionViewBounds.size.width;
     
     UICollectionViewLayoutAttributes *attributes;
 
@@ -77,7 +99,7 @@ static const NSInteger unionSize = 20;
      
         QLLiveComponent * component;
         if ([self.delegate respondsToSelector:@selector(collectionView:layout:componentAtSection:)]) {
-            component = [self.delegate collectionView:self.collectionView layout:self componentAtSection:section];
+            component = [self.delegate collectionView:collectionView layout:self componentAtSection:section];
         }
         
         QLLiveBaseLayout * layout = component.layout;
@@ -101,6 +123,15 @@ static const NSInteger unionSize = 20;
                     headerHeight
                 };
                 
+                if (component.headerPin) {
+                    self.hasPinnedSupplementaryItems = YES;
+                    attributes.zIndex = 1;
+                    [self.layoutAttributesForPinnedSupplementaryItems addObject:@{
+                       @"section":@(section),
+                       @"attributes":attributes
+                    }];
+//                    [self.layoutAttributesForPinnedSupplementaryItems addObject:attributes];
+                }
                 self.headersAttribute[@(section)] = attributes;
                 [self.allItemAttributes addObject:attributes];
                 
@@ -111,7 +142,7 @@ static const NSInteger unionSize = 20;
         top += sectionInset.top;
         
         // items
-        NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
+        NSInteger itemCount = [collectionView numberOfItemsInSection:section];
         NSMutableArray * itemAttributes = [NSMutableArray new];
         if (layout.arrange == QLLiveLayoutArrangeHorizontal &&
             self.scrollDirection == UICollectionViewScrollDirectionVertical) {
@@ -291,23 +322,73 @@ static const NSInteger unionSize = 20;
     }
     for (i = begin; i < end; i++) {
         UICollectionViewLayoutAttributes *attr = self.allItemAttributes[i];
-        if (CGRectIntersectsRect(rect, attr.frame)) {
-            switch (attr.representedElementCategory) {
-                case UICollectionElementCategorySupplementaryView:
-                    if ([attr.representedElementKind isEqualToString:UICollectionElementKindSectionHeader]) {
-                        supplHeaderAttrDict[attr.indexPath] = attr;
-                    } else if ([attr.representedElementKind isEqualToString:UICollectionElementKindSectionFooter]) {
-                        supplFooterAttrDict[attr.indexPath] = attr;
-                    }
-                    break;
-                case UICollectionElementCategoryDecorationView:
-                    decorAttrDict[attr.indexPath] = attr;
-                    break;
-                case UICollectionElementCategoryCell:
-                    cellAttrDict[attr.indexPath] = attr;
-                    break;
+        
+        if (!CGRectIntersectsRect(rect, attr.frame)) {
+            continue;
+        }
+        UICollectionElementCategory elementCategory = attr.representedElementCategory;
+        if (elementCategory == UICollectionElementCategorySupplementaryView) {
+            if ([attr.representedElementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+                supplHeaderAttrDict[attr.indexPath] = attr;
+            } else if ([attr.representedElementKind isEqualToString:UICollectionElementKindSectionFooter]) {
+                supplFooterAttrDict[attr.indexPath] = attr;
+            }
+        } else if (elementCategory == UICollectionElementCategoryDecorationView) {
+            decorAttrDict[attr.indexPath] = attr;
+        } else {
+            cellAttrDict[attr.indexPath] = attr;
+        }
+    }
+    
+    // 黏性header
+    for (NSInteger pinnedIndex = 0;
+         pinnedIndex < self.layoutAttributesForPinnedSupplementaryItems.count;
+         pinnedIndex++) {
+        
+        CGPoint contentOffset = self.collectionView.contentOffset;
+        NSDictionary * pinnedSupplementaryData = self.layoutAttributesForPinnedSupplementaryItems[pinnedIndex];
+        UICollectionViewLayoutAttributes *attributes = pinnedSupplementaryData[@"attributes"];
+        NSInteger sectionIndex = [pinnedSupplementaryData[@"section"] integerValue];
+        
+        CGFloat currentSectionHeight =
+        self.sectionHeights[sectionIndex].floatValue -
+        (sectionIndex == 0 ? 0 : self.sectionHeights[sectionIndex - 1].floatValue);
+        CGRect sectionFrame = attributes.frame;
+        sectionFrame.size.height = currentSectionHeight;
+        
+        if (!CGRectIntersectsRect(sectionFrame, rect)) {
+            continue;
+        }
+        
+        if (@available(iOS 11.0, *)) {
+            if ([self.collectionView respondsToSelector:@selector(safeAreaInsets)]) {
+                if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+                    contentOffset.y += self.collectionView.safeAreaInsets.top;
+                }
             }
         }
+        CGRect frame = attributes.frame;
+        CGFloat sectionBottomY = [self.sectionHeights[sectionIndex] floatValue] - CGRectGetHeight(frame);
+        if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+            CGFloat targetY = 0.0f;
+            NSInteger condition = 0;
+            if (contentOffset.y <= frame.origin.y) {
+                targetY = frame.origin.y;
+                condition = 1;
+            } else if (contentOffset.y < sectionBottomY) {
+                targetY = contentOffset.y;
+                condition = 2;
+            } else {
+                targetY = sectionBottomY;
+                condition = 3;
+            }
+            frame.origin.y = MIN(MAX(contentOffset.y, frame.origin.y), sectionBottomY);
+            NSLog(@"condition %d sectionBottomY:%.0f frame:%.0f contentOffset:%.0f targetY:%.0f ",condition,sectionBottomY,frame.origin.y,contentOffset.y,targetY);
+//            frame.origin.y = targetY;
+        }
+//        NSLog(@"[layout] targetY:%.0f",frame.origin.y);
+        
+        attributes.frame = frame;
     }
     
     NSArray *result = [cellAttrDict.allValues arrayByAddingObjectsFromArray:supplHeaderAttrDict.allValues];
@@ -317,11 +398,13 @@ static const NSInteger unionSize = 20;
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
-    CGRect oldBounds = self.collectionView.bounds;
-    if (CGRectGetWidth(newBounds) != CGRectGetWidth(oldBounds)) {
+    if (!self.collectionView) {
+        return NO;
+    }
+    if (self.hasPinnedSupplementaryItems) {
         return YES;
     }
-    return NO;
+    return !CGSizeEqualToSize(newBounds.size, self.collectionView.bounds.size);
 }
 //- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
 //    switch (self.containerSection.orthogonalScrollingBehavior) {
@@ -481,6 +564,13 @@ static const NSInteger unionSize = 20;
         _footersAttribute = [NSMutableDictionary dictionary];
     }
     return _footersAttribute;
+}
+
+- (NSMutableArray *)layoutAttributesForPinnedSupplementaryItems{
+    if (!_layoutAttributesForPinnedSupplementaryItems) {
+        _layoutAttributesForPinnedSupplementaryItems = [NSMutableArray new];
+    }
+    return _layoutAttributesForPinnedSupplementaryItems;
 }
 
 - (id <QLLiveModuleFlowLayout> )delegate {

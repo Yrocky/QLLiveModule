@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (__kindof UICollectionViewCell *) dequeueReusableCell:(Class)cellClass
                                     withReuseIdentifier:(NSString *)reuseIdentifier
                                             atIndexPath:(NSIndexPath *)indexPath;
+
+- (void) removeFromSuperview;
 @end
 
 NS_ASSUME_NONNULL_END

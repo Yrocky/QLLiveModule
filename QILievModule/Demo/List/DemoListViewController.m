@@ -39,6 +39,10 @@ UICollectionViewDelegate>
                                          collectionViewLayout:({
         [[UICollectionViewFlowLayout alloc] init];
     })];
+    if (@available(ios 11.0, *)) {
+        [_collectionView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+        [_collectionView setScrollIndicatorInsets:[UIScrollView appearance].contentInset];
+    }
     _collectionView.backgroundColor = UIColor.whiteColor;
 //    _collectionView.emptyDataSetSource = self;
 //    _collectionView.emptyDataSetDelegate = self;

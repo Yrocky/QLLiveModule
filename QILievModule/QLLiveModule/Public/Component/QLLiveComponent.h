@@ -51,25 +51,30 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
 }
 
 @property (nonatomic, weak, readonly) id<QLLiveModuleDataSourceAble> dataSource;
-
-/// 是否需要独立请求数据，有的comp需要自己请求数据，
-/// 有的comp是在一个统一的接口中返回数据，default NO
+/*
+ 是否需要独立请求数据，有的comp需要自己请求数据，
+ 有的comp是在一个统一的接口中返回数据，default NO
+ */
 @property (nonatomic ,assign) BOOL independentDatas;
-
-/// 是否需要使用占位视图，在empty的时候回返回一个数据用来展示占位,default NO
+/*
+ 是否需要使用占位视图，在empty的时候回返回一个数据用来展示占位,default NO
+ */
 @property (nonatomic ,assign) BOOL needPlacehold;
-
-/// 当没有数据的时候，不在UI中展示，default NO
+/*
+ 当没有数据的时候，不在UI中展示，default NO
+ */
 @property (nonatomic ,assign) BOOL hiddenWhenEmpty;
-
-/// arrange == QLLiveComponentArrangeHorizontal
+/*
+ arrange == QLLiveComponentArrangeHorizontal
+ */
 @property (nonatomic ,assign ,readonly) BOOL isOrthogonallyScrolls;
-
-/// layout
+/*
+ 布局
+ */
 @property (nonatomic ,strong ,readonly) __kindof QLLiveBaseLayout * layout;
-
-//@property (nonatomic ,assign) QLLiveComponentArrange arrange;
-/// headerView是否要黏性
+/*
+ headerView是否要黏性
+ */
 @property (nonatomic ,assign) BOOL headerPin;
 
 // 在DataSource中的索引
