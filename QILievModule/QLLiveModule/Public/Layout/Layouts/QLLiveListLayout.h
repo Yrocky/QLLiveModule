@@ -44,15 +44,15 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  insetContainerWidth 的等分数
  */
-+ (instancetype)distributionValue:(NSInteger)value;
++ (instancetype)distributionValue:(NSInteger)value NS_SWIFT_NAME(distribution(_:));
 /*
  固定宽度数值
  */
-+ (instancetype)absoluteDimension:(CGFloat)value;
++ (instancetype)absoluteDimension:(CGFloat)value NS_SWIFT_NAME(absolute(_:));
 /*
  insetContainerWidth 的比例
  */
-+ (instancetype)fractionalDimension:(CGFloat)value;
++ (instancetype)fractionalDimension:(CGFloat)value NS_SWIFT_NAME(fractional(_:));
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
@@ -68,11 +68,11 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  设定cell的宽高比
  */
-+ (instancetype)itemRatioValue:(CGFloat)value;
++ (instancetype)itemRatioValue:(CGFloat)value NS_SWIFT_NAME(itemRatio(_:));
 /*
  设定一个固定的高度
  */
-+ (instancetype)absoluteValue:(CGFloat)value;
++ (instancetype)absoluteValue:(CGFloat)value NS_SWIFT_NAME(absolute(_:));
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

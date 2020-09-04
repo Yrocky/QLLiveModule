@@ -21,9 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 用swift中的枚举会比较好，oc就只能用对象了
 @interface QLLiveComponentBackgroundDecorateContents : NSObject
 
-+ (instancetype) colorContents:(UIColor *)color;
-+ (instancetype) imageContents:(UIImage *)image;
-+ (instancetype) gradientContents:(void(^)(id<QLLiveComponentBackgroundDecorateGradientContentsAble>contents))builder;
++ (instancetype) colorContents:(UIColor *)color NS_SWIFT_NAME(color(_:));
++ (instancetype) imageContents:(UIImage *)image NS_SWIFT_NAME(image(_:));
++ (instancetype) gradientContents:(void(^)(id<QLLiveComponentBackgroundDecorateGradientContentsAble>contents))builder NS_SWIFT_NAME(gradient(_:));
 
 // shadow
 @property (nonatomic ,strong) UIColor * shadowColor;
