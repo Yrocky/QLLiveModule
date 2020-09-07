@@ -319,13 +319,13 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：image"];
         comp.layout.inset = UIEdgeInsetsMake(100, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateOnlyItem;
             builder.radius = 10.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents imageContents:[UIImage imageNamed:@"forbid"]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents imageContents:[UIImage imageNamed:@"forbid"]];
                 contents;
             });
         }];
@@ -335,13 +335,13 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：image"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 130, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateOnlyItem;
             builder.radius = 10.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents imageContents:[UIImage imageNamed:@"the_Great_Wall"]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents imageContents:[UIImage imageNamed:@"the_Great_Wall"]];
                 contents;
             });
         }];
@@ -351,13 +351,13 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：gradient"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents gradientContents:^(id<QLLiveComponentBackgroundDecorateGradientContentsAble>  _Nonnull contents) {
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents gradientContents:^(id<QLLiveComponentDecorateGradientContentsAble>  _Nonnull contents) {
                     contents.startPoint = CGPointMake(0.5, 0);
                     contents.endPoint = CGPointMake(0.5, 1);
                     contents.colors = @[
@@ -375,12 +375,12 @@ static NSDictionary * demoData;
     
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：only item"];
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
                 contents;
             });
         }];
@@ -390,12 +390,12 @@ static NSDictionary * demoData;
     
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：contain header"];
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateContainHeader;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateContainHeader;
             builder.radius = 4.0f;
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
                 contents;
             });
         }];
@@ -404,12 +404,12 @@ static NSDictionary * demoData;
     })];
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：all"];
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateAll;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateAll;
             builder.radius = 4.0f;
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
                 contents;
             });
         }];
@@ -419,12 +419,12 @@ static NSDictionary * demoData;
     
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：contain footer"];
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateContainFooter;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateContainFooter;
             builder.radius = 4.0f;
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
                 contents;
             });
         }];
@@ -434,13 +434,13 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：only item & insets"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
                 contents;
             });
         }];
@@ -450,13 +450,13 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：all & insets"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateAll;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateAll;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents colorContents:[UIColor colorWithHexString:@"#8091a5"]];
                 contents;
             });
         }];
@@ -467,13 +467,13 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：shadow"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.type = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             [builder setContents:({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor whiteColor]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents colorContents:[UIColor whiteColor]];
                 contents.shadowColor = [UIColor redColor];
                 contents.shadowOffset = CGSizeMake(0, 0);
                 contents.shadowOpacity = 0.5;

@@ -43,7 +43,7 @@
         layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
         layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
         layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
-        [self addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+        [self addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);

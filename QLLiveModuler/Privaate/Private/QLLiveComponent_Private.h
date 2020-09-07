@@ -13,16 +13,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // 用于构建背景装饰效果的私有类
-@interface QLLiveComponentBackgroundDecorateBuilder : NSObject<
-QLLiveComponentBackgroundDecorateAble>
+@interface QLLiveComponentDecorateBuilder : NSObject<
+QLLiveComponentDecorateAble>
 
-@property (nonatomic ,assign) QLLiveComponentBackgroundDecorateType type;
+@property (nonatomic ,assign) QLLiveComponentDecorateType type;
 
 @property (nonatomic ,assign) CGFloat radius;
 @property (nonatomic ,assign) UIEdgeInsets inset;
 
 // color/image/gradient
-@property (nonatomic ,strong) QLLiveComponentBackgroundDecorateContents * contents;
+@property (nonatomic ,strong) QLLiveComponentDecorateContents * contents;
 
 @end
 
@@ -32,12 +32,12 @@ QLLiveComponentBackgroundDecorateAble>
 @property (nonatomic ,weak) id<QLLiveModelEnvironment> environment;
 @property (nonatomic ,assign ,readwrite) NSInteger index;
 
-@property (nonatomic ,strong) QLLiveComponentBackgroundDecorateBuilder * backgroundDecorateBuilder;
+@property (nonatomic ,strong) QLLiveComponentDecorateBuilder * decorateBuilder;
 
 - (void) calculatorLayout;
 @end
 
-@interface QLLiveComponentBackgroundDecorateContents ()
+@interface QLLiveComponentDecorateContents ()
 
 @property (nonatomic ,strong) UIColor * color;
 

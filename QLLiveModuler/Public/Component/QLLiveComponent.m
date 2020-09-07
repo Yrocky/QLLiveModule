@@ -20,7 +20,7 @@
     self = [super init];
     if (self) {
         _innerDatas = [NSMutableArray new];
-        self.backgroundDecorateBuilder = nil;
+        self.decorateBuilder = nil;
     }
     return self;
 }
@@ -171,21 +171,21 @@
 
 @implementation QLLiveComponent (BackgroundDecorate)
 
-- (void) addBackgroundDecorate:(void(^)(id<QLLiveComponentBackgroundDecorateAble>builder))builder{
-    self.backgroundDecorateBuilder = [QLLiveComponentBackgroundDecorateBuilder new];
+- (void) addBackgroundDecorate:(void(^)(id<QLLiveComponentDecorateAble>builder))builder{
+    self.decorateBuilder = [QLLiveComponentDecorateBuilder new];
     if (builder) {
-        builder(self.backgroundDecorateBuilder);
+        builder(self.decorateBuilder);
     }
 }
 
 @end
 
-@implementation QLLiveComponentBackgroundDecorateBuilder
+@implementation QLLiveComponentDecorateBuilder
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.type = QLLiveComponentBackgroundDecorateNone;
+        self.type = QLLiveComponentDecorateNone;
         self.inset = UIEdgeInsetsZero;
         self.contents = nil;
     }

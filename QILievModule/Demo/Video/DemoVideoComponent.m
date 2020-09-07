@@ -208,7 +208,7 @@
 {
     self = [super init];
     if (self) {
-        [self addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+        [self addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.contents = ({

@@ -33,8 +33,8 @@
     if ([layoutAttributes isKindOfClass:[QLLiveDecorateSectionLayoutAttributes class]]) {
         QLLiveDecorateSectionLayoutAttributes * att =
         (QLLiveDecorateSectionLayoutAttributes *)layoutAttributes;
-        id<QLLiveComponentBackgroundDecorateAble> builder = att.builder;
-        QLLiveComponentBackgroundDecorateContents * contents = builder.contents;
+        id<QLLiveComponentDecorateAble> builder = att.builder;
+        QLLiveComponentDecorateContents * contents = builder.contents;
 
         self.layer.cornerRadius = builder.radius;
         self.layer.shadowColor = contents.shadowColor.CGColor;

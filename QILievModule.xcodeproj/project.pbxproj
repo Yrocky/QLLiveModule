@@ -10,7 +10,7 @@
 		085A806A856DB764E7A59007 /* Pods_QILievModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */; };
 		3210653024EE4D2900C8FCB1 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */; };
 		323220AA24F6560F00B1EDB3 /* DemoSearchCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 323220A924F6560F00B1EDB3 /* DemoSearchCCell.m */; };
-		3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */; };
+		3248BB6C24ED252E00027973 /* QLLiveComponentDecorateContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248BB6B24ED252E00027973 /* QLLiveComponentDecorateContents.m */; };
 		324C362324F3DE7B0037DB8F /* DemoMineComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C362224F3DE7A0037DB8F /* DemoMineComponent.m */; };
 		324C362624F3E5570037DB8F /* DemoMineCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C362524F3E5570037DB8F /* DemoMineCCell.m */; };
 		32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D0C24EB6A80002078D2 /* DemoVideoComponent.m */; };
@@ -31,7 +31,7 @@
 		32A86D292505D10C001B0D95 /* QLLiveModuleDataSourceAble.h in Headers */ = {isa = PBXBuildFile; fileRef = 32DB568724E1495600AD669F /* QLLiveModuleDataSourceAble.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32A86D2A2505D10C001B0D95 /* QLLiveModuleDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 32DB568824E1495600AD669F /* QLLiveModuleDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32A86D2B2505D10C001B0D95 /* QLLiveComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 32DB569024E1495600AD669F /* QLLiveComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32A86D2C2505D10C001B0D95 /* QLLiveComponentBackgroundDecorateContents.h in Headers */ = {isa = PBXBuildFile; fileRef = 3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32A86D2C2505D10C001B0D95 /* QLLiveComponentDecorateContents.h in Headers */ = {isa = PBXBuildFile; fileRef = 3248BB6A24ED252E00027973 /* QLLiveComponentDecorateContents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32A86D2D2505D10C001B0D95 /* QLLiveBaseLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3290922324E3CD66006D60AB /* QLLiveBaseLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32A86D2E2505D10C001B0D95 /* QLLiveListLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3290921924E3C7F4006D60AB /* QLLiveListLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32A86D2F2505D10C001B0D95 /* QLLiveWaterfallLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3290921624E3C7E3006D60AB /* QLLiveWaterfallLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,7 +48,7 @@
 		32A86D6F2505D420001B0D95 /* QLLiveModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB568E24E1495600AD669F /* QLLiveModule.m */; };
 		32A86D702505D420001B0D95 /* QLLiveModuleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB568624E1495600AD669F /* QLLiveModuleDataSource.m */; };
 		32A86D712505D420001B0D95 /* QLLiveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB569124E1495600AD669F /* QLLiveComponent.m */; };
-		32A86D722505D420001B0D95 /* QLLiveComponentBackgroundDecorateContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */; };
+		32A86D722505D420001B0D95 /* QLLiveComponentDecorateContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248BB6B24ED252E00027973 /* QLLiveComponentDecorateContents.m */; };
 		32A86D732505D420001B0D95 /* QLLiveBaseLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290922424E3CD66006D60AB /* QLLiveBaseLayout.m */; };
 		32A86D742505D420001B0D95 /* QLLiveListLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921A24E3C7F5006D60AB /* QLLiveListLayout.m */; };
 		32A86D752505D420001B0D95 /* QLLiveWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3290921724E3C7E3006D60AB /* QLLiveWaterfallLayout.m */; };
@@ -58,7 +58,6 @@
 		32A86D792505D420001B0D95 /* QLLiveDecorateSectionLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 32644D1324EBC77A002078D2 /* QLLiveDecorateSectionLayoutAttributes.m */; };
 		32A86D7A2505D420001B0D95 /* QLLiveModuleAdapterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB569924E1495600AD669F /* QLLiveModuleAdapterProxy.m */; };
 		32A86D7B2505D420001B0D95 /* QLLiveModelEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56A524E1495600AD669F /* QLLiveModelEnvironment.m */; };
-		32A86D7C2505D464001B0D95 /* UIColor+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56CE24E171B700AD669F /* UIColor+Common.m */; };
 		32A86D7D2505D477001B0D95 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */; };
 		32A86D7E2505D56E001B0D95 /* QLOrthogonalScrollerEmbeddedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB569D24E1495600AD669F /* QLOrthogonalScrollerEmbeddedScrollView.m */; };
 		32DB563E24DFA63900AD669F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB563D24DFA63900AD669F /* AppDelegate.m */; };
@@ -132,8 +131,8 @@
 		3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		323220A824F6560F00B1EDB3 /* DemoSearchCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoSearchCCell.h; sourceTree = "<group>"; };
 		323220A924F6560F00B1EDB3 /* DemoSearchCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoSearchCCell.m; sourceTree = "<group>"; };
-		3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveComponentBackgroundDecorateContents.h; sourceTree = "<group>"; };
-		3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveComponentBackgroundDecorateContents.m; sourceTree = "<group>"; };
+		3248BB6A24ED252E00027973 /* QLLiveComponentDecorateContents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveComponentDecorateContents.h; sourceTree = "<group>"; };
+		3248BB6B24ED252E00027973 /* QLLiveComponentDecorateContents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveComponentDecorateContents.m; sourceTree = "<group>"; };
 		324C362124F3DE7A0037DB8F /* DemoMineComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoMineComponent.h; sourceTree = "<group>"; };
 		324C362224F3DE7A0037DB8F /* DemoMineComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoMineComponent.m; sourceTree = "<group>"; };
 		324C362424F3E5570037DB8F /* DemoMineCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoMineCCell.h; sourceTree = "<group>"; };
@@ -456,8 +455,8 @@
 			children = (
 				32DB569024E1495600AD669F /* QLLiveComponent.h */,
 				32DB569124E1495600AD669F /* QLLiveComponent.m */,
-				3248BB6A24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.h */,
-				3248BB6B24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m */,
+				3248BB6A24ED252E00027973 /* QLLiveComponentDecorateContents.h */,
+				3248BB6B24ED252E00027973 /* QLLiveComponentDecorateContents.m */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -653,7 +652,7 @@
 				32A86D292505D10C001B0D95 /* QLLiveModuleDataSourceAble.h in Headers */,
 				32A86D2A2505D10C001B0D95 /* QLLiveModuleDataSource.h in Headers */,
 				32A86D2B2505D10C001B0D95 /* QLLiveComponent.h in Headers */,
-				32A86D2C2505D10C001B0D95 /* QLLiveComponentBackgroundDecorateContents.h in Headers */,
+				32A86D2C2505D10C001B0D95 /* QLLiveComponentDecorateContents.h in Headers */,
 				32A86D2D2505D10C001B0D95 /* QLLiveBaseLayout.h in Headers */,
 				32A86D2E2505D10C001B0D95 /* QLLiveListLayout.h in Headers */,
 				32A86D2F2505D10C001B0D95 /* QLLiveWaterfallLayout.h in Headers */,
@@ -818,11 +817,10 @@
 			files = (
 				32A86D7E2505D56E001B0D95 /* QLOrthogonalScrollerEmbeddedScrollView.m in Sources */,
 				32A86D7D2505D477001B0D95 /* UIImage+Common.m in Sources */,
-				32A86D7C2505D464001B0D95 /* UIColor+Common.m in Sources */,
 				32A86D6F2505D420001B0D95 /* QLLiveModule.m in Sources */,
 				32A86D702505D420001B0D95 /* QLLiveModuleDataSource.m in Sources */,
 				32A86D712505D420001B0D95 /* QLLiveComponent.m in Sources */,
-				32A86D722505D420001B0D95 /* QLLiveComponentBackgroundDecorateContents.m in Sources */,
+				32A86D722505D420001B0D95 /* QLLiveComponentDecorateContents.m in Sources */,
 				32A86D732505D420001B0D95 /* QLLiveBaseLayout.m in Sources */,
 				32A86D742505D420001B0D95 /* QLLiveListLayout.m in Sources */,
 				32A86D752505D420001B0D95 /* QLLiveWaterfallLayout.m in Sources */,
@@ -857,7 +855,7 @@
 				32DB56D824E2417700AD669F /* DemoResumeModule.m in Sources */,
 				32DB566224DFA91B00AD669F /* EaseAlertController.m in Sources */,
 				32DB563E24DFA63900AD669F /* AppDelegate.m in Sources */,
-				3248BB6C24ED252E00027973 /* QLLiveComponentBackgroundDecorateContents.m in Sources */,
+				3248BB6C24ED252E00027973 /* QLLiveComponentDecorateContents.m in Sources */,
 				32DB565F24DFA82800AD669F /* EaseRefreshProxy.m in Sources */,
 				32644D0D24EB6A81002078D2 /* DemoVideoComponent.m in Sources */,
 				32DB56BF24E1603000AD669F /* DemoLivingModule.m in Sources */,

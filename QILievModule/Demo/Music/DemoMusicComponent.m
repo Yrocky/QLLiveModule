@@ -82,7 +82,7 @@
         layout.itemHeight = 120;
         layout.delegate = self;
         _layout = layout;
-        [self addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+        [self addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateAll;
             builder.contents =
             [QLLiveComponentBackgroundDecorateContents gradientContents:^(id<QLLiveComponentBackgroundDecorateGradientContentsAble>  _Nonnull contents) {
@@ -177,7 +177,7 @@
         layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
         _layout = layout;
         
-        [self addBackgroundDecorate:^(id<QLLiveComponentBackgroundDecorateAble>  _Nonnull builder) {
+        [self addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
             builder.type = QLLiveComponentBackgroundDecorateAll;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.radius = 10.0f;

@@ -200,21 +200,21 @@ static const NSInteger unionSize = 50;
             }
         }
         
-        QLLiveComponentBackgroundDecorateBuilder * builder = component.backgroundDecorateBuilder;
+        QLLiveComponentDecorateBuilder * builder = component.decorateBuilder;
         if (builder &&
-            builder.type != QLLiveComponentBackgroundDecorateNone &&
+            builder.type != QLLiveComponentDecorateNone &&
             self.scrollDirection == UICollectionViewScrollDirectionVertical) {
             CGFloat y = 0;
             if (self.sectionHeights.count) {
                 y = self.sectionHeights[self.sectionHeights.count - 1].floatValue;
             }
             CGFloat height = top - y;
-            if (builder.type == QLLiveComponentBackgroundDecorateOnlyItem) {
+            if (builder.type == QLLiveComponentDecorateOnlyItem) {
                 y += headerHeight;
                 height -= (footerHeight + headerHeight);
-            } else if (builder.type == QLLiveComponentBackgroundDecorateContainHeader) {
+            } else if (builder.type == QLLiveComponentDecorateContainHeader) {
                 height -= footerHeight;
-            } else if (builder.type == QLLiveComponentBackgroundDecorateContainFooter) {
+            } else if (builder.type == QLLiveComponentDecorateContainFooter) {
                 y += headerHeight;
                 height -= headerHeight;
             }

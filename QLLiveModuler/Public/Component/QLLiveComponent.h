@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "QLLiveModuleDataSourceAble.h"
 #import "QLLiveBaseLayout.h"
-#import "QLLiveComponentBackgroundDecorateContents.h"
+#import "QLLiveComponentDecorateContents.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,28 +20,28 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
     QLLiveComponentArrangeHorizontal,
 };
 
-typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
+typedef NS_ENUM(NSInteger, QLLiveComponentDecorateType) {
     /// 没有背景装饰效果
-    QLLiveComponentBackgroundDecorateNone,
+    QLLiveComponentDecorateNone,
     /// 只有item
-    QLLiveComponentBackgroundDecorateOnlyItem,
+    QLLiveComponentDecorateOnlyItem,
     /// header+item
-    QLLiveComponentBackgroundDecorateContainHeader,
+    QLLiveComponentDecorateContainHeader,
     /// item+footer
-    QLLiveComponentBackgroundDecorateContainFooter,
+    QLLiveComponentDecorateContainFooter,
     /// header+item+footer
-    QLLiveComponentBackgroundDecorateAll,
+    QLLiveComponentDecorateAll,
 };
 
-@protocol QLLiveComponentBackgroundDecorateAble <NSObject>
+@protocol QLLiveComponentDecorateAble <NSObject>
 
-@property (nonatomic ,assign) QLLiveComponentBackgroundDecorateType type;
+@property (nonatomic ,assign) QLLiveComponentDecorateType type;
 
 @property (nonatomic ,assign) CGFloat radius;
 @property (nonatomic ,assign) UIEdgeInsets inset;
 
 // color/image/gradient
-@property (nonatomic ,strong) QLLiveComponentBackgroundDecorateContents * contents;
+@property (nonatomic ,strong) QLLiveComponentDecorateContents * contents;
 
 @end
 
@@ -124,7 +124,7 @@ typedef NS_ENUM(NSInteger, QLLiveComponentBackgroundDecorateType) {
 /// 背景修饰
 @interface QLLiveComponent (BackgroundDecorate)
 
-- (void) addBackgroundDecorate:(void(^)(id<QLLiveComponentBackgroundDecorateAble>builder))builder;
+- (void) addBackgroundDecorate:(void(^)(id<QLLiveComponentDecorateAble>builder))builder;
 @end
 
 NS_ASSUME_NONNULL_END

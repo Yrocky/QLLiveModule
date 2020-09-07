@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol QLLiveComponentBackgroundDecorateAble;
+@protocol QLLiveComponentDecorateAble;
 @interface QLLiveDecorateSectionLayoutAttributes : UICollectionViewLayoutAttributes
 
-@property (nonatomic ,assign) id<QLLiveComponentBackgroundDecorateAble> builder;
+@property (nonatomic ,assign) id<QLLiveComponentDecorateAble> builder;
 @end
 
 @interface QLLiveDecorateSectionView : UICollectionReusableView

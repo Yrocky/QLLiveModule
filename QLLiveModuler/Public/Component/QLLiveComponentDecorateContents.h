@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol QLLiveComponentBackgroundDecorateGradientContentsAble <NSObject>
+@protocol QLLiveComponentDecorateGradientContentsAble <NSObject>
 
 @property (nonatomic ,copy) NSArray <UIColor *>* colors;
 @property (nonatomic ,copy) NSArray <NSNumber *>* locations;
@@ -20,11 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 // 用swift中的枚举会比较好，oc就只能用对象了
-@interface QLLiveComponentBackgroundDecorateContents : NSObject
+@interface QLLiveComponentDecorateContents : NSObject
 
 + (instancetype) colorContents:(UIColor *)color NS_SWIFT_NAME(color(_:));
 + (instancetype) imageContents:(UIImage *)image NS_SWIFT_NAME(image(_:));
-+ (instancetype) gradientContents:(void(^)(id<QLLiveComponentBackgroundDecorateGradientContentsAble>contents))builder NS_SWIFT_NAME(gradient(_:));
++ (instancetype) gradientContents:(void(^)(id<QLLiveComponentDecorateGradientContentsAble>contents))builder NS_SWIFT_NAME(gradient(_:));
 
 // shadow
 @property (nonatomic ,strong) UIColor * shadowColor;

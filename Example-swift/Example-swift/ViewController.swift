@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         listLayout.distribution = .distribution(2)
         listLayout.itemRatio = .itemRatio(1.2)
     
+
     }
 
 
