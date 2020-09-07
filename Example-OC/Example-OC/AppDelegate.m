@@ -8,6 +8,16 @@
 
 #import "AppDelegate.h"
 
+#import "ViewController.h"
+#import "DemoVideoModule.h"
+#import "DemoSearchModule.h"
+#import "DemoLivingModule.h"
+#import "DemoShoppingModule.h"
+#import "DemoMusicModule.h"
+#import "DemoMineModule.h"
+#import "DemoResumeModule.h"
+#import "DemoHuabanModule.h"
+
 @interface AppDelegate ()
 
 @end
@@ -16,26 +26,49 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    
+    ViewController * vc = [[ViewController alloc] initWithModule:({
+        QLLiveCompositeModule * module = [[QLLiveCompositeModule alloc] initWithName:@"demo"];
+        [module addModule:({
+            [[DemoMusicModule alloc] initWithName:@"音乐app"];
+        })];
+        [module addModule:({
+            QLLiveCompositeModule * demoModule = [[QLLiveCompositeModule alloc] initWithName:@"DEMO"];
+            [demoModule addModule:[[DemoFlexLayoutModule alloc] initWithName:@"Flex"]];
+            [demoModule addModule:[[DemoBackgroundDecorateModule alloc] initWithName:@"Decorate"]];
+            [demoModule addModule:[[DemoListLayoutModule alloc] initWithName:@"List"]];
+            [demoModule addModule:[[DemoWaterfallLayoutModule alloc] initWithName:@"Waterfall"]];
+            demoModule;
+        })];
+        [module addModule:({
+            [[DemoVideoModule alloc] initWithName:@"视频app"];
+        })];
+        [module addModule:({
+            [[DemoHuabanModule alloc] initWithName:@"花瓣app"];
+        })];
+        [module addModule:({
+            [[DemoSearchModule alloc] initWithName:@"搜索界面"];
+        })];
+        [module addModule:({
+            [[DemoLivingModule alloc] initWithName:@"直播app"];
+        })];
+        [module addModule:({
+            [[DemoShoppingModule alloc] initWithName:@"购物app"];
+        })];
+        [module addModule:({
+            [[DemoMineModule alloc] initWithName:@"个人中心"];
+        })];
+        [module addModule:({
+            [[DemoResumeModule alloc] initWithName:@"Resume"];
+        })];
+        module;
+    })];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    self.window.rootViewController = vc;
     return YES;
 }
-
-
-#pragma mark - UISceneSession lifecycle
-
-
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
-}
-
-
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-}
-
 
 @end

@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3210653024EE4D2900C8FCB1 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */; };
 		32A86D222505D0E0001B0D95 /* QLLiveModuler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A86D1B2505D0E0001B0D95 /* QLLiveModuler.framework */; };
 		32A86D242505D0E0001B0D95 /* QLLiveModuler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32A86D1B2505D0E0001B0D95 /* QLLiveModuler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		32A86D7D2505D477001B0D95 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */; };
 		32A86EDE250629D6001B0D95 /* QLLiveModuleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86EB1250629D6001B0D95 /* QLLiveModuleDataSource.m */; };
 		32A86EDF250629D6001B0D95 /* QLLiveModuleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86EB1250629D6001B0D95 /* QLLiveModuleDataSource.m */; };
 		32A86EE0250629D6001B0D95 /* QLLiveModuleDataSourceAble.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A86EB2250629D6001B0D95 /* QLLiveModuleDataSourceAble.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,10 +62,6 @@
 		32DB564924DFA63D00AD669F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32DB564824DFA63D00AD669F /* Assets.xcassets */; };
 		32DB564C24DFA63D00AD669F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DB564A24DFA63D00AD669F /* LaunchScreen.storyboard */; };
 		32DB564F24DFA63D00AD669F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB564E24DFA63D00AD669F /* main.m */; };
-		32DB566524DFA95900AD669F /* NSArray+Sugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB566324DFA95900AD669F /* NSArray+Sugar.m */; };
-		32DB566824DFA98300AD669F /* NSObject+EaseRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB566724DFA98300AD669F /* NSObject+EaseRuntime.m */; };
-		32DB56CF24E171B700AD669F /* UIColor+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56CE24E171B700AD669F /* UIColor+Common.m */; };
-		32DB56D224E1727800AD669F /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DB56D124E1727800AD669F /* NSString+Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +86,62 @@
 			remoteGlobalIDString = 32A86D882505D808001B0D95;
 			remoteInfo = "Example-swift";
 		};
+		32A86F2C250630D7001B0D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A86F20250630D7001B0D95 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A4FA15D44DF6BAC7550EDEED10862AA3;
+			remoteInfo = AFNetworking;
+		};
+		32A86F2E250630D7001B0D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A86F20250630D7001B0D95 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C3A46B03C308EEEB11F2A62BA5D2E8BE;
+			remoteInfo = JXCategoryView;
+		};
+		32A86F30250630D7001B0D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A86F20250630D7001B0D95 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2F4A1CCB21DB7EA5A2ACEB11E374FBCA;
+			remoteInfo = JXPagingView;
+		};
+		32A86F32250630D7001B0D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A86F20250630D7001B0D95 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1FFED36A657123030ABB700256D73F15;
+			remoteInfo = Masonry;
+		};
+		32A86F34250630D7001B0D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A86F20250630D7001B0D95 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E49D6D248DD1CEE584E6776B9164A1B2;
+			remoteInfo = MJRefresh;
+		};
+		32A86F36250630D7001B0D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A86F20250630D7001B0D95 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 73AC1AE044E2E2C3223CB821C7905EA0;
+			remoteInfo = "Pods-Example-OC";
+		};
+		32A86F38250630D7001B0D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A86F20250630D7001B0D95 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B0B214D775196BA7CA8E17E53048A493;
+			remoteInfo = SDWebImage;
+		};
+		32A86F3A250630D7001B0D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32A86F20250630D7001B0D95 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 601EEA66C9A6080A11C1ADE5E2A91AE1;
+			remoteInfo = YTKNetwork;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,8 +159,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3210652E24EE4D2900C8FCB1 /* UIImage+Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Common.h"; sourceTree = "<group>"; };
-		3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Common.m"; sourceTree = "<group>"; };
 		32A86D1B2505D0E0001B0D95 /* QLLiveModuler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QLLiveModuler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A86EB1250629D6001B0D95 /* QLLiveModuleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLLiveModuleDataSource.m; sourceTree = "<group>"; };
 		32A86EB2250629D6001B0D95 /* QLLiveModuleDataSourceAble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLLiveModuleDataSourceAble.h; sourceTree = "<group>"; };
@@ -148,6 +196,7 @@
 		32A86EDC250629D6001B0D95 /* QLLiveModuler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLLiveModuler.h; sourceTree = "<group>"; };
 		32A86F1025062DEC001B0D95 /* Example-OC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Example-OC.xcodeproj"; path = "Example-OC/Example-OC.xcodeproj"; sourceTree = "<group>"; };
 		32A86F1925062FD3001B0D95 /* Example-swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Example-swift.xcodeproj"; path = "Example-swift/Example-swift.xcodeproj"; sourceTree = "<group>"; };
+		32A86F20250630D7001B0D95 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = "Example-OC/Pods/Pods.xcodeproj"; sourceTree = "<group>"; };
 		32DB563924DFA63900AD669F /* QILievModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QILievModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DB563C24DFA63900AD669F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		32DB563D24DFA63900AD669F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -156,15 +205,7 @@
 		32DB564824DFA63D00AD669F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32DB564B24DFA63D00AD669F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32DB564E24DFA63D00AD669F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		32DB566324DFA95900AD669F /* NSArray+Sugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Sugar.m"; sourceTree = "<group>"; };
-		32DB566424DFA95900AD669F /* NSArray+Sugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Sugar.h"; sourceTree = "<group>"; };
-		32DB566624DFA98300AD669F /* NSObject+EaseRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+EaseRuntime.h"; sourceTree = "<group>"; };
-		32DB566724DFA98300AD669F /* NSObject+EaseRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+EaseRuntime.m"; sourceTree = "<group>"; };
 		32DB567A24DFAD9E00AD669F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = "../Example-OC/Example-OC/PrefixHeader.pch"; sourceTree = "<group>"; };
-		32DB56CD24E171B700AD669F /* UIColor+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Common.h"; sourceTree = "<group>"; };
-		32DB56CE24E171B700AD669F /* UIColor+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Common.m"; sourceTree = "<group>"; };
-		32DB56D024E1727800AD669F /* NSString+Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Common.h"; sourceTree = "<group>"; };
-		32DB56D124E1727800AD669F /* NSString+Common.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Common.m"; sourceTree = "<group>"; };
 		925B7A0C52CAD1C3858066C5 /* Pods_QILievModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QILievModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -340,9 +381,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		32A86F21250630D7001B0D95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32A86F2D250630D7001B0D95 /* AFNetworking.framework */,
+				32A86F2F250630D7001B0D95 /* JXCategoryView.framework */,
+				32A86F31250630D7001B0D95 /* JXPagingView.framework */,
+				32A86F33250630D7001B0D95 /* Masonry.framework */,
+				32A86F35250630D7001B0D95 /* MJRefresh.framework */,
+				32A86F37250630D7001B0D95 /* Pods_Example_OC.framework */,
+				32A86F39250630D7001B0D95 /* SDWebImage.framework */,
+				32A86F3B250630D7001B0D95 /* YTKNetwork.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		32DB563024DFA63900AD669F = {
 			isa = PBXGroup;
 			children = (
+				32A86F20250630D7001B0D95 /* Pods.xcodeproj */,
 				32A86F1925062FD3001B0D95 /* Example-swift.xcodeproj */,
 				32A86F1025062DEC001B0D95 /* Example-OC.xcodeproj */,
 				32DB563B24DFA63900AD669F /* QILievModule */,
@@ -367,7 +424,6 @@
 				32DB563D24DFA63900AD669F /* AppDelegate.m */,
 				32DB564224DFA63900AD669F /* ViewController.h */,
 				32DB564324DFA63900AD669F /* ViewController.m */,
-				32DB565C24DFA7E800AD669F /* Ease */,
 				32A86EAE250629D6001B0D95 /* QLLiveModuler */,
 				32DB567A24DFAD9E00AD669F /* PrefixHeader.pch */,
 				32DB564824DFA63D00AD669F /* Assets.xcassets */,
@@ -375,32 +431,6 @@
 				32DB564E24DFA63D00AD669F /* main.m */,
 			);
 			path = QILievModule;
-			sourceTree = "<group>";
-		};
-		32DB565C24DFA7E800AD669F /* Ease */ = {
-			isa = PBXGroup;
-			children = (
-				32DB566924DFA98A00AD669F /* Category */,
-			);
-			name = Ease;
-			path = "../Example-OC/Example-OC/Ease";
-			sourceTree = "<group>";
-		};
-		32DB566924DFA98A00AD669F /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				32DB566624DFA98300AD669F /* NSObject+EaseRuntime.h */,
-				32DB566724DFA98300AD669F /* NSObject+EaseRuntime.m */,
-				32DB56CD24E171B700AD669F /* UIColor+Common.h */,
-				32DB56CE24E171B700AD669F /* UIColor+Common.m */,
-				3210652E24EE4D2900C8FCB1 /* UIImage+Common.h */,
-				3210652F24EE4D2900C8FCB1 /* UIImage+Common.m */,
-				32DB566424DFA95900AD669F /* NSArray+Sugar.h */,
-				32DB566324DFA95900AD669F /* NSArray+Sugar.m */,
-				32DB56D024E1727800AD669F /* NSString+Common.h */,
-				32DB56D124E1727800AD669F /* NSString+Common.m */,
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 		C8C3E5F001457B4DBB3EF2A3 /* Frameworks */ = {
@@ -518,6 +548,10 @@
 					ProductGroup = 32A86F1A25062FD3001B0D95 /* Products */;
 					ProjectRef = 32A86F1925062FD3001B0D95 /* Example-swift.xcodeproj */;
 				},
+				{
+					ProductGroup = 32A86F21250630D7001B0D95 /* Products */;
+					ProjectRef = 32A86F20250630D7001B0D95 /* Pods.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -540,6 +574,62 @@
 			fileType = wrapper.application;
 			path = "Example-swift.app";
 			remoteRef = 32A86F1E25062FD4001B0D95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32A86F2D250630D7001B0D95 /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 32A86F2C250630D7001B0D95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32A86F2F250630D7001B0D95 /* JXCategoryView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JXCategoryView.framework;
+			remoteRef = 32A86F2E250630D7001B0D95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32A86F31250630D7001B0D95 /* JXPagingView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JXPagingView.framework;
+			remoteRef = 32A86F30250630D7001B0D95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32A86F33250630D7001B0D95 /* Masonry.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Masonry.framework;
+			remoteRef = 32A86F32250630D7001B0D95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32A86F35250630D7001B0D95 /* MJRefresh.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MJRefresh.framework;
+			remoteRef = 32A86F34250630D7001B0D95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32A86F37250630D7001B0D95 /* Pods_Example_OC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Example_OC.framework;
+			remoteRef = 32A86F36250630D7001B0D95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32A86F39250630D7001B0D95 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = 32A86F38250630D7001B0D95 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32A86F3B250630D7001B0D95 /* YTKNetwork.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = YTKNetwork.framework;
+			remoteRef = 32A86F3A250630D7001B0D95 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -568,7 +658,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32A86D7D2505D477001B0D95 /* UIImage+Common.m in Sources */,
 				32A86EEB250629D6001B0D95 /* QLLiveFlexLayout.m in Sources */,
 				32A86EF9250629D7001B0D95 /* QLLiveComponent.m in Sources */,
 				32A86F01250629D7001B0D95 /* QLLiveModuleAdapterProxy.m in Sources */,
@@ -593,22 +682,17 @@
 				32A86EEF250629D7001B0D95 /* QLLiveBaseLayout.m in Sources */,
 				32A86EE8250629D6001B0D95 /* QLLiveListLayout.m in Sources */,
 				32A86EE4250629D6001B0D95 /* QLLiveWaterfallLayout.m in Sources */,
-				32DB566824DFA98300AD669F /* NSObject+EaseRuntime.m in Sources */,
 				32A86F0B250629D7001B0D95 /* QLLiveModelEnvironment.m in Sources */,
 				32A86F00250629D7001B0D95 /* QLLiveModuleAdapterProxy.m in Sources */,
 				32DB564424DFA63900AD669F /* ViewController.m in Sources */,
-				32DB56D224E1727800AD669F /* NSString+Common.m in Sources */,
 				32A86EF2250629D7001B0D95 /* QLLiveModule.m in Sources */,
 				32A86F04250629D7001B0D95 /* QLOrthogonalScrollerEmbeddedScrollView.m in Sources */,
 				32DB563E24DFA63900AD669F /* AppDelegate.m in Sources */,
 				32A86EF8250629D7001B0D95 /* QLLiveComponent.m in Sources */,
 				32A86EEA250629D6001B0D95 /* QLLiveFlexLayout.m in Sources */,
 				32DB564F24DFA63D00AD669F /* main.m in Sources */,
-				32DB56CF24E171B700AD669F /* UIColor+Common.m in Sources */,
 				32A86EFE250629D7001B0D95 /* QLLiveDecorateSectionLayoutAttributes.m in Sources */,
-				3210653024EE4D2900C8FCB1 /* UIImage+Common.m in Sources */,
 				32A86EDE250629D6001B0D95 /* QLLiveModuleDataSource.m in Sources */,
-				32DB566524DFA95900AD669F /* NSArray+Sugar.m in Sources */,
 				32A86EFA250629D7001B0D95 /* QLLiveModuleFlowLayout.m in Sources */,
 				32A86EF4250629D7001B0D95 /* QLLiveComponentDecorateContents.m in Sources */,
 				32A86EE6250629D6001B0D95 /* QLLiveGridLayout.m in Sources */,

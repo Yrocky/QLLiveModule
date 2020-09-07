@@ -7,9 +7,7 @@
 //
 
 #import "DemoVideoCCell.h"
-#import <Masonry/Masonry.h>
 #import "UIColor+Common.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation DemoVideoCCell{
     UIImageView *_imageView;
