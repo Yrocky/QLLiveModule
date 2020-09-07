@@ -25,5 +25,4 @@ FOUNDATION_EXPORT const unsigned char QLLiveModulerVersionString[];
 #import <QLLiveModuler/QLLiveListLayout.h>
 #import <QLLiveModuler/QLLiveWaterfallLayout.h>
 #import <QLLiveModuler/QLLiveFlexLayout.h>
-#import <QLLiveModuler/QLLiveGridLayout.h>
 
