@@ -44,12 +44,12 @@
         layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
         layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
         [self addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+            builder.type = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"#ffffff"]];
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents colorContents:[UIColor colorWithHexString:@"#ffffff"]];
                 contents.shadowColor = [UIColor colorWithHexString:@"c0c4c3"];
                 contents.shadowOffset = CGSizeMake(0, 0);
                 contents.shadowOpacity = 0.5;

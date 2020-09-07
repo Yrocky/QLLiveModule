@@ -209,10 +209,10 @@
     self = [super init];
     if (self) {
         [self addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateOnlyItem;
+            builder.type = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.contents = ({
-                [QLLiveComponentBackgroundDecorateContents colorContents:[UIColor colorWithHexString:@"f3f3f3"]];
+                [QLLiveComponentDecorateContents colorContents:[UIColor colorWithHexString:@"f3f3f3"]];
             });
             builder.inset = UIEdgeInsetsMake(0, 0, 0, 0);
         }];

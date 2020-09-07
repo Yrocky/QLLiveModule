@@ -83,9 +83,9 @@
         layout.delegate = self;
         _layout = layout;
         [self addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateAll;
+            builder.type = QLLiveComponentDecorateAll;
             builder.contents =
-            [QLLiveComponentBackgroundDecorateContents gradientContents:^(id<QLLiveComponentBackgroundDecorateGradientContentsAble>  _Nonnull contents) {
+            [QLLiveComponentDecorateContents gradientContents:^(id<QLLiveComponentDecorateGradientContentsAble>  _Nonnull contents) {
                 contents.colors = @[
                     [UIColor colorWithHexString:@"#B3FFAB"],
                     [UIColor colorWithHexString:@"#12FFF7"]
@@ -178,12 +178,12 @@
         _layout = layout;
         
         [self addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentBackgroundDecorateAll;
+            builder.type = QLLiveComponentDecorateAll;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.radius = 10.0f;
             builder.contents = ({
-                QLLiveComponentBackgroundDecorateContents * contents =
-                [QLLiveComponentBackgroundDecorateContents colorContents:({
+                QLLiveComponentDecorateContents * contents =
+                [QLLiveComponentDecorateContents colorContents:({
                     [UIColor colorWithHexString:@"F3F3F3"];
                 })];
                 contents.shadowColor = [UIColor colorWithHexString:@"c4c4c4"];
