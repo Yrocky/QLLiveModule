@@ -6,7 +6,7 @@
 //  Copyright © 2020 Rocky. All rights reserved.
 //
 
-#import "QLLiveComponent.h"
+#import <QLLiveModuler/QLLiveModuler.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

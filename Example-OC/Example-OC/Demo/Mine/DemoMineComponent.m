@@ -8,7 +8,6 @@
 
 #import "DemoMineComponent.h"
 #import "DemoMineCCell.h"
-#import "QLLiveListLayout.h"
 
 @implementation MineInfoComponent
 

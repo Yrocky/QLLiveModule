@@ -1,4 +1,4 @@
-${PODS_ROOT}/Target Support Files/Pods-QILievModule/Pods-QILievModule-frameworks.sh
+${PODS_ROOT}/Target Support Files/Pods-Example-OC/Pods-Example-OC-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/JXCategoryView/JXCategoryView.framework
 ${BUILT_PRODUCTS_DIR}/JXPagingView/JXPagingView.framework

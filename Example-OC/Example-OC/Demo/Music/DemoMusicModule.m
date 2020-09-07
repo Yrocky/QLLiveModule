@@ -8,6 +8,7 @@
 
 #import "DemoMusicModule.h"
 #import "DemoMusicComponent.h"
+#import "NSArray+Sugar.h"
 
 @implementation DemoMusicModule{
     id demoData;

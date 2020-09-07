@@ -8,6 +8,7 @@
 
 #import "DemoSearchComponent.h"
 #import "DemoContentCCell.h"
+#import "NSString+Common.h"
 
 @implementation SearchComponent{
     NSString *_title;

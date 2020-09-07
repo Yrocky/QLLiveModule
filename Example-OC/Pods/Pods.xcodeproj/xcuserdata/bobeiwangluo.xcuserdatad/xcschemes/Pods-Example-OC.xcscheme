@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76C34E69BB3E98FB0A63D10FF224678D"
-               BuildableName = "Pods_QILievModule.framework"
-               BlueprintName = "Pods-QILievModule"
+               BlueprintIdentifier = "997E35EF96DB8A9707A7BC253F902CF5"
+               BuildableName = "Pods_Example_OC.framework"
+               BlueprintName = "Pods-Example-OC"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

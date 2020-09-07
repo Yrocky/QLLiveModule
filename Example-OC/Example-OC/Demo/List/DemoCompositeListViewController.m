@@ -51,20 +51,20 @@ JXCategoryViewDelegate>
     }];
     
     //
-//    _mainPageView = [[JXCategoryListContainerView alloc] initWithType:JXCategoryListContainerType_ScrollView delegate:self];
-//    [self.view addSubview:_mainPageView];
-//    [_mainPageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.bottom.equalTo(self.view);
-//        make.top.equalTo(self.categoryView.mas_bottom);
-//    }];
-//
-//    self.categoryView.contentScrollView = _mainPageView.scrollView;
+    _mainPageView = [[JXCategoryListContainerView alloc] initWithType:JXCategoryListContainerType_ScrollView delegate:self];
+    [self.view addSubview:_mainPageView];
+    [_mainPageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.categoryView.mas_bottom);
+    }];
+
+    self.categoryView.contentScrollView = _mainPageView.scrollView;
 }
 
 #pragma mark - JXCategoryViewDelegate
 
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
-//    [_mainPageView didClickSelectedItemAtIndex:index];
+    [_mainPageView didClickSelectedItemAtIndex:index];
 }
 
 #pragma mark - JXCategoryListContainerViewDelegate
@@ -90,9 +90,9 @@ JXCategoryViewDelegate>
 
 #pragma mark - JXCategoryListContentViewDelegate
 
-//- (UIScrollView *)listScrollView {
-//    return _mainPageView.scrollView;
-//}
+- (UIScrollView *)listScrollView {
+    return _mainPageView.scrollView;
+}
 
 - (UIView *)listView {
     return self.view;

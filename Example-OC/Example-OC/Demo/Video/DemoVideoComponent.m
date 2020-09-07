@@ -8,6 +8,8 @@
 
 #import "DemoVideoComponent.h"
 #import "DemoVideoCCell.h"
+#import "DemoContentCCell.h"
+#import "NSString+Common.h"
 
 @implementation VideoBannerComponent
 

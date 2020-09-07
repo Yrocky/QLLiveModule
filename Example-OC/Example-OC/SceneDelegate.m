@@ -66,6 +66,8 @@
         })];
         module;
     })];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     self.window.rootViewController = vc;
 }
 

@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <QLLiveModuler/QLLiveModuler.h>
-//#import <JXCategoryView/JXCategoryView.h>
+#import <JXCategoryView/JXCategoryView.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DemoCompositeListViewController : UIViewController
-//<
-//JXCategoryListContentViewDelegate>{
-//    JXCategoryListContainerView * _mainPageView;
-//}
+@interface DemoCompositeListViewController : UIViewController<
+JXCategoryListContentViewDelegate>{
+    JXCategoryListContainerView * _mainPageView;
+}
 
 - (instancetype) initWithModule:(QLLiveCompositeModule *)module;
 

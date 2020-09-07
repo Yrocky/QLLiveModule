@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QLLiveModule.h"
+#import <QLLiveModuler/QLLiveModuler.h>
 #import <JXCategoryView/JXCategoryView.h>
 
 NS_ASSUME_NONNULL_BEGIN

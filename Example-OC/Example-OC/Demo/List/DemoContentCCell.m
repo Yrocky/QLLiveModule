@@ -8,6 +8,7 @@
 
 #import "DemoContentCCell.h"
 #import "SDCycleScrollView.h"
+#import <Masonry/Masonry.h>
 
 @implementation DemoContentCCell
 

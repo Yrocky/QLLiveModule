@@ -28,35 +28,6 @@
         self.orthogonalScrollView.showsVerticalScrollIndicator = NO;
         self.orthogonalScrollView.clipsToBounds = YES;
         [self.contentView addSubview:self.orthogonalScrollView];
-//        [self.orthogonalScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.edges.equalTo(self.contentView);
-//        }];
-        [NSLayoutConstraint activateConstraints:@[
-            [NSLayoutConstraint constraintWithItem:self.contentView
-                                         attribute:NSLayoutAttributeLeft
-                                         relatedBy:NSLayoutRelationEqual
-                                            toItem:self.orthogonalScrollView
-                                         attribute:NSLayoutAttributeLeft
-                                        multiplier:1.0 constant:0],
-            [NSLayoutConstraint constraintWithItem:self.contentView
-                                         attribute:NSLayoutAttributeTop
-                                         relatedBy:NSLayoutRelationEqual
-                                            toItem:self.orthogonalScrollView
-                                         attribute:NSLayoutAttributeTop
-                                        multiplier:1.0 constant:0],
-            [NSLayoutConstraint constraintWithItem:self.contentView
-                                         attribute:NSLayoutAttributeWidth
-                                         relatedBy:NSLayoutRelationEqual
-                                            toItem:self.orthogonalScrollView
-                                         attribute:NSLayoutAttributeWidth
-                                        multiplier:1.0 constant:0],
-            [NSLayoutConstraint constraintWithItem:self.contentView
-                                         attribute:NSLayoutAttributeRight
-                                         relatedBy:NSLayoutRelationEqual
-                                            toItem:self.orthogonalScrollView
-                                         attribute:NSLayoutAttributeRight
-                                        multiplier:1.0 constant:0]
-        ]];
 
         if (@available(iOS 11.0, *)) {
             self.orthogonalScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentScrollableAxes;
@@ -64,6 +35,12 @@
     }
     return self;
 }
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    self.orthogonalScrollView.frame = self.contentView.bounds;
+}
+
 - (void)prepareForReuse{
     [super prepareForReuse];
 //    [self.orthogonalScrollView setContentOffset:CGPointZero animated:NO];
