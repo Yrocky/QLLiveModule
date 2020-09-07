@@ -130,7 +130,6 @@ static const NSInteger unionSize = 50;
                        @"section":@(section),
                        @"attributes":attributes
                     }];
-//                    [self.layoutAttributesForPinnedSupplementaryItems addObject:attributes];
                 }
                 self.headersAttribute[@(section)] = attributes;
                 [self.allItemAttributes addObject:attributes];
@@ -227,7 +226,6 @@ static const NSInteger unionSize = 50;
                                               decorateInset:builder.inset];
             attr.zIndex = -1;
             attr.builder = builder;
-            attr.backgroundColor = [UIColor colorWithHexString:@"#8091a5"];
             self.decorateViewAttributes[@(section)] = attr;
             [self.allItemAttributes addObject:attr];
         }

@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol QLLiveComponentBackgroundDecorateAble;
 @interface QLLiveDecorateSectionLayoutAttributes : UICollectionViewLayoutAttributes
 
-@property (nonatomic ,strong) UIColor * backgroundColor;
-@property (nonatomic ,assign) CGFloat cornerRadius;
 @property (nonatomic ,assign) id<QLLiveComponentBackgroundDecorateAble> builder;
 @end
 

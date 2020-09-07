@@ -13,7 +13,11 @@
 #import "QLLiveModuleAdapterProxy.h"
 #import "QLLiveModuleFlowLayout.h"
 
-#import "NSArray+Sugar.h"
+@interface NSArray (QLLive)
+- (NSArray *) ql_select:(BOOL (^)(id obj))handle;
+- (void) ql_each:(void (^)(id))handle;
+- (NSArray *) ql_map:(id (^)(id))handle;
+@end
 
 @interface QLLiveModuleDataSource (){
     __weak UICollectionView *_collectionView;
@@ -208,7 +212,7 @@
 
 - (void) updateHideWhenEmptyComponents{
     __block NSInteger index = 0;
-    _hidenWhenEmptyComponents = [_innerComponents ease_select:^BOOL(QLLiveComponent * component) {
+    _hidenWhenEmptyComponents = [_innerComponents ql_select:^BOOL(QLLiveComponent * component) {
         if ((component.needPlacehold || component.independentDatas) ||
             (!component.hiddenWhenEmpty || component.datas.count != 0)){
             component.index = index;
@@ -222,7 +226,7 @@
 - (NSArray<__kindof QLLiveComponent *> *) usageHidenWhenMeptyComponents{
     NSArray * tmp;
     @synchronized (_innerComponents) {
-        tmp = [_innerComponents ease_select:^BOOL(QLLiveComponent * component) {
+        tmp = [_innerComponents ql_select:^BOOL(QLLiveComponent * component) {
             if (component.needPlacehold || component.independentDatas) {
                 return YES;
             }
@@ -257,7 +261,7 @@
 - (void)clear{
     
     @synchronized (_innerComponents) {
-        [_innerComponents ease_each:^(__kindof QLLiveComponent * component) {
+        [_innerComponents ql_each:^(__kindof QLLiveComponent * component) {
             [component clear];
         }];
         [_innerComponents removeAllObjects];
@@ -269,7 +273,7 @@
         
         NSPredicate * pred = [NSPredicate predicateWithFormat:@"NOT SELF IN %@",_innerComponents];
     
-        [_innerComponents removeObjectsInArray:[[components filteredArrayUsingPredicate:pred] ease_map:^id(__kindof QLLiveComponent * component) {
+        [_innerComponents removeObjectsInArray:[[components filteredArrayUsingPredicate:pred] ql_map:^id(__kindof QLLiveComponent * component) {
             [component clear];
             return component;
         }]];
@@ -366,7 +370,7 @@
     
     NSArray * components;
     @synchronized (_hidenWhenEmptyComponents) {
-        components = [_hidenWhenEmptyComponents ease_select:^BOOL(__kindof QLLiveComponent * component) {
+        components = [_hidenWhenEmptyComponents ql_select:^BOOL(__kindof QLLiveComponent * component) {
             return YES;//!component.empty;
         }];
     }
@@ -623,6 +627,33 @@
         [self.collectionViewDelegate collectionView:collectionView didUnhighlightItemAtIndexPath:indexPath];
     }
     [comp didUnhighlightItemAtIndex:indexPath.item];
+}
+
+@end
+
+@implementation NSArray (QLLive)
+
+- (NSArray *) ql_select:(BOOL (^)(id obj))handle{
+    return [self filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return handle(evaluatedObject);
+    }]];
+}
+
+- (void) ql_each:(void (^)(id))handle{
+    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        handle(obj);
+    }];
+}
+
+- (NSArray *) ql_map:(id (^)(id))handle{
+    
+    NSMutableArray * _self = [NSMutableArray arrayWithCapacity:self.count];
+    @autoreleasepool{
+        for (id obj in self) {
+            [_self addObject:handle(obj) ? : [NSNull null]];
+        }
+    }
+    return [_self copy];
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "QLLiveModule.h"
-#import <YTKNetwork/YTKNetwork.h>
+//#import <YTKNetwork/YTKNetwork.h>
 #import "QLLiveModelEnvironment.h"
 #import "QLLiveModuleDataSource_Private.h"
 
@@ -99,25 +99,25 @@
 
 - (void)fetchModuleDataFromService{
     
-    YTKRequest * request = [self fetchModuleRequest];
-//    request.successOnMainQueue = NO;
-    [request startWithCompletionBlockWithSuccess:^(YTKRequest * _Nonnull request) {
-        if (self->_isRefresh) {
-            // clear
-            if (self.haveDefaultComponents) {
-                [self.dataSource clearExceptComponents:self->_defaultComponents];
-            } else {
-                [self.dataSource clear];
-            }
-        }
-        [self parseModuleDataWithRequest:request];
-        [self increaseIndex];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self wrapperSuccessUpdateForDelegate];
-        });
-    } failure:^(YTKRequest * _Nonnull request) {
-        [self wrapperFailUpdateForDelegate:request.error];
-    }];
+//    YTKRequest * request = [self fetchModuleRequest];
+////    request.successOnMainQueue = NO;
+//    [request startWithCompletionBlockWithSuccess:^(YTKRequest * _Nonnull request) {
+//        if (self->_isRefresh) {
+//            // clear
+//            if (self.haveDefaultComponents) {
+//                [self.dataSource clearExceptComponents:self->_defaultComponents];
+//            } else {
+//                [self.dataSource clear];
+//            }
+//        }
+//        [self parseModuleDataWithRequest:request];
+//        [self increaseIndex];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self wrapperSuccessUpdateForDelegate];
+//        });
+//    } failure:^(YTKRequest * _Nonnull request) {
+//        [self wrapperFailUpdateForDelegate:request.error];
+//    }];
 }
 
 - (void) resetIndex{

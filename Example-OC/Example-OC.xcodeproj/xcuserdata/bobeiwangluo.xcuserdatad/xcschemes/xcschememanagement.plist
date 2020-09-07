@@ -4,15 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>QILievModule.xcscheme_^#shared#^_</key>
+		<key>Example-OC.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
-		</dict>
-		<key>QLLiveModuler.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>11</integer>
 		</dict>
 	</dict>
 </dict>
