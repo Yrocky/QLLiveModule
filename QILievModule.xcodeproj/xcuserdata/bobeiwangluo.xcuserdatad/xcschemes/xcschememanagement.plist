@@ -7,12 +7,12 @@
 		<key>QILievModule.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>10</integer>
 		</dict>
 		<key>QLLiveModuler.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>12</integer>
 		</dict>
 	</dict>
 </dict>

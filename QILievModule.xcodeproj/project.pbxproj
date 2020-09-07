@@ -241,10 +241,10 @@
 		32A86EAF250629D6001B0D95 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				32A86EB0250629D6001B0D95 /* Datasource */,
-				32A86EB4250629D6001B0D95 /* Layout */,
 				32A86EC0250629D6001B0D95 /* Module */,
 				32A86EC3250629D6001B0D95 /* Component */,
+				32A86EB0250629D6001B0D95 /* Datasource */,
+				32A86EB4250629D6001B0D95 /* Layout */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -252,9 +252,9 @@
 		32A86EB0250629D6001B0D95 /* Datasource */ = {
 			isa = PBXGroup;
 			children = (
+				32A86EB3250629D6001B0D95 /* QLLiveModuleDataSource.h */,
 				32A86EB1250629D6001B0D95 /* QLLiveModuleDataSource.m */,
 				32A86EB2250629D6001B0D95 /* QLLiveModuleDataSourceAble.h */,
-				32A86EB3250629D6001B0D95 /* QLLiveModuleDataSource.h */,
 			);
 			path = Datasource;
 			sourceTree = "<group>";
@@ -263,8 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				32A86EB5250629D6001B0D95 /* QLLiveBaseLayout.h */,
-				32A86EB6250629D6001B0D95 /* Layouts */,
 				32A86EBF250629D6001B0D95 /* QLLiveBaseLayout.m */,
+				32A86EB6250629D6001B0D95 /* Layouts */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -273,13 +273,13 @@
 			isa = PBXGroup;
 			children = (
 				32A86EB7250629D6001B0D95 /* QLLiveFlexLayout.h */,
-				32A86EB8250629D6001B0D95 /* QLLiveWaterfallLayout.m */,
-				32A86EB9250629D6001B0D95 /* QLLiveGridLayout.m */,
-				32A86EBA250629D6001B0D95 /* QLLiveListLayout.m */,
 				32A86EBB250629D6001B0D95 /* QLLiveFlexLayout.m */,
-				32A86EBC250629D6001B0D95 /* QLLiveWaterfallLayout.h */,
-				32A86EBD250629D6001B0D95 /* QLLiveListLayout.h */,
 				32A86EBE250629D6001B0D95 /* QLLiveGridLayout.h */,
+				32A86EB9250629D6001B0D95 /* QLLiveGridLayout.m */,
+				32A86EBD250629D6001B0D95 /* QLLiveListLayout.h */,
+				32A86EBA250629D6001B0D95 /* QLLiveListLayout.m */,
+				32A86EBC250629D6001B0D95 /* QLLiveWaterfallLayout.h */,
+				32A86EB8250629D6001B0D95 /* QLLiveWaterfallLayout.m */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
