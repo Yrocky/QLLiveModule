@@ -110,13 +110,6 @@
 			remoteGlobalIDString = 32A86D1A2505D0E0001B0D95;
 			remoteInfo = QLLiveModuler;
 		};
-		32A86D632505D1DB001B0D95 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 32A86D5F2505D1DA001B0D95 /* Example-OC.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 32A86D432505D1D8001B0D95;
-			remoteInfo = "Example-OC";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -170,7 +163,6 @@
 		32A86D1B2505D0E0001B0D95 /* QLLiveModuler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QLLiveModuler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A86D1D2505D0E0001B0D95 /* QLLiveModuler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveModuler.h; sourceTree = "<group>"; };
 		32A86D1E2505D0E0001B0D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32A86D5F2505D1DA001B0D95 /* Example-OC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Example-OC.xcodeproj"; path = "Example-OC/Example-OC.xcodeproj"; sourceTree = "<group>"; };
 		32DB563924DFA63900AD669F /* QILievModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QILievModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DB563C24DFA63900AD669F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		32DB563D24DFA63900AD669F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -320,18 +312,9 @@
 			path = QLLiveModuler;
 			sourceTree = "<group>";
 		};
-		32A86D602505D1DA001B0D95 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				32A86D642505D1DB001B0D95 /* Example-OC.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		32DB563024DFA63900AD669F = {
 			isa = PBXGroup;
 			children = (
-				32A86D5F2505D1DA001B0D95 /* Example-OC.xcodeproj */,
 				32DB563B24DFA63900AD669F /* QILievModule */,
 				32A86D1C2505D0E0001B0D95 /* QLLiveModuler */,
 				32DB563A24DFA63900AD669F /* Products */,
@@ -757,12 +740,6 @@
 			mainGroup = 32DB563024DFA63900AD669F;
 			productRefGroup = 32DB563A24DFA63900AD669F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 32A86D602505D1DA001B0D95 /* Products */;
-					ProjectRef = 32A86D5F2505D1DA001B0D95 /* Example-OC.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				32DB563824DFA63900AD669F /* QILievModule */,
@@ -770,16 +747,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		32A86D642505D1DB001B0D95 /* Example-OC.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "Example-OC.app";
-			remoteRef = 32A86D632505D1DB001B0D95 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		32A86D192505D0E0001B0D95 /* Resources */ = {

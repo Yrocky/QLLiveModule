@@ -11,10 +11,25 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, QLLiveFlexLayoutGravity) {
+    /*
+     |口口口........|
+     */
     QLLiveFlexLayoutFlexStart =     0,
+    /*
+     |........口口口|
+     */
     QLLiveFlexLayoutFlexEnd =       1,
+    /*
+     |....口口口....|
+     */
     QLLiveFlexLayoutCenter =        2,
+    /*
+     |口....口....口|
+     */
     QLLiveFlexLayoutSpaceBetween =  3,
+    /*
+     |..口..口..口..|
+     */
     QLLiveFlexLayoutSpaceAround =   4,
 };
 
