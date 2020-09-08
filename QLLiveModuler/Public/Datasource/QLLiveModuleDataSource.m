@@ -178,28 +178,6 @@
                                               withReuseIdentifier:reuseIdentifier
                                                      forIndexPath:indexPath];
 }
-- (__kindof UICollectionReusableView *)dequeueReusableSupplementaryViewOfKind:(NSString *)elementKind
-                                                                 forComponent:(__kindof QLLiveComponent *)component
-                                                                        clazz:(Class)viewClass
-                                                                      atIndex:(NSInteger)index{
-    if (!elementKind) {
-        return nil;
-    }
-    UICollectionView *collectionView = self.collectionView;
-    NSIndexPath * indexPath = [NSIndexPath indexPathForItem:0 inSection:({
-        [self usageHidenWhenMeptyIndexWithComponent:component];
-    })];
-    NSString * reuseIdentifier = [NSString stringWithFormat:@"Supplementary-%@-%@",NSStringFromClass(viewClass),elementKind];
-    if (![self.registeredSupplementaryViewIdentifiers containsObject:reuseIdentifier]) {
-        [self.registeredSupplementaryViewIdentifiers addObject:reuseIdentifier];
-        [collectionView registerClass:viewClass
-           forSupplementaryViewOfKind:elementKind
-                  withReuseIdentifier:reuseIdentifier];
-    }
-    return [collectionView dequeueReusableSupplementaryViewOfKind:elementKind
-                                              withReuseIdentifier:reuseIdentifier
-                                                     forIndexPath:indexPath];
-}
 
 - (__kindof UICollectionViewCell *) collectionView:(__kindof UICollectionView *)collectionView dequeueReusableCell:(NSMutableSet *)registeredCellIdentifiers withReuseIdentifier:(NSString *)reuseIdentifier cellClass:(Class)cellClass atIndexPath:(NSIndexPath *)indexPath{
     

@@ -202,19 +202,19 @@ static const NSInteger unionSize = 50;
         
         QLLiveComponentDecorateBuilder * builder = component.decorateBuilder;
         if (builder &&
-            builder.type != QLLiveComponentDecorateNone &&
+            builder.decorate != QLLiveComponentDecorateNone &&
             self.scrollDirection == UICollectionViewScrollDirectionVertical) {
             CGFloat y = 0;
             if (self.sectionHeights.count) {
                 y = self.sectionHeights[self.sectionHeights.count - 1].floatValue;
             }
             CGFloat height = top - y;
-            if (builder.type == QLLiveComponentDecorateOnlyItem) {
+            if (builder.decorate == QLLiveComponentDecorateOnlyItem) {
                 y += headerHeight;
                 height -= (footerHeight + headerHeight);
-            } else if (builder.type == QLLiveComponentDecorateContainHeader) {
+            } else if (builder.decorate == QLLiveComponentDecorateContainHeader) {
                 height -= footerHeight;
-            } else if (builder.type == QLLiveComponentDecorateContainFooter) {
+            } else if (builder.decorate == QLLiveComponentDecorateContainFooter) {
                 y += headerHeight;
                 height -= headerHeight;
             }

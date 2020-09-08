@@ -296,10 +296,10 @@
 		32A86EC3250629D6001B0D95 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				32A86EC4250629D6001B0D95 /* QLLiveComponentDecorateContents.m */,
 				32A86EC5250629D6001B0D95 /* QLLiveComponent.h */,
-				32A86EC6250629D6001B0D95 /* QLLiveComponentDecorateContents.h */,
 				32A86EC7250629D6001B0D95 /* QLLiveComponent.m */,
+				32A86EC6250629D6001B0D95 /* QLLiveComponentDecorateContents.h */,
+				32A86EC4250629D6001B0D95 /* QLLiveComponentDecorateContents.m */,
 			);
 			path = Component;
 			sourceTree = "<group>";

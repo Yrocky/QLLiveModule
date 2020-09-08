@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface QLLiveComponentDecorateBuilder : NSObject<
 QLLiveComponentDecorateAble>
 
-@property (nonatomic ,assign) QLLiveComponentDecorateType type;
+@property (nonatomic ,assign) QLLiveComponentDecorate decorate;
 
 @property (nonatomic ,assign) CGFloat radius;
 @property (nonatomic ,assign) UIEdgeInsets inset;

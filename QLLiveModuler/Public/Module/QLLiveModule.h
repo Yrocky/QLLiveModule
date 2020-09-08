@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger, QLLivePureListModuleType) {
 - (void) loadMore;///< 加载下一页
 
 - (void) setupViewController:(UIViewController *)viewController
-              collectionView:(UICollectionView *)collectionView;
+              collectionView:(UICollectionView *)collectionView NS_SWIFT_NAME(setup(viewController:collectionView:));
 @end
 
 @interface QLLiveModule (SubclassingOverride)

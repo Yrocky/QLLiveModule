@@ -1,0 +1,105 @@
+{
+    "":"",
+    "":"",
+    "basic":[
+        {
+            "title":"性别",
+            "detail":"男"
+        },
+        {
+            "title":"年龄",
+            "detail":"30"
+        },
+        {
+            "title":"手机号",
+            "detail":"155********"
+        },
+        {
+            "title":"邮箱",
+            "detail":"9********@qq.com"
+        },
+        {
+            "title":"学历",
+            "detail":"河南理工大学·信管专业"
+        },
+        {
+            "title":"现居",
+            "detail":"上海·虹桥"
+        }
+    ],
+    "skill":[
+        "熟练掌握AFNetworking，SDWebImage-JSONSerialization",
+        "拥有过硬的开发本领YYImage,AFNetworking,RN,Flutter,Vue,JavaScrpipt,swift"
+    ],
+    "company": [
+        {
+            "name":"a3befb34g34a",
+            "time":"1990.10.9 - 2004.8.8",
+            "duty":"fsdfserbadbadbberbratbabfdb4rbdfbfbdfbtrbshfbsff34fe3f3",
+            "highlight":[
+                "sdfsdfsfsffef23fwesgagertgathrtf",
+                "sdgae4gea5hg",
+                "sdfsdfsfssdfa4ga4g43hah45g34gweg 43e"
+            ]
+        },
+        {
+            "name":"a34graga",
+            "time":"2005.1.4 - 2008.6.18",
+            "duty":"fsdfsf3sdbsrbrbfzbsbtrnsfrnsfnsrtnfgnstrnsfgnfsntrnrt4fe3f3",
+            "highlight":[
+                "sdfsdfsfsffef23fwef",
+                "sdfsdfsfsff3e",
+                "sgeqg35hgergae5hea54hq354ha45hqa354h45gq34h34hq354h54"
+            ]
+        },
+        {
+            "name":"aaergv4ea2w",
+            "time":"2009.11.3 - 2020.9.8",
+            "duty":"fsdfsf34snrtnfngsrtnsnrtnsrtnrtfe3f3",
+            "highlight":[
+                "sdfsdfsfsrbaertbfef23fwef",
+                "sdfsdfsfsffsvasg34baebatrbtgweg 43e",
+                "feqgah53h35",
+                "sdfsdfsfsffsvasg34h5hdbdqe49   8y3ho23",
+            ]
+        }
+    ],
+    "project":[
+        {
+            "name":"sdfw",
+            "describe":"sdfegw4g",
+            "framework":[
+                "sdf23s","sfd23w","fwfwfwew","24f1rg3","f34g34121"
+            ],
+            "duty":[
+                "adgargerger43ervav34ve",
+                "adgargergeaeh5qh45h3gae43g3gaq334ve",
+                "f34g34gq3a4g43g4"
+            ]
+        },
+        {
+            "name":"sdfw",
+            "describe":"sdfegw4g",
+            "framework":[
+                "sdfs","sfdfw","fwfw","24fg3","f34g34"
+            ],
+            "duty":[
+                "adgargerger43ervav34ve",
+                "adgargergeaeh5qh45h3gae43g3gaq334ve",
+                "f34g34gq3a4g43g4"
+            ]
+        },
+        {
+            "name":"sdfw",
+            "describe":"sdfegw4g",
+            "framework":[
+                "sdfs","sfdfw","fwfw","24fg3","f34g34"
+            ],
+            "duty":[
+                "adgargerger43ervav34ve",
+                "adgargergeaeh5qh45h3gae43g3gaq334ve",
+                "f34g34gq3a4g43g4"
+            ]
+        }
+    ]
+}

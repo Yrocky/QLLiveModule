@@ -11,22 +11,25 @@ import QLLiveModuler
 
 class ViewController: UIViewController {
 
+    let collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewFlowLayout()
+    )
+    
+    let module = DemoResumeModule(name: "Resume")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let module = QLLiveModule(name: "swift")
-        module.dataSource.addComponent(QLLiveComponent())
-        
-        let layout = QLLiveFlexLayout()
-        layout.justifyContent = .spaceBetween
-        
-        let listLayout = QLLiveListLayout()
-        listLayout.distribution = .distribution(2)
-        listLayout.itemRatio = .itemRatio(1.2)
     
-
+        collectionView.backgroundColor = .backgroundColor
+        collectionView.frame = view.bounds
+        view.addSubview(collectionView)
+        
+        module.setup(
+            viewController: self,
+            collectionView: collectionView
+        )
+        module.refresh()
     }
-
-
 }
 

@@ -16,7 +16,7 @@ typedef NS_ENUM (NSUInteger, QLLiveWaterfallItemRenderDirection) {
     QLLiveWaterfallItemRenderRightToLeft = 2, // 只有 arrange = ..Vertical的时候有效
     QLLiveWaterfallItemRenderTopToBottom = 3, // 只有 arrange = ..Horizontal的时候有效
     QLLiveWaterfallItemRenderBottomToTop = 4, // 只有 arrange = ..Horizontal的时候有效
-};
+} NS_SWIFT_NAME(QLLiveWaterfallLayout.RenderDirection);
 
 @protocol QLLiveWaterfallLayoutDelegate;
 @interface QLLiveWaterfallLayout : QLLiveBaseLayout

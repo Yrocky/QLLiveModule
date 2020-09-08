@@ -18,9 +18,9 @@ typedef NS_ENUM(NSInteger, QLLiveComponentArrange) {
     QLLiveComponentArrangeVertical,
     /// 水平
     QLLiveComponentArrangeHorizontal,
-};
+}NS_SWIFT_NAME(QLLiveComponent.Arrange);
 
-typedef NS_ENUM(NSInteger, QLLiveComponentDecorateType) {
+typedef NS_ENUM(NSInteger, QLLiveComponentDecorate) {
     /// 没有背景装饰效果
     QLLiveComponentDecorateNone,
     /// 只有item
@@ -31,11 +31,12 @@ typedef NS_ENUM(NSInteger, QLLiveComponentDecorateType) {
     QLLiveComponentDecorateContainFooter,
     /// header+item+footer
     QLLiveComponentDecorateAll,
-};
+};//NS_SWIFT_NAME(QLLiveComponent.Decorate);
+//Warning: 这里不能够使用NS_SWIFT_NAME
 
 @protocol QLLiveComponentDecorateAble <NSObject>
 
-@property (nonatomic ,assign) QLLiveComponentDecorateType type;
+@property (nonatomic ,assign) QLLiveComponentDecorate decorate;
 
 @property (nonatomic ,assign) CGFloat radius;
 @property (nonatomic ,assign) UIEdgeInsets inset;
@@ -45,8 +46,8 @@ typedef NS_ENUM(NSInteger, QLLiveComponentDecorateType) {
 
 @end
 
-@interface QLLiveComponent<__covariant Data> : NSObject{
-    NSMutableArray<Data> *_innerDatas;
+@interface QLLiveComponent : NSObject{
+    NSMutableArray *_innerDatas;
     __kindof QLLiveBaseLayout * _layout;
 }
 
@@ -80,14 +81,16 @@ typedef NS_ENUM(NSInteger, QLLiveComponentDecorateType) {
 // 在DataSource中的索引
 @property (nonatomic ,assign ,readonly) NSInteger index;
 
-- (void) addData:(Data)data;
-- (void) addDatas:(NSArray<Data> *)datas;
+- (void) setupLayout:(__kindof QLLiveBaseLayout *)layout NS_SWIFT_NAME(setup(_:));
 
-- (Data) dataAtIndex:(NSInteger)index;
+- (void) addData:(id)data NS_SWIFT_NAME(add(data:));
+- (void) addDatas:(NSArray *)datas NS_SWIFT_NAME(add(datas:));
+
+- (id) dataAtIndex:(NSInteger)index NS_SWIFT_NAME(dataAt(_:));
 
 - (NSInteger)numberOfItems;
 
-@property (nonatomic ,copy ,readonly) NSArray<Data> * datas;
+@property (nonatomic ,copy ,readonly) NSArray * datas;
 
 - (BOOL) empty;
 
@@ -124,7 +127,7 @@ typedef NS_ENUM(NSInteger, QLLiveComponentDecorateType) {
 /// 背景修饰
 @interface QLLiveComponent (BackgroundDecorate)
 
-- (void) addBackgroundDecorate:(void(^)(id<QLLiveComponentDecorateAble>builder))builder;
+- (void) addDecorateWithBuilder:(void(^)(id<QLLiveComponentDecorateAble>builder))builder  NS_SWIFT_NAME(addDecorate(with:));
 @end
 
 NS_ASSUME_NONNULL_END

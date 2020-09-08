@@ -8,22 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		32A86D8C2505D808001B0D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A86D8B2505D808001B0D95 /* AppDelegate.swift */; };
-		32A86D8E2505D808001B0D95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A86D8D2505D808001B0D95 /* SceneDelegate.swift */; };
 		32A86D902505D808001B0D95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A86D8F2505D808001B0D95 /* ViewController.swift */; };
 		32A86D932505D808001B0D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A86D912505D808001B0D95 /* Main.storyboard */; };
 		32A86D952505D80A001B0D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32A86D942505D80A001B0D95 /* Assets.xcassets */; };
 		32A86D982505D80A001B0D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A86D962505D80A001B0D95 /* LaunchScreen.storyboard */; };
+		32A86F4F250637F6001B0D95 /* QLLiveModuler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A86F4E250637F6001B0D95 /* QLLiveModuler.framework */; };
+		32A86F50250637F6001B0D95 /* QLLiveModuler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32A86F4E250637F6001B0D95 /* QLLiveModuler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		32A86F5325063844001B0D95 /* DemoResumeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A86F5225063844001B0D95 /* DemoResumeModule.swift */; };
+		32A86F55250638A4001B0D95 /* DemoResumeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A86F54250638A4001B0D95 /* DemoResumeComponent.swift */; };
+		32A86F57250648B1001B0D95 /* DemoResumeCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A86F56250648B1001B0D95 /* DemoResumeCCell.swift */; };
+		32A86F5925065B63001B0D95 /* DemoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A86F5825065B63001B0D95 /* DemoColor.swift */; };
+		32A86F5B2507212A001B0D95 /* Resume.json in Resources */ = {isa = PBXBuildFile; fileRef = 32A86F5A2507212A001B0D95 /* Resume.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		32A86F51250637F6001B0D95 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				32A86F50250637F6001B0D95 /* QLLiveModuler.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		32A86D882505D808001B0D95 /* Example-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A86D8B2505D808001B0D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		32A86D8D2505D808001B0D95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		32A86D8F2505D808001B0D95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		32A86D922505D808001B0D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32A86D942505D80A001B0D95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32A86D972505D80A001B0D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32A86D992505D80A001B0D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32A86F4E250637F6001B0D95 /* QLLiveModuler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QLLiveModuler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32A86F5225063844001B0D95 /* DemoResumeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoResumeModule.swift; sourceTree = "<group>"; };
+		32A86F54250638A4001B0D95 /* DemoResumeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoResumeComponent.swift; sourceTree = "<group>"; };
+		32A86F56250648B1001B0D95 /* DemoResumeCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoResumeCCell.swift; sourceTree = "<group>"; };
+		32A86F5825065B63001B0D95 /* DemoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoColor.swift; sourceTree = "<group>"; };
+		32A86F5A2507212A001B0D95 /* Resume.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resume.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A86F4F250637F6001B0D95 /* QLLiveModuler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +68,7 @@
 			children = (
 				32A86D8A2505D808001B0D95 /* Example-swift */,
 				32A86D892505D808001B0D95 /* Products */,
+				32A86F4D250637F6001B0D95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +84,26 @@
 			isa = PBXGroup;
 			children = (
 				32A86D8B2505D808001B0D95 /* AppDelegate.swift */,
-				32A86D8D2505D808001B0D95 /* SceneDelegate.swift */,
 				32A86D8F2505D808001B0D95 /* ViewController.swift */,
+				32A86F5225063844001B0D95 /* DemoResumeModule.swift */,
+				32A86F54250638A4001B0D95 /* DemoResumeComponent.swift */,
+				32A86F56250648B1001B0D95 /* DemoResumeCCell.swift */,
+				32A86F5A2507212A001B0D95 /* Resume.json */,
+				32A86F5825065B63001B0D95 /* DemoColor.swift */,
 				32A86D912505D808001B0D95 /* Main.storyboard */,
 				32A86D942505D80A001B0D95 /* Assets.xcassets */,
 				32A86D962505D80A001B0D95 /* LaunchScreen.storyboard */,
 				32A86D992505D80A001B0D95 /* Info.plist */,
 			);
 			path = "Example-swift";
+			sourceTree = "<group>";
+		};
+		32A86F4D250637F6001B0D95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32A86F4E250637F6001B0D95 /* QLLiveModuler.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +116,7 @@
 				32A86D842505D808001B0D95 /* Sources */,
 				32A86D852505D808001B0D95 /* Frameworks */,
 				32A86D862505D808001B0D95 /* Resources */,
+				32A86F51250637F6001B0D95 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A86F5B2507212A001B0D95 /* Resume.json in Resources */,
 				32A86D982505D80A001B0D95 /* LaunchScreen.storyboard in Resources */,
 				32A86D952505D80A001B0D95 /* Assets.xcassets in Resources */,
 				32A86D932505D808001B0D95 /* Main.storyboard in Resources */,
@@ -139,8 +180,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				32A86D902505D808001B0D95 /* ViewController.swift in Sources */,
+				32A86F55250638A4001B0D95 /* DemoResumeComponent.swift in Sources */,
+				32A86F5325063844001B0D95 /* DemoResumeModule.swift in Sources */,
 				32A86D8C2505D808001B0D95 /* AppDelegate.swift in Sources */,
-				32A86D8E2505D808001B0D95 /* SceneDelegate.swift in Sources */,
+				32A86F5925065B63001B0D95 /* DemoColor.swift in Sources */,
+				32A86F57250648B1001B0D95 /* DemoResumeCCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PF3BSY7RH3;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Example-swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -294,6 +339,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rocky.Example-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,6 +351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PF3BSY7RH3;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "Example-swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -322,8 +322,8 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：image"];
         comp.layout.inset = UIEdgeInsetsMake(100, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateOnlyItem;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateOnlyItem;
             builder.radius = 10.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
@@ -338,8 +338,8 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：image"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 130, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateOnlyItem;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateOnlyItem;
             builder.radius = 10.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
@@ -354,8 +354,8 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：gradient"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateOnlyItem;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
@@ -378,8 +378,8 @@ static NSDictionary * demoData;
     
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：only item"];
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateOnlyItem;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.contents = ({
                 QLLiveComponentDecorateContents * contents =
@@ -393,8 +393,8 @@ static NSDictionary * demoData;
     
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：contain header"];
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateContainHeader;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateContainHeader;
             builder.radius = 4.0f;
             builder.contents = ({
                 QLLiveComponentDecorateContents * contents =
@@ -407,8 +407,8 @@ static NSDictionary * demoData;
     })];
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：all"];
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateAll;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateAll;
             builder.radius = 4.0f;
             builder.contents = ({
                 QLLiveComponentDecorateContents * contents =
@@ -422,8 +422,8 @@ static NSDictionary * demoData;
     
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：contain footer"];
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateContainFooter;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateContainFooter;
             builder.radius = 4.0f;
             builder.contents = ({
                 QLLiveComponentDecorateContents * contents =
@@ -437,8 +437,8 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：only item & insets"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateOnlyItem;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
@@ -453,8 +453,8 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：all & insets"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateAll;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateAll;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             builder.contents = ({
@@ -470,8 +470,8 @@ static NSDictionary * demoData;
     [self.dataSource addComponent:({
         DemoBackgroundDecorateComponent * comp = [[DemoBackgroundDecorateComponent alloc] initWithTitle:@"BackgroundDecorate：shadow"];
         comp.layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
-        [comp addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateOnlyItem;
+        [comp addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.inset = UIEdgeInsetsMake(0, -10, 0, -10);
             [builder setContents:({

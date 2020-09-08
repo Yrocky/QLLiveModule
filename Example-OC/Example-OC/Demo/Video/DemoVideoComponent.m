@@ -210,8 +210,8 @@
 {
     self = [super init];
     if (self) {
-        [self addBackgroundDecorate:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
-            builder.type = QLLiveComponentDecorateOnlyItem;
+        [self addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
+            builder.decorate = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
             builder.contents = ({
                 [QLLiveComponentDecorateContents colorContents:[UIColor colorWithHexString:@"f3f3f3"]];

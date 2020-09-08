@@ -30,6 +30,12 @@
     self.layout.environment = environment;
 }
 
+- (void)setupLayout:(__kindof QLLiveBaseLayout *)layout{
+    if ([layout isKindOfClass:QLLiveBaseLayout.class]) {
+        _layout = layout;
+    }
+}
+
 - (void) addData:(id)data{
     @synchronized (_innerDatas) {
         if (![_innerDatas containsObject:data]) {
@@ -171,7 +177,7 @@
 
 @implementation QLLiveComponent (BackgroundDecorate)
 
-- (void) addBackgroundDecorate:(void(^)(id<QLLiveComponentDecorateAble>builder))builder{
+- (void) addDecorateWithBuilder:(void(^)(id<QLLiveComponentDecorateAble>builder))builder{
     self.decorateBuilder = [QLLiveComponentDecorateBuilder new];
     if (builder) {
         builder(self.decorateBuilder);
@@ -185,7 +191,7 @@
 {
     self = [super init];
     if (self) {
-        self.type = QLLiveComponentDecorateNone;
+        self.decorate = QLLiveComponentDecorateNone;
         self.inset = UIEdgeInsetsZero;
         self.contents = nil;
     }

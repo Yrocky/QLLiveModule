@@ -33,7 +33,6 @@
 		32A86E3925062501001B0D95 /* DemoMineModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86DE72505E183001B0D95 /* DemoMineModule.m */; };
 		32A86E3A25062501001B0D95 /* DemoMineComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86DE92505E183001B0D95 /* DemoMineComponent.m */; };
 		32A86E3B25062501001B0D95 /* DemoMineCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86DEB2505E183001B0D95 /* DemoMineCCell.m */; };
-		32A86E3C25062501001B0D95 /* DemoResumeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86DEE2505E183001B0D95 /* DemoResumeModule.m */; };
 		32A86E3D25062501001B0D95 /* EaseRefreshProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86DB02505E181001B0D95 /* EaseRefreshProxy.m */; };
 		32A86E3E25062501001B0D95 /* EaseAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86DB22505E181001B0D95 /* EaseAlertController.m */; };
 		32A86E3F25062501001B0D95 /* NSObject+EaseRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86DB42505E181001B0D95 /* NSObject+EaseRuntime.m */; };
@@ -148,8 +147,6 @@
 		32A86DE92505E183001B0D95 /* DemoMineComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoMineComponent.m; sourceTree = "<group>"; };
 		32A86DEA2505E183001B0D95 /* DemoMineCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoMineCCell.h; sourceTree = "<group>"; };
 		32A86DEB2505E183001B0D95 /* DemoMineCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoMineCCell.m; sourceTree = "<group>"; };
-		32A86DED2505E183001B0D95 /* DemoResumeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoResumeModule.h; sourceTree = "<group>"; };
-		32A86DEE2505E183001B0D95 /* DemoResumeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoResumeModule.m; sourceTree = "<group>"; };
 		32A86E272506216D001B0D95 /* huaban.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = huaban.json; sourceTree = "<group>"; };
 		32A86E282506216E001B0D95 /* music.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music.json; sourceTree = "<group>"; };
 		32A86E4B250625A5001B0D95 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -373,15 +370,6 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
-		32A86DEF2505E183001B0D95 /* Resume */ = {
-			isa = PBXGroup;
-			children = (
-				32A86DED2505E183001B0D95 /* DemoResumeModule.h */,
-				32A86DEE2505E183001B0D95 /* DemoResumeModule.m */,
-			);
-			path = Resume;
-			sourceTree = "<group>";
-		};
 		32A86DF02505E183001B0D95 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,7 +381,6 @@
 				32A86DDE2505E183001B0D95 /* Huaban */,
 				32A86DE52505E183001B0D95 /* Music */,
 				32A86DEC2505E183001B0D95 /* Mine */,
-				32A86DEF2505E183001B0D95 /* Resume */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -543,7 +530,6 @@
 				32A86E3925062501001B0D95 /* DemoMineModule.m in Sources */,
 				32A86E3A25062501001B0D95 /* DemoMineComponent.m in Sources */,
 				32A86E3B25062501001B0D95 /* DemoMineCCell.m in Sources */,
-				32A86E3C25062501001B0D95 /* DemoResumeModule.m in Sources */,
 				32A86E3D25062501001B0D95 /* EaseRefreshProxy.m in Sources */,
 				32A86E3E25062501001B0D95 /* EaseAlertController.m in Sources */,
 				32A86E3F25062501001B0D95 /* NSObject+EaseRuntime.m in Sources */,

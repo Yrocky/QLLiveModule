@@ -24,10 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (__kindof UICollectionReusableView *)dequeueReusableSupplementaryViewOfKind:(NSString *)elementKind
                                                                  forComponent:(__kindof QLLiveComponent *)component
-                                                                        clazz:(Class)viewClass
-                                                                      atIndex:(NSInteger)index;
-- (__kindof UICollectionReusableView *)dequeueReusableSupplementaryViewOfKind:(NSString *)elementKind
-                                                                 forComponent:(__kindof QLLiveComponent *)component
                                                                         clazz:(Class)viewClass;
 @end
 
