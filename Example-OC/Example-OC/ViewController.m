@@ -102,6 +102,7 @@ static NSDictionary * demoData;
 
 - (void) setupComponents:(NSDictionary *)data{
     
+    
     //    [self.dataSource addComponent:({
     //        DemoPlaceholdComponent * comp = [[DemoPlaceholdComponent alloc] initWithTitle:@"placehold"];
     //        comp.needPlacehold = YES;
@@ -223,8 +224,8 @@ static NSDictionary * demoData;
             QLLiveListLayout * listLayout = [QLLiveListLayout new];
             listLayout.arrange = QLLiveLayoutArrangeHorizontal;
             listLayout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
-            listLayout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.55];
-            listLayout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:50];
+            listLayout.distribution = [QLLiveLayoutDimension fractionalDimension:0.55];
+            listLayout.itemRatio = [QLLiveLayoutDimension absoluteDimension:50];
             listLayout.row = 3;
             listLayout;
         })];
@@ -237,8 +238,8 @@ static NSDictionary * demoData;
             QLLiveListLayout * listLayout = [QLLiveListLayout new];
             listLayout.lineSpacing = 0.5f;
             listLayout.inset = UIEdgeInsetsMake(0, 0, 0, 0);
-            listLayout.distribution = [QLLiveLayoutDistribution distributionValue:1];
-            listLayout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:44.0f];
+            listLayout.distribution = [QLLiveLayoutDimension distributionDimension:1];
+            listLayout.itemRatio = [QLLiveLayoutDimension absoluteDimension:44.0f];
             listLayout;
         })];
         [comp addDatas:data[@"music"]];
@@ -250,8 +251,8 @@ static NSDictionary * demoData;
         [comp setupListLayout:({
             QLLiveListLayout * listLayout = [QLLiveListLayout new];
             listLayout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
-            listLayout.distribution = [QLLiveLayoutDistribution distributionValue:3];
-            listLayout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
+            listLayout.distribution = [QLLiveLayoutDimension distributionDimension:3];
+            listLayout.itemRatio = [QLLiveLayoutDimension fractionalDimension:0.8];
             listLayout;
         })];
         [comp addDatas:data[@"music"]];
@@ -667,8 +668,8 @@ static NSDictionary * demoData;
     if (self) {
         QLLiveListLayout * listLayout = [QLLiveListLayout new];
         listLayout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
-        listLayout.distribution = [QLLiveLayoutDistribution distributionValue:3];
-        listLayout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:183.0/267.0];
+        listLayout.distribution = [QLLiveLayoutDimension distributionDimension:3];
+        listLayout.itemRatio = [QLLiveLayoutDimension fractionalDimension:183.0/267.0];
         _layout = listLayout;
     }
     return self;;

@@ -40,8 +40,14 @@ typedef NS_ENUM(NSInteger, QLLiveLayoutHorizontalScrollingBehavior) {
 @property (nonatomic ,assign) UIEdgeInsets inset;
 @property (nonatomic ,assign ,readonly) CGFloat insetContainerWidth;
 
-@property (nonatomic ,assign) CGFloat lineSpacing;// default 5
-@property (nonatomic ,assign) CGFloat itemSpacing;// default 5
+/*
+ 行间距，default 5
+ */
+@property (nonatomic ,assign) CGFloat lineSpacing;
+/*
+ 视图之间的水平间距，default 5
+ */
+@property (nonatomic ,assign) CGFloat itemSpacing;
 /*
  经过计算之后的内容宽度，仅用于 arrange = QLLiveLayoutArrangeHorizontal
  */

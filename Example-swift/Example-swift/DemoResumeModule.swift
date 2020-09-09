@@ -42,7 +42,7 @@ class DemoResumeModule: QLLiveModule {
         
         let companyComp = ResumeCompanyComponent()
         companyComp.add(
-            datas: jsonData["company"] as! Array<String>
+            datas: jsonData["company"] as! Array<Any>
         )
         
         dataSource.add([

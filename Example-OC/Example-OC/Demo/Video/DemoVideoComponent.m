@@ -19,8 +19,8 @@
     if (self) {
         QLLiveListLayout * layout = [QLLiveListLayout new];
         layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:1];
-        layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:498.0f/280.0];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:1];
+        layout.itemRatio = [QLLiveLayoutDimension fractionalDimension:498.0f/280.0];
         _layout = layout;
     }
     return self;
@@ -85,8 +85,8 @@
     if (self) {
         QLLiveListLayout * layout = [QLLiveListLayout new];
         layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:3];
-        layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:183.0/267.0];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:3];
+        layout.itemRatio = [QLLiveLayoutDimension fractionalDimension:183.0/267.0];
         _layout = layout;
         
         _changeIndex = 0;
@@ -221,8 +221,8 @@
         QLLiveListLayout * layout = [QLLiveListLayout new];
         layout.lineSpacing = 0;
         layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:1];
-        layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:44];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:1];
+        layout.itemRatio = [QLLiveLayoutDimension absoluteDimension:44];
         _layout = layout;
     }
     return self;

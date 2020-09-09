@@ -19,7 +19,7 @@ class ResumeImageComponent: DemoResumeComponent {
         
         let layout = QLLiveListLayout()
         layout.distribution = .distribution(1)
-        layout.itemRatio = .itemRatio(2.0)
+        layout.itemRatio = .fractional(2.0)
         layout.arrange = .vertical
         self.setup(layout)
     }

@@ -54,9 +54,9 @@
     self = [super init];
     if (self) {
         QLLiveListLayout * layout = [QLLiveListLayout new];
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:1];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:1];
         // 1080*420
-        layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:1080.0f/420.0f];
+        layout.itemRatio = [QLLiveLayoutDimension fractionalDimension:1080.0f/420.0f];
         _layout = layout;
     }
     return self;
@@ -124,8 +124,8 @@
         layout.arrange = QLLiveLayoutArrangeHorizontal;
         layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
         layout.itemSpacing = 10;
-        layout.distribution = [QLLiveLayoutDistribution fractionalDimension:0.8];
-        layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:60];
+        layout.distribution = [QLLiveLayoutDimension fractionalDimension:0.8];
+        layout.itemRatio = [QLLiveLayoutDimension absoluteDimension:60];
         layout.row = 4;
         _layout = layout;
     }
@@ -149,8 +149,8 @@
         layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
         layout.itemSpacing = 5;
         layout.lineSpacing = 5;
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
-        layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.7];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:4];
+        layout.itemRatio = [QLLiveLayoutDimension fractionalDimension:0.7];
         _layout = layout;
     }
     return self;
@@ -173,8 +173,8 @@
         layout.inset = UIEdgeInsetsMake(0, 20, 0, 20);
         layout.itemSpacing = 5;
         layout.lineSpacing = 5;
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:3];
-        layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:3];
+        layout.itemRatio = [QLLiveLayoutDimension fractionalDimension:0.8];
         _layout = layout;
         
         [self addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {

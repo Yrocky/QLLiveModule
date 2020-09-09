@@ -17,8 +17,8 @@
     if (self) {
         QLLiveListLayout * layout = [QLLiveListLayout new];
 //        layout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:1];
-        layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:120];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:1];
+        layout.itemRatio = [QLLiveLayoutDimension absoluteDimension:120];
 
         _layout = layout;
     }
@@ -40,8 +40,8 @@
     if (self) {
         QLLiveListLayout * layout = [QLLiveListLayout new];
         layout.inset = UIEdgeInsetsMake(10, 20, 10, 20);
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
-        layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:4];
+        layout.itemRatio = [QLLiveLayoutDimension fractionalDimension:0.8];
         [self addDecorateWithBuilder:^(id<QLLiveComponentDecorateAble>  _Nonnull builder) {
             builder.decorate = QLLiveComponentDecorateOnlyItem;
             builder.radius = 4.0f;
@@ -76,8 +76,8 @@
     if (self) {
         QLLiveListLayout * layout = [QLLiveListLayout new];
         layout.inset = UIEdgeInsetsMake(10, 10, 10, 10);
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:1];
-        layout.itemRatio = [QLLiveLayoutItemRatio absoluteValue:110];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:1];
+        layout.itemRatio = [QLLiveLayoutDimension absoluteDimension:110];
         _layout = layout;
     }
     return self;
@@ -97,8 +97,8 @@
     if (self) {
         QLLiveListLayout * layout = [QLLiveListLayout new];
         layout.inset = UIEdgeInsetsMake(0, 10, 0, 10);
-        layout.distribution = [QLLiveLayoutDistribution distributionValue:4];
-        layout.itemRatio = [QLLiveLayoutItemRatio itemRatioValue:0.8];
+        layout.distribution = [QLLiveLayoutDimension distributionDimension:4];
+        layout.itemRatio = [QLLiveLayoutDimension fractionalDimension:0.8];
         _layout = layout;
     }
     return self;
