@@ -24,7 +24,24 @@ class ViewController: UIViewController {
         collectionView.backgroundColor = .backgroundColor
         collectionView.frame = view.bounds
         view.addSubview(collectionView)
-        
+//        QLLiveLayoutAreas.areas("head")
+//        QLLiveLayoutAreas.none()
+        let row = QLLiveGridLayoutRow.row(with: 200)
+        row.setup([
+            .fractional(1),
+            .fractional(2),
+            .fractional(3)
+        ])
+        row.setup([
+            .absolute(100),
+            .auto()
+        ])
+        row.setupColumn(
+            .fractional(1),
+            repeat: 3
+        )
+
+        let layout = QLLiveGridLayout()
         module.setup(
             viewController: self,
             collectionView: collectionView

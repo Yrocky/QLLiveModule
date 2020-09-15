@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, QLLiveFlexLayoutGravity) {
      |..口..口..口..|
      */
     QLLiveFlexLayoutSpaceAround =   4,
-};
+} NS_SWIFT_NAME(QLLiveFlexLayout.Gravity);
 
 @protocol QLLiveFlexLayoutDelegate;
 @interface QLLiveFlexLayout : QLLiveBaseLayout

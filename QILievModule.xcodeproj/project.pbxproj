@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		325EF76D2508A88F006BCB0D /* QLLiveLayoutDimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 325EF76B2508A88F006BCB0D /* QLLiveLayoutDimension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		325EF76E2508A88F006BCB0D /* QLLiveLayoutDimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 325EF76C2508A88F006BCB0D /* QLLiveLayoutDimension.m */; };
-		325EF76F2508A88F006BCB0D /* QLLiveLayoutDimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 325EF76C2508A88F006BCB0D /* QLLiveLayoutDimension.m */; };
 		32A86D222505D0E0001B0D95 /* QLLiveModuler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A86D1B2505D0E0001B0D95 /* QLLiveModuler.framework */; };
 		32A86D242505D0E0001B0D95 /* QLLiveModuler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32A86D1B2505D0E0001B0D95 /* QLLiveModuler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		32A86EDE250629D6001B0D95 /* QLLiveModuleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A86EB1250629D6001B0D95 /* QLLiveModuleDataSource.m */; };
@@ -162,8 +159,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		325EF76B2508A88F006BCB0D /* QLLiveLayoutDimension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLLiveLayoutDimension.h; sourceTree = "<group>"; };
-		325EF76C2508A88F006BCB0D /* QLLiveLayoutDimension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLLiveLayoutDimension.m; sourceTree = "<group>"; };
 		32A86D1B2505D0E0001B0D95 /* QLLiveModuler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QLLiveModuler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A86EB1250629D6001B0D95 /* QLLiveModuleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLLiveModuleDataSource.m; sourceTree = "<group>"; };
 		32A86EB2250629D6001B0D95 /* QLLiveModuleDataSourceAble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLLiveModuleDataSourceAble.h; sourceTree = "<group>"; };
@@ -269,8 +264,6 @@
 			children = (
 				32A86EB5250629D6001B0D95 /* QLLiveBaseLayout.h */,
 				32A86EBF250629D6001B0D95 /* QLLiveBaseLayout.m */,
-				325EF76B2508A88F006BCB0D /* QLLiveLayoutDimension.h */,
-				325EF76C2508A88F006BCB0D /* QLLiveLayoutDimension.m */,
 				32A86EB6250629D6001B0D95 /* Layouts */,
 			);
 			path = Layout;
@@ -456,7 +449,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32A86EE1250629D6001B0D95 /* QLLiveModuleDataSource.h in Headers */,
-				325EF76D2508A88F006BCB0D /* QLLiveLayoutDimension.h in Headers */,
 				32A86EEE250629D7001B0D95 /* QLLiveGridLayout.h in Headers */,
 				32A86EE2250629D6001B0D95 /* QLLiveBaseLayout.h in Headers */,
 				32A86EFD250629D7001B0D95 /* QLLiveModuleFlowLayout.h in Headers */,
@@ -672,7 +664,6 @@
 				32A86EF5250629D7001B0D95 /* QLLiveComponentDecorateContents.m in Sources */,
 				32A86EDF250629D6001B0D95 /* QLLiveModuleDataSource.m in Sources */,
 				32A86EE9250629D6001B0D95 /* QLLiveListLayout.m in Sources */,
-				325EF76F2508A88F006BCB0D /* QLLiveLayoutDimension.m in Sources */,
 				32A86F05250629D7001B0D95 /* QLOrthogonalScrollerEmbeddedScrollView.m in Sources */,
 				32A86EF3250629D7001B0D95 /* QLLiveModule.m in Sources */,
 				32A86F0C250629D7001B0D95 /* QLLiveModelEnvironment.m in Sources */,
@@ -691,7 +682,6 @@
 				32A86EEF250629D7001B0D95 /* QLLiveBaseLayout.m in Sources */,
 				32A86EE8250629D6001B0D95 /* QLLiveListLayout.m in Sources */,
 				32A86EE4250629D6001B0D95 /* QLLiveWaterfallLayout.m in Sources */,
-				325EF76E2508A88F006BCB0D /* QLLiveLayoutDimension.m in Sources */,
 				32A86F0B250629D7001B0D95 /* QLLiveModelEnvironment.m in Sources */,
 				32A86F00250629D7001B0D95 /* QLLiveModuleAdapterProxy.m in Sources */,
 				32DB564424DFA63900AD669F /* ViewController.m in Sources */,

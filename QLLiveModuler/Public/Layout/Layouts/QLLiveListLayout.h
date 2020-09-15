@@ -38,4 +38,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface QLLiveLayoutDimension : NSObject
+/*
+ 等分数
+ */
++ (instancetype)distributionDimension:(NSInteger)value NS_SWIFT_NAME(distribution(_:));
+/*
+ 固定数值
+ */
++ (instancetype)absoluteDimension:(CGFloat)value NS_SWIFT_NAME(absolute(_:));
+/*
+ 比例
+ */
++ (instancetype)fractionalDimension:(CGFloat)value NS_SWIFT_NAME(fractional(_:));
+
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
+@property (nonatomic, readonly) CGFloat value;
+
+- (BOOL)isAbsolute;
+- (BOOL)isFractional;
+
+@end
+
 NS_ASSUME_NONNULL_END
